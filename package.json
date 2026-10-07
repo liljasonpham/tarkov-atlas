@@ -1,0 +1,12 @@
+{
+  "name": "tarkov-atlas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pick your Escape from Tarkov quests, see every objective on the map, and get an automatic packing list.",
+  "scripts": {
+    "test": "node --test",
+    "start": "npx serve .",
+    "format": "npx prettier --write --print-width 100 index.html css js tests"
+  },
+  "license": "MIT"
+}

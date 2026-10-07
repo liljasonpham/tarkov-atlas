@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Choose your Escape from Tarkov quests, track objectives, and pack for your next raid."
+    />
+    <title>Tarkov Atlas · Quest library & raid map</title>
+    <link rel="stylesheet" href="css/atlas.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">⌖</div>
+        <div>
+          <div class="eyebrow">Every run starts here</div>
+          <h1>Tarkov Atlas</h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="library-toggle" aria-expanded="true">Quest library</button
+        ><label class="sr-only" for="profile-select">Progress profile</label
+        ><select id="profile-select"></select
+        ><button id="profiles-button">Profiles & backups</button>
+      </div>
+    </header>
+    <main class="workspace" id="workspace">
+      <aside class="library" aria-label="Quest library">
+        <div class="library-head">
+          <div class="section-title">
+            <h2>Build your raid</h2>
+            <span class="badge" id="selected-total">0 selected</span>
+          </div>
+          <label class="sr-only" for="quest-search">Search every quest</label
+          ><input
+            id="quest-search"
+            type="search"
+            placeholder="Find a quest, item, or objective…"
+            autocomplete="off"
+          />
+          <div class="filter-grid">
+            <label
+              >Trader<select id="trader-filter">
+                <option value="">All traders</option>
+              </select></label
+            ><label
+              >Category<select id="kind-filter">
+                <option value="">All quests</option>
+                <option value="side">Side quests</option>
+                <option value="story">Story chapters</option>
+                <option value="arena">Arena</option>
+              </select></label
+            ><label
+              >Map<select id="map-filter">
+                <option value="">All maps</option>
+                <option value="current">Current map</option>
+              </select></label
+            ><label
+              >Progress<select id="progress-filter">
+                <option value="">All progress</option>
+                <option value="unfinished">Not completed</option>
+                <option value="completed">Completed</option>
+                <option value="unverified">Needs location checks</option>
+              </select></label
+            >
+          </div>
+          <div class="tabs" role="group" aria-label="Quest selection filter">
+            <button id="all-tab" aria-pressed="true">All quests</button
+            ><button id="selected-tab" aria-pressed="false">Selected</button
+            ><button id="clear-selection">Clear selection</button>
+          </div>
+          <div id="quest-count" aria-live="polite"></div>
+        </div>
+        <div id="quest-list" class="quest-list"></div>
+        <div class="library-foot">
+          Catalog · 7 October 2026<br /><button id="coverage-button">
+            Sources & location coverage
+          </button>
+        </div>
+      </aside>
+      <section class="map-column" aria-label="Raid map">
+        <div class="map-toolbar">
+          <div class="inline">
+            <label class="sr-only" for="map-select">Raid map</label
+            ><select id="map-select"></select
+            ><span id="map-quest-count" class="muted" style="font-size: 11px"></span>
+          </div>
+          <div class="map-tools">
+            <button id="zoom-out" aria-label="Zoom out">−</button
+            ><button id="zoom-in" aria-label="Zoom in">+</button><button id="fit">Fit map</button>
+          </div>
+        </div>
+        <div class="map-options">
+          <div class="legend">
+            <span><b>●</b> Quest objective</span><span class="gold">▪ Loot room</span
+            ><span>Mapwide = no pin</span>
+          </div>
+          <div class="inline">
+            <label class="sr-only" for="floor-select">Map floor</label
+            ><select id="floor-select"></select>
+          </div>
+        </div>
+        <div class="map-viewport" id="map-viewport">
+          <canvas
+            id="map-canvas"
+            aria-label="Interactive quest map. Drag to pan, scroll to zoom, or use the objective buttons in the details panel."
+          ></canvas>
+          <div id="map-status" class="map-stat" aria-live="polite"></div>
+          <div id="map-tip" class="map-tip" hidden></div>
+          <div id="map-empty" class="map-empty">
+            <h3>Choose your next objective.</h3>
+            <p>
+              Select quests from the library. Their locations appear here, and your packing list
+              builds itself.
+            </p>
+            <button id="empty-open-library">Open quest library</button>
+          </div>
+        </div>
+        <div class="map-caption">
+          <span>Drag to pan · scroll to zoom · click a quest pin for its objective</span
+          ><a id="map-wiki" target="_blank" rel="noreferrer">Fandom map guide ↗</a>
+        </div>
+      </section>
+      <aside class="detail-pane" aria-label="Packing list and quest guidance">
+        <details id="packing-panel">
+          <summary>Pack for this map <small id="pack-count"></small></summary>
+          <p class="quiet">
+            For your selected, unfinished objectives. Alternatives are choices, not extra items to
+            bring.
+          </p>
+          <div id="pack"></div>
+        </details>
+        <div id="selected-detail" aria-live="polite"></div>
+        <details id="mapwide-panel">
+          <summary>Mapwide & other objectives <small id="mapwide-count"></small></summary>
+          <div id="mapwide-list"></div>
+        </details>
+        <details id="keep-panel">
+          <summary>Keep for selected quests <small id="keep-count"></small></summary>
+          <div id="keep-list"></div>
+        </details>
+      </aside>
+    </main>
+    <dialog id="profiles-dialog">
+      <div class="dialog-top">
+        <h2>Your runs</h2>
+        <button data-close="profiles-dialog" aria-label="Close profiles">×</button>
+      </div>
+      <p>
+        Use a separate profile for each character, prestige, or playthrough. Progress saves in this
+        browser. Export a backup to move it to another browser or computer.
+      </p>
+      <div id="profiles-list"></div>
+      <label for="new-profile-name">New profile</label>
+      <form id="new-profile-form" class="profile-form">
+        <input
+          id="new-profile-name"
+          type="text"
+          maxlength="80"
+          placeholder="e.g. Prestige 2, duo run, fresh start"
+          required
+        /><select id="new-profile-mode" aria-label="New profile game mode">
+          <option value="pve">PvE</option>
+          <option value="regular">PvP</option></select
+        ><button class="primary" type="submit">Create fresh run</button>
+      </form>
+      <div class="dialog-buttons">
+        <button id="export-backup">Export all profiles</button
+        ><button id="import-backup">Import backup</button
+        ><input id="import-file" type="file" accept=".json,application/json" hidden />
+      </div>
+      <p class="quiet">Import adds profiles; it does not erase your existing runs.</p>
+    </dialog>
+    <dialog id="coverage-dialog">
+      <div class="dialog-top">
+        <h2>Sources & location coverage</h2>
+        <button data-close="coverage-dialog" aria-label="Close coverage">×</button>
+      </div>
+      <div id="coverage-content"></div>
+    </dialog>
+    <div id="toast" role="status" hidden>
+      <span id="toast-message"></span><button id="undo-button">Undo</button>
+    </div>
+    <script src="data/catalog.js"></script>
+    <script src="js/atlas-core.js"></script>
+    <script src="js/atlas-app.js"></script>
+  </body>
+</html>
