@@ -137,6 +137,71 @@
     }
     return out;
   }
+  // ---- Quest progression (unlock order and availability) ----
+  // A requirement is { task: questId, status: ["complete" | "active" | "failed"] }.
+  const reqId = (r) => (typeof r.task === "object" && r.task ? r.task.id : r.task);
+  function progression(data) {
+    const byId = new Map(data.quests.map((q) => [q.id, q])),
+      depth = new Map(),
+      level = new Map();
+    // depth = how many quests deep in its chain; level = highest level needed along the chain.
+    function walk(q, seen = new Set()) {
+      if (depth.has(q.id)) return;
+      if (seen.has(q.id)) {
+        depth.set(q.id, 0);
+        level.set(q.id, q.minLevel || 0);
+        return;
+      }
+      seen.add(q.id);
+      let d = 0,
+        l = q.minLevel || 0;
+      for (const r of q.requirements || []) {
+        const parent = byId.get(reqId(r));
+        if (!parent) continue;
+        walk(parent, seen);
+        d = Math.max(d, depth.get(parent.id) + 1);
+        l = Math.max(l, level.get(parent.id));
+      }
+      depth.set(q.id, d);
+      level.set(q.id, l);
+    }
+    data.quests.forEach((q) => walk(q));
+    const order = (a, b) =>
+      level.get(a.id) - level.get(b.id) ||
+      depth.get(a.id) - depth.get(b.id) ||
+      a.name.localeCompare(b.name);
+    return { byId, depth, level, order };
+  }
+  // Prerequisites that still block a quest for this profile (empty list = unlocked).
+  function blockers(prog, p, q) {
+    const done = new Set(p.completed),
+      out = [];
+    for (const r of q.requirements || []) {
+      const parent = prog.byId.get(reqId(r)),
+        status = r.status || ["complete"];
+      if (!parent || done.has(parent.id)) continue;
+      if (status.includes("complete")) out.push(parent);
+      else if (status.includes("active") && blockers(prog, p, parent).length) out.push(parent);
+      // "failed"-only requirements belong to branching story choices; they never block here.
+    }
+    return out;
+  }
+  function available(prog, p, q) {
+    if (p.completed.includes(q.id)) return false;
+    if (p.level && (q.minLevel || 0) > p.level) return false;
+    return blockers(prog, p, q).length === 0;
+  }
+  // Every quest that has to be finished before q (used by "mark done").
+  function ancestors(prog, q, out = new Set()) {
+    for (const r of q.requirements || []) {
+      const parent = prog.byId.get(reqId(r));
+      if (!parent || out.has(parent.id) || !(r.status || ["complete"]).includes("complete"))
+        continue;
+      out.add(parent.id);
+      ancestors(prog, parent, out);
+    }
+    return out;
+  }
   function newProfile(name, mode = "pve") {
     return {
       id: "run-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 7),
@@ -145,6 +210,7 @@
       selected: [],
       completed: [],
       objectives: {},
+      level: null,
       created: new Date().toISOString(),
     };
   }
@@ -191,6 +257,7 @@
         selected: unique(p.selected.filter((id) => qs.has(id))),
         completed: unique(p.completed.filter((id) => qs.has(id))),
         objectives: states,
+        level: Number.isInteger(p.level) && p.level >= 1 && p.level <= 79 ? p.level : null,
         created: typeof p.created === "string" ? p.created : "",
       };
     });
@@ -215,6 +282,10 @@
     project,
     floorFor,
     markers,
+    progression,
+    blockers,
+    available,
+    ancestors,
     newProfile,
     initialState,
     validateState,

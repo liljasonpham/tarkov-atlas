@@ -25,6 +25,7 @@
     a.rel = "noreferrer";
     return a;
   };
+  const plural = (n, word) => n + " " + word + (n === 1 ? "" : "s");
   const normalize = (s) => (s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
   let state,
     storageFailed = false;
@@ -39,6 +40,9 @@
     selectedQuest = null,
     selectedObjective = null,
     selectionOnly = false,
+    libView = "traders", // "traders" | "all" | "selected"
+    trader = null, // trader whose quests are open, or null for the trader grid
+    availableOnly = false,
     listLimit = 150,
     undoState = null,
     toastTimer;
@@ -56,6 +60,27 @@
     drag = null,
     drawnPins = [],
     hoverPin = null;
+  const prog = C.progression(data);
+  const TRADER_ORDER = [
+    "Prapor",
+    "Therapist",
+    "Fence",
+    "Skier",
+    "Peacekeeper",
+    "Mechanic",
+    "Ragman",
+    "Jaeger",
+    "Ref",
+    "Lightkeeper",
+    "BTR Driver",
+    "Story",
+  ];
+  const traders = [
+    ...TRADER_ORDER.filter((t) => data.quests.some((q) => q.trader === t)),
+    ...[...new Set(data.quests.map((q) => q.trader))]
+      .filter((t) => !TRADER_ORDER.includes(t))
+      .sort(),
+  ];
   const canvas = $("map-canvas"),
     ctx = canvas.getContext("2d"),
     viewport = $("map-viewport"),
@@ -182,10 +207,177 @@
       return false;
     return !selectionOnly || C.active(profile, q);
   }
+  // ---- Trader browsing ----
+  function traderQuests(name) {
+    return data.quests
+      .filter((q) => q.trader === name)
+      .sort((a, b) => Number(a.kind === "arena") - Number(b.kind === "arena") || prog.order(a, b));
+  }
+  function renderTraderGrid(list) {
+    $("quest-count").textContent = "Choose a trader to see their quests in unlock order";
+    const grid = el("div", undefined, "trader-grid");
+    for (const name of traders) {
+      const qs = traderQuests(name),
+        done = qs.filter((q) => profile.completed.includes(q.id)).length,
+        picked = qs.filter((q) => C.active(profile, q)).length,
+        tile = button(
+          "",
+          () => {
+            trader = name;
+            renderLibrary();
+            list.scrollTop = 0;
+          },
+          "trader-tile",
+        );
+      const meter = el("span", undefined, "meter");
+      meter.append(el("i"));
+      meter.firstChild.style.width = (qs.length ? (done / qs.length) * 100 : 0) + "%";
+      tile.append(
+        el("span", name === "BTR Driver" ? "BTR" : name.slice(0, 2), "trader-mono"),
+        el("span", name, "trader-name"),
+        el("span", done + " of " + qs.length + " done", "trader-progress"),
+        meter,
+      );
+      if (picked) tile.append(el("span", picked + " in raid", "trader-picked"));
+      tile.setAttribute("aria-label", name + ", " + done + " of " + qs.length + " quests done");
+      grid.append(tile);
+    }
+    list.append(grid);
+  }
+  function renderTraderQuests(list) {
+    const all = traderQuests(trader),
+      done = all.filter((q) => profile.completed.includes(q.id)).length,
+      rows = availableOnly ? all.filter((q) => C.available(prog, profile, q)) : all;
+    $("quest-count").textContent = done + " of " + all.length + " done · " + rows.length + " shown";
+    const head = el("div", undefined, "trader-head");
+    const back = button(
+      "All traders",
+      () => {
+        trader = null;
+        renderLibrary();
+      },
+      "back-button",
+    );
+    head.append(back, el("h3", trader, "trader-title"));
+    const controls = el("div", undefined, "trader-controls");
+    const avail = el("label", undefined, "switch");
+    const box = el("input");
+    box.type = "checkbox";
+    box.checked = availableOnly;
+    box.onchange = () => {
+      availableOnly = box.checked;
+      renderLibrary();
+    };
+    avail.append(box, document.createTextNode(" Available only"));
+    const lvl = el("label", undefined, "level-input");
+    const num = el("input");
+    num.type = "number";
+    num.min = 1;
+    num.max = 79;
+    num.placeholder = "any";
+    num.value = profile.level || "";
+    num.onchange = () => {
+      const v = Math.round(Number(num.value));
+      profile.level = v >= 1 && v <= 79 ? v : null;
+      persist();
+      renderLibrary();
+    };
+    lvl.append(document.createTextNode("Your level "), num);
+    controls.append(avail, lvl);
+    head.append(controls);
+    list.append(head);
+    if (!rows.length) {
+      list.append(
+        el(
+          "p",
+          availableOnly
+            ? "Nothing available from " +
+                trader +
+                " yet. Mark the quests you've finished as done, or turn off Available only."
+            : "No quests for this trader.",
+          "quiet pad",
+        ),
+      );
+      return;
+    }
+    for (const q of rows) list.append(traderRow(q));
+  }
+  function traderRow(q) {
+    const complete = profile.completed.includes(q.id),
+      blocked = complete ? [] : C.blockers(prog, profile, q),
+      tooLow = !complete && profile.level && (q.minLevel || 0) > profile.level;
+    const row = el("div", undefined, "quest-row trader-row");
+    row.dataset.state = complete ? "done" : blocked.length || tooLow ? "locked" : "open";
+    row.dataset.focused = String(selectedQuest?.id === q.id);
+    const check = el("input");
+    check.type = "checkbox";
+    check.checked = C.active(profile, q);
+    check.disabled = complete;
+    check.dataset.questCheckbox = q.id;
+    check.setAttribute("aria-label", "Add " + q.name + " to this raid");
+    check.onchange = () => setSelected(q, check.checked);
+    const open = button(q.name, () => chooseQuest(q.id), "quest-open");
+    let note = complete
+      ? "Done"
+      : blocked.length
+        ? "Needs " +
+          blocked[0].name +
+          (blocked.length > 1 ? " and " + (blocked.length - 1) + " more" : "")
+        : tooLow
+          ? "Unlocks at level " + q.minLevel
+          : q.kind === "arena"
+            ? "Arena"
+            : q.minLevel > 1
+              ? "Level " + q.minLevel
+              : "Available";
+    open.append(el("small", note));
+    const doneBtn = button(
+      complete ? "Done" : "Mark done",
+      () => {
+        if (complete)
+          change(() => {
+            profile.completed = profile.completed.filter((id) => id !== q.id);
+          }, "Reopened " + q.name);
+        else {
+          const earlier = [...C.ancestors(prog, q)].filter((id) => !profile.completed.includes(id));
+          change(
+            () => {
+              profile.completed.push(q.id, ...earlier);
+            },
+            earlier.length
+              ? "Marked " +
+                  q.name +
+                  " and " +
+                  earlier.length +
+                  " earlier quest" +
+                  (earlier.length > 1 ? "s" : "") +
+                  " done"
+              : "Marked " + q.name + " done",
+          );
+        }
+      },
+      "done-button",
+    );
+    doneBtn.setAttribute("aria-pressed", String(complete));
+    doneBtn.title = complete
+      ? "Reopen this quest"
+      : "Also marks every earlier quest in this chain as done";
+    row.append(check, open, doneBtn);
+    return row;
+  }
   function renderLibrary() {
     const oldFocus = document.activeElement?.dataset?.questCheckbox;
     const list = $("quest-list");
     list.replaceChildren();
+    const searching = $("quest-search").value.trim() !== "";
+    $("filters-panel").hidden = libView === "traders" && !searching;
+    $("selected-total").textContent =
+      data.quests.filter((q) => C.active(profile, q)).length + " selected";
+    if (libView === "traders" && !searching) {
+      if (trader) renderTraderQuests(list);
+      else renderTraderGrid(list);
+      return;
+    }
     const rows = data.quests
       .filter(matches)
       .sort(
@@ -196,8 +388,6 @@
       );
     $("quest-count").textContent =
       rows.length + " quests match · " + data.quests.length + " in library";
-    $("selected-total").textContent =
-      data.quests.filter((q) => C.active(profile, q)).length + " selected";
     for (const q of rows.slice(0, listLimit)) {
       let row = el("div", undefined, "quest-row");
       row.dataset.focused = String(selectedQuest?.id === q.id);
@@ -308,9 +498,7 @@
     const pack = C.packing(data, profile, map.id);
     packingList(pack.bring, $("pack"));
     packingList(pack.keep, $("keep-list"), true);
-    $("pack-count").textContent = pack.bring.length
-      ? "· " + pack.bring.length + " requirements"
-      : "";
+    $("pack-count").textContent = pack.bring.length ? "· " + plural(pack.bring.length, "item") : "";
     $("keep-count").textContent = pack.keep.length ? "· " + pack.keep.length : "";
     const gaps = C.entries(data, profile, map.id).filter(
       ({ q, o }) =>
@@ -777,9 +965,9 @@
       if (used.some((u) => Math.abs(u.x - pt.x) < (u.w + w) / 2 + 8 && Math.abs(u.y - pt.y) < 20))
         continue;
       used.push({ ...pt, w });
-      ctx.fillStyle = "#0a191bc9";
+      ctx.fillStyle = "#10100ec9";
       ctx.fillRect(pt.x - w / 2 - 3, pt.y - 8, w + 6, 15);
-      ctx.fillStyle = "#d0dbce";
+      ctx.fillStyle = "#d6cfba";
       ctx.fillText(l.text, pt.x, pt.y + 3);
     }
     ctx.restore();
@@ -804,7 +992,7 @@
         y = p.y;
       if (seen.some((r) => Math.abs(r.x - x) < (r.w + w) / 2 && Math.abs(r.y - y) < 15)) continue;
       seen.push({ x, y, w });
-      ctx.fillStyle = "#12231ee8";
+      ctx.fillStyle = "#161613e8";
       ctx.fillRect(x - 2, y - 7, w + 5, 14);
       ctx.fillStyle = "#9ed0c1";
       ctx.fillText(e.name, x, y);
@@ -822,7 +1010,7 @@
       ctx.fillRect(pt.x - 3, pt.y - 3, 6, 6);
       if (scale > Math.min(width / mapDims().width, height / mapDims().height) * 1.6) {
         let text = r.label || r.name.replace(/ key$/, "");
-        ctx.fillStyle = "#142019ee";
+        ctx.fillStyle = "#1a1916ee";
         ctx.fillRect(pt.x + 7, pt.y - 9, ctx.measureText(text).width + 7, 18);
         ctx.fillStyle = "#ebbc73";
         ctx.fillText(text, pt.x + 10, pt.y);
@@ -856,7 +1044,7 @@
     for (let [i, p] of drawnPins.entries()) {
       let chosen = selectedObjective === p.o.id,
         questChosen = selectedQuest?.id === p.q.id,
-        color = chosen ? "#f3d394" : questChosen ? "#e3f0b5" : "#bad698";
+        color = chosen ? "#fff1c9" : questChosen ? "#e0cd98" : "#c2ae7c";
       if (chosen && p.l.outline?.length && view === "survey") {
         ctx.beginPath();
         p.l.outline.forEach((v, i) => {
@@ -880,12 +1068,12 @@
       ctx.fillRect(p.ax - 2, p.ay - 2, 4, 4);
       ctx.beginPath();
       ctx.arc(p.sx, p.sy, chosen ? 12 : 10.5, 0, Math.PI * 2);
-      ctx.fillStyle = chosen ? color : "#14241dec";
+      ctx.fillStyle = chosen ? color : "#1a1916ec";
       ctx.fill();
       ctx.strokeStyle = color;
       ctx.lineWidth = chosen ? 2 : 1.3;
       ctx.stroke();
-      ctx.fillStyle = chosen ? "#172118" : color;
+      ctx.fillStyle = chosen ? "#1a1814" : color;
       ctx.font = "600 10px system-ui";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
@@ -896,10 +1084,10 @@
     ctx.textBaseline = "alphabetic";
     const all = C.markers(data, profile, map, view, "all");
     const activeQs = new Set(C.entries(data, profile, map.id).map((e) => e.q.id));
-    $("map-quest-count").textContent = activeQs.size + " selected quests";
+    $("map-quest-count").textContent = plural(activeQs.size, "selected quest");
     $("map-status").textContent =
-      pins.length +
-      " locations · " +
+      plural(pins.length, "location") +
+      " · " +
       (floor === "all"
         ? "all floors"
         : map.floors.find((f) => f.id === floor)?.name || "reference") +
@@ -913,8 +1101,15 @@
         "No selected fixed locations on this " + "map" + " · see other objectives";
   }
   function renderTabs() {
-    $("all-tab").setAttribute("aria-pressed", String(!selectionOnly));
-    $("selected-tab").setAttribute("aria-pressed", String(selectionOnly));
+    for (const v of ["traders", "all", "selected"])
+      $(v + "-tab").setAttribute("aria-pressed", String(libView === v));
+  }
+  function setView(v) {
+    libView = v;
+    selectionOnly = v === "selected";
+    listLimit = 150;
+    renderTabs();
+    renderLibrary();
   }
   function showLibrary(show) {
     $("workspace").classList.toggle("library-hidden", !show);
@@ -979,16 +1174,9 @@
       listLimit = 150;
       renderLibrary();
     });
-  $("all-tab").onclick = () => {
-    selectionOnly = false;
-    renderTabs();
-    renderLibrary();
-  };
-  $("selected-tab").onclick = () => {
-    selectionOnly = true;
-    renderTabs();
-    renderLibrary();
-  };
+  $("traders-tab").onclick = () => setView("traders");
+  $("all-tab").onclick = () => setView("all");
+  $("selected-tab").onclick = () => setView("selected");
   $("clear-selection").onclick = () =>
     change(() => {
       profile.selected = [];

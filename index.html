@@ -8,16 +8,19 @@
       content="Choose your Escape from Tarkov quests, track objectives, and pack for your next raid."
     />
     <title>Tarkov Atlas · Quest library & raid map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap"
+    />
     <link rel="stylesheet" href="css/atlas.css" />
   </head>
   <body>
     <header>
       <div class="brand">
-        <div class="brand-mark" aria-hidden="true">⌖</div>
-        <div>
-          <div class="eyebrow">Every run starts here</div>
-          <h1>Tarkov Atlas</h1>
-        </div>
+        <h1 class="wordmark">Tarkov Atlas</h1>
+        <p class="tagline">Pick your quests. See where to go. Know what to bring.</p>
       </div>
       <div class="header-actions">
         <button id="library-toggle" aria-expanded="true">Quest library</button
@@ -33,45 +36,51 @@
             <h2>Build your raid</h2>
             <span class="badge" id="selected-total">0 selected</span>
           </div>
+          <div class="tabs" role="group" aria-label="Browse quests">
+            <button id="traders-tab" aria-pressed="true">Traders</button
+            ><button id="all-tab" aria-pressed="false">All quests</button
+            ><button id="selected-tab" aria-pressed="false">Selected</button>
+          </div>
           <label class="sr-only" for="quest-search">Search every quest</label
           ><input
             id="quest-search"
             type="search"
-            placeholder="Find a quest, item, or objective…"
+            placeholder="Search quests, items or objectives"
             autocomplete="off"
           />
-          <div class="filter-grid">
-            <label
-              >Trader<select id="trader-filter">
-                <option value="">All traders</option>
-              </select></label
-            ><label
-              >Category<select id="kind-filter">
-                <option value="">All quests</option>
-                <option value="side">Side quests</option>
-                <option value="story">Story chapters</option>
-                <option value="arena">Arena</option>
-              </select></label
-            ><label
-              >Map<select id="map-filter">
-                <option value="">All maps</option>
-                <option value="current">Current map</option>
-              </select></label
-            ><label
-              >Progress<select id="progress-filter">
-                <option value="">All progress</option>
-                <option value="unfinished">Not completed</option>
-                <option value="completed">Completed</option>
-                <option value="unverified">Needs location checks</option>
-              </select></label
-            >
+          <details id="filters-panel">
+            <summary>Filters</summary>
+            <div class="filter-grid">
+              <label
+                >Trader<select id="trader-filter">
+                  <option value="">All traders</option>
+                </select></label
+              ><label
+                >Category<select id="kind-filter">
+                  <option value="">All quests</option>
+                  <option value="side">Side quests</option>
+                  <option value="story">Story chapters</option>
+                  <option value="arena">Arena</option>
+                </select></label
+              ><label
+                >Map<select id="map-filter">
+                  <option value="">All maps</option>
+                  <option value="current">Current map</option>
+                </select></label
+              ><label
+                >Progress<select id="progress-filter">
+                  <option value="">All progress</option>
+                  <option value="unfinished">Not completed</option>
+                  <option value="completed">Completed</option>
+                  <option value="unverified">Needs location checks</option>
+                </select></label
+              >
+            </div>
+          </details>
+          <div class="count-row">
+            <span id="quest-count" aria-live="polite"></span
+            ><button id="clear-selection" class="link-button">Clear selection</button>
           </div>
-          <div class="tabs" role="group" aria-label="Quest selection filter">
-            <button id="all-tab" aria-pressed="true">All quests</button
-            ><button id="selected-tab" aria-pressed="false">Selected</button
-            ><button id="clear-selection">Clear selection</button>
-          </div>
-          <div id="quest-count" aria-live="polite"></div>
         </div>
         <div id="quest-list" class="quest-list"></div>
         <div class="library-foot">

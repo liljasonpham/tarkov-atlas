@@ -1,16 +1,21 @@
 :root {
   color-scheme: dark;
-  --bg: #111816;
-  --surface: #18211e;
-  --raised: #202c26;
-  --line: #344238;
-  --ink: #edf0e4;
-  --muted: #a6b4a9;
-  --green: #cfdfab;
-  --gold: #ebbc73;
-  --blue: #96ccdc;
-  --red: #e9a98f;
-  --font: system-ui, -apple-system, Segoe UI, sans-serif;
+  /* Palette: Tarkov menu charcoal with worn khaki/tan accents */
+  --bg: #161613;
+  --surface: #1d1c18;
+  --raised: #25231e;
+  --line: #3a372e;
+  --line-soft: #2a2822;
+  --ink: #ddd6c1;
+  --muted: #948e7b;
+  --green: #c2ae7c; /* primary accent (tan); kept the old name so existing rules follow */
+  --tan-bright: #e0cd98;
+  --gold: #d9a54a;
+  --blue: #8fb0b8;
+  --red: #c7684e;
+  --ok: #8fa165;
+  --font: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Segoe UI", sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -34,15 +39,15 @@ input[type="text"],
 input[type="number"] {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: 2px;
   padding: 8px 10px;
 }
 button {
   cursor: pointer;
 }
 button:hover {
-  background: #2d3a2e;
-  border-color: #77876d;
+  background: #2c2a23;
+  border-color: #6f6853;
 }
 button:focus-visible,
 input:focus-visible,
@@ -130,12 +135,12 @@ header {
 }
 .primary {
   background: var(--green);
-  color: #182015;
+  color: #1a1814;
   border-color: var(--green);
   font-weight: 650;
 }
 .primary:hover {
-  background: #e0ecc4;
+  background: var(--tan-bright);
 }
 .workspace {
   display: grid;
@@ -154,7 +159,7 @@ header {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  background: #141d19;
+  background: #1a1916;
 }
 .library-head {
   padding: 18px 15px 12px;
@@ -195,7 +200,7 @@ header {
   background: transparent;
 }
 .tabs button[aria-pressed="true"] {
-  background: #354330;
+  background: #34301f;
   color: var(--green);
 }
 #quest-count {
@@ -213,12 +218,12 @@ header {
   display: flex;
   gap: 9px;
   padding: 10px 7px;
-  border-bottom: 1px solid #29362e;
+  border-bottom: 1px solid var(--line-soft);
   align-items: flex-start;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 .quest-row:has(input:checked) {
-  background: #202d23;
+  background: #26241c;
 }
 .quest-row[data-focused="true"] {
   box-shadow: inset 2px 0 var(--green);
@@ -246,10 +251,10 @@ header {
 .badge {
   display: inline-block;
   font-size: 10px;
-  border-radius: 4px;
+  border-radius: 2px;
   padding: 2px 5px;
-  background: #334131;
-  color: #cdddaf;
+  background: #2f2c22;
+  color: #cdbf95;
   margin: 4px 4px 0 0;
 }
 .badge.warn {
@@ -257,7 +262,7 @@ header {
   color: #edc890;
 }
 .badge.blue {
-  background: #203b40;
+  background: #22302f;
   color: var(--blue);
 }
 .library-foot {
@@ -327,9 +332,9 @@ header {
   position: relative;
   flex: 1;
   min-height: 380px;
-  background: #132522;
+  background: #10100e;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 2px;
   overflow: hidden;
   touch-action: none;
 }
@@ -347,10 +352,10 @@ header {
   position: absolute;
   left: 12px;
   bottom: 12px;
-  background: #111816e8;
+  background: #161613e8;
   padding: 5px 9px;
-  border: 1px solid #3a493d;
-  border-radius: 5px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
   font-size: 11px;
   pointer-events: none;
 }
@@ -358,9 +363,9 @@ header {
   position: absolute;
   max-width: 285px;
   padding: 9px 12px;
-  background: #111c16f5;
+  background: #161613f5;
   border: 1px solid var(--green);
-  border-radius: 6px;
+  border-radius: 2px;
   pointer-events: none;
   font-size: 12px;
   z-index: 5;
@@ -373,9 +378,9 @@ header {
   text-align: center;
   padding: 24px;
   width: min(320px, 85%);
-  background: #111816eb;
+  background: #161613eb;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 2px;
   pointer-events: none;
 }
 .map-empty h3 {
@@ -401,7 +406,7 @@ header {
 .reminder {
   padding: 9px 12px;
   border: 1px solid #a47443;
-  border-radius: 6px;
+  border-radius: 2px;
   margin-bottom: 10px;
   background: #34281b;
   color: #f5d5a1;
@@ -411,7 +416,7 @@ header {
   border-left: 1px solid var(--line);
   padding: 18px;
   overflow-y: auto;
-  background: #151e19;
+  background: #1a1916;
   min-height: 0;
 }
 .section-title {
@@ -450,7 +455,7 @@ header {
 .packing-list li {
   padding: 7px 0;
   font-size: 13px;
-  border-bottom: 1px solid #2b392f;
+  border-bottom: 1px solid var(--line-soft);
 }
 .packing-list small {
   display: block;
@@ -492,10 +497,10 @@ header {
 }
 .objective {
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: 2px;
   padding: 10px;
   margin: 9px 0;
-  background: #1a241e;
+  background: #1f1e1a;
 }
 .objective[data-focused="true"] {
   border-color: var(--green);
@@ -558,8 +563,8 @@ header {
   font-size: 11px;
   color: var(--muted);
   padding: 8px 10px;
-  background: #202b23;
-  border-left: 2px solid #66835a;
+  background: #22211c;
+  border-left: 2px solid #7a7254;
   margin: 11px 0;
 }
 .photo-grid {
@@ -573,8 +578,8 @@ header {
 .photo-grid img {
   max-width: 100%;
   width: 100%;
-  border-radius: 5px;
-  background: #222e26;
+  border-radius: 2px;
+  background: #25231e;
 }
 .photo-grid figcaption {
   font-size: 11px;
@@ -590,7 +595,7 @@ header {
   text-align: left;
   margin: 7px 0;
   font-size: 12px;
-  background: #1b261f;
+  background: #201f1a;
 }
 .on-map-row small {
   display: block;
@@ -626,7 +631,7 @@ dialog {
   background: var(--bg);
   color: var(--ink);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 2px;
   padding: 25px;
   max-width: min(660px, 94vw);
   width: 660px;
@@ -698,9 +703,9 @@ dialog label {
   bottom: 20px;
   transform: translateX(-50%);
   padding: 10px 16px;
-  background: #d8e6bc;
-  color: #1d2a17;
-  border-radius: 8px;
+  background: var(--green);
+  color: #1a1814;
+  border-radius: 2px;
   box-shadow: 0 6px 25px #0008;
   z-index: 20;
   display: flex;
@@ -714,7 +719,7 @@ dialog label {
 #toast button {
   background: transparent;
   color: inherit;
-  border-color: #68815b;
+  border-color: #6f6853;
   padding: 3px 7px;
   font-size: 12px;
 }
@@ -854,5 +859,288 @@ dialog label {
   }
   .profile-form select {
     max-width: 100%;
+  }
+}
+
+/* ---------- Tarkov theme: typography & chrome ---------- */
+h1,
+h2,
+h3,
+.detail-title,
+.welcome h2,
+.map-toolbar select {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+h2 {
+  font-size: 21px;
+}
+h3 {
+  font-size: 18px;
+}
+.detail-title {
+  font-size: 28px;
+  letter-spacing: 0;
+}
+header {
+  background: #1a1916;
+  padding: 12px 22px;
+}
+.brand {
+  display: block;
+}
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--tan-bright);
+}
+.tagline {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+button,
+select,
+input[type="search"],
+input[type="text"],
+input[type="number"] {
+  background: var(--raised);
+}
+button:hover {
+  border-color: var(--green);
+  background: #2c2a23;
+}
+.primary,
+.primary:hover {
+  color: #1a1814;
+}
+.map-viewport {
+  border-color: var(--line);
+  background: #10100e;
+}
+#toast {
+  color: #1a1814;
+  border-radius: 0;
+}
+
+/* ---------- Library: tabs, search, filters ---------- */
+.library-head h2 {
+  margin-bottom: 10px;
+}
+.tabs {
+  margin: 0 0 10px;
+  gap: 0;
+  border-bottom: 1px solid var(--line);
+}
+.tabs button {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 6px 10px 7px;
+  color: var(--muted);
+  border-radius: 0;
+}
+.tabs button:hover {
+  color: var(--ink);
+  background: transparent;
+}
+.tabs button[aria-pressed="true"] {
+  background: transparent;
+  color: var(--tan-bright);
+  box-shadow: inset 0 -2px var(--green);
+}
+#filters-panel summary {
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+.count-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 8px;
+}
+#quest-count {
+  margin: 0;
+}
+.link-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 11px;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.link-button:hover {
+  background: transparent;
+  color: var(--ink);
+}
+.quest-row {
+  border-radius: 0;
+}
+.quest-row:has(input:checked) {
+  background: #26241c;
+  box-shadow: inset 2px 0 var(--green);
+}
+
+/* ---------- Trader grid (the trader screen) ---------- */
+.trader-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 4px 0 10px;
+}
+.trader-tile {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  text-align: left;
+  padding: 10px 11px 11px;
+  background: linear-gradient(180deg, #2a2822, #201f1a);
+  border: 1px solid var(--line);
+}
+.trader-tile:hover {
+  border-color: var(--green);
+  background: linear-gradient(180deg, #312e26, #24221c);
+}
+.trader-mono {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 0.95;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.trader-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.1;
+  margin-top: 4px;
+}
+.trader-progress {
+  font-size: 11px;
+  color: var(--muted);
+}
+.meter {
+  display: block;
+  height: 3px;
+  background: var(--line-soft);
+  margin-top: 6px;
+}
+.meter i {
+  display: block;
+  height: 100%;
+  background: var(--green);
+}
+.trader-picked {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  font-size: 10px;
+  padding: 1px 5px;
+  background: var(--green);
+  color: #1a1814;
+  font-weight: 600;
+}
+
+/* ---------- One trader's quest list ---------- */
+.trader-head {
+  position: sticky;
+  top: -6px;
+  z-index: 1;
+  background: #1a1916;
+  padding: 8px 2px 10px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2px;
+}
+.back-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.back-button::before {
+  content: "‹ ";
+  font-size: 15px;
+}
+.back-button:hover {
+  background: transparent;
+  color: var(--tan-bright);
+}
+.trader-title {
+  font-size: 30px;
+  line-height: 1.05;
+  margin: 2px 0 8px;
+  color: var(--tan-bright);
+}
+.trader-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.trader-controls label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.level-input input {
+  width: 58px;
+  padding: 3px 6px;
+  font-size: 12px;
+}
+.trader-row {
+  align-items: center;
+}
+.trader-row .quest-open small {
+  margin-top: 2px;
+}
+.trader-row[data-state="done"] .quest-open {
+  color: var(--muted);
+}
+.trader-row[data-state="done"] .quest-open small {
+  color: var(--ok);
+}
+.trader-row[data-state="locked"] .quest-open {
+  color: #a9a28c;
+}
+.trader-row[data-state="locked"] .quest-open small {
+  color: #a8826a;
+}
+.done-button {
+  flex: none;
+  font-size: 11px;
+  padding: 3px 8px;
+  color: var(--muted);
+}
+.done-button[aria-pressed="true"] {
+  color: var(--ok);
+  border-color: #56603f;
+  background: #23271b;
+}
+.pad {
+  padding: 8px 4px;
+}
+@media (max-width: 700px) {
+  .tagline {
+    display: none;
+  }
+  .wordmark {
+    font-size: 22px;
   }
 }

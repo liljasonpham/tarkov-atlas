@@ -112,3 +112,33 @@ test("every pin projects inside its map image (with a small margin)", () => {
   }
   assert.ok(checked > 500);
 });
+
+test("trader quests unlock in chain order", () => {
+  const prog = C.progression(catalog);
+  const part1 = catalog.quests.find((q) => q.name === "The Punisher - Part 5");
+  const part2 = catalog.quests.find((q) => q.name === "The Punisher - Part 6");
+  const p = profileWith([]);
+  p.completed.push(...C.ancestors(prog, part1));
+  assert.ok(C.available(prog, p, part1), "Part 5 opens once Parts 1-4 are done");
+  assert.ok(!C.available(prog, p, part2), "Part 6 waits for Part 5");
+  p.completed.push(part1.id);
+  assert.ok(C.available(prog, p, part2), "Part 6 opens once Part 5 is done");
+  assert.ok(prog.order(part1, part2) < 0, "Part 5 sorts before Part 6");
+});
+
+test("marking a late quest done includes its whole chain", () => {
+  const prog = C.progression(catalog);
+  const part6 = catalog.quests.find((q) => q.name === "The Punisher - Part 6");
+  const names = [...C.ancestors(prog, part6)].map((id) => prog.byId.get(id).name);
+  for (let i = 1; i <= 5; i++) assert.ok(names.includes("The Punisher - Part " + i));
+});
+
+test("player level hides quests that are not unlocked yet", () => {
+  const prog = C.progression(catalog);
+  const high = catalog.quests.find((q) => q.minLevel >= 30 && !(q.requirements || []).length);
+  const p = profileWith([]);
+  p.level = 10;
+  assert.ok(!C.available(prog, p, high));
+  p.level = 79;
+  assert.ok(C.available(prog, p, high));
+});
