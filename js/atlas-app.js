@@ -75,6 +75,33 @@
     "BTR Driver",
     "Story",
   ];
+  // Trader portraits served by tarkov.dev (keyed by in-game trader ID). Tiles fall back to initials.
+  const PORTRAIT = {
+    Prapor: "54cb50c76803fa8b248b4571",
+    Therapist: "54cb57776803fa99248b456e",
+    Fence: "579dc571d53a0658a154fbec",
+    Skier: "58330581ace78e27b8b10cee",
+    Peacekeeper: "5935c25fb3acc3127c3d8cd9",
+    Mechanic: "5a7c2eca46aef81a7ca2145d",
+    Ragman: "5ac3b934156ae10c4430e83c",
+    Jaeger: "5c0647fdd443bc2504c2d371",
+    Lightkeeper: "638f541a29ffd1183d187f57",
+    "BTR Driver": "656f0f98d80a697f855d34b1",
+    Ref: "6617beeaa9cfa777ca915b7c",
+  };
+  function portrait(name, cls) {
+    const box = el("span", undefined, cls);
+    box.append(el("span", name === "BTR Driver" ? "BTR" : name.slice(0, 2), "trader-mono"));
+    if (PORTRAIT[name]) {
+      const img = el("img");
+      img.alt = "";
+      img.loading = "lazy";
+      img.src = "https://assets.tarkov.dev/" + PORTRAIT[name] + ".webp";
+      img.onerror = () => img.remove();
+      box.append(img);
+    }
+    return box;
+  }
   const traders = [
     ...TRADER_ORDER.filter((t) => data.quests.some((q) => q.trader === t)),
     ...[...new Set(data.quests.map((q) => q.trader))]
@@ -122,6 +149,12 @@
     renderLibrary();
     draw();
     updateHash();
+    if (oid)
+      requestAnimationFrame(() =>
+        $("selected-detail")
+          .querySelector('[data-objective="' + oid + '"]')
+          ?.scrollIntoView({ block: "start", behavior: "smooth" }),
+      );
   }
   function setSelected(q, value) {
     change(
@@ -220,45 +253,73 @@
       const qs = traderQuests(name),
         done = qs.filter((q) => profile.completed.includes(q.id)).length,
         picked = qs.filter((q) => C.active(profile, q)).length,
-        tile = button(
-          "",
-          () => {
-            trader = name;
-            renderLibrary();
-            list.scrollTop = 0;
-          },
-          "trader-tile",
-        );
+        tile = button("", () => openTrader(name), "trader-tile");
       const meter = el("span", undefined, "meter");
       meter.append(el("i"));
       meter.firstChild.style.width = (qs.length ? (done / qs.length) * 100 : 0) + "%";
-      tile.append(
-        el("span", name === "BTR Driver" ? "BTR" : name.slice(0, 2), "trader-mono"),
-        el("span", name, "trader-name"),
-        el("span", done + " of " + qs.length + " done", "trader-progress"),
+      const text = el("span", undefined, "trader-text");
+      text.append(
+        el("span", name === "Imported quest" ? "Other" : name, "trader-name"),
+        el("span", done + "/" + qs.length + " done", "trader-progress"),
         meter,
       );
-      if (picked) tile.append(el("span", picked + " in raid", "trader-picked"));
+      if (picked) text.append(el("span", picked + " in raid", "trader-picked"));
+      tile.append(portrait(name, "trader-portrait"), text);
+      tile.setAttribute("aria-pressed", String(trader === name));
       tile.setAttribute("aria-label", name + ", " + done + " of " + qs.length + " quests done");
       grid.append(tile);
     }
     list.append(grid);
   }
-  function renderTraderQuests(list) {
+  function openTrader(name) {
+    trader = name;
+    renderLibrary();
+    renderTraderPanel(true);
+    $("trader-panel").querySelector(".trader-title")?.focus();
+  }
+  function closeTrader() {
+    const was = trader;
+    trader = null;
+    renderLibrary();
+    renderTraderPanel();
+    $("quest-list").querySelector('[aria-pressed="true"]')?.focus();
+    if (was) draw();
+  }
+  const LEVEL_BANDS = [
+    [0, 1, "From the start"],
+    [2, 9, "Levels 2–9"],
+    [10, 19, "Levels 10–19"],
+    [20, 29, "Levels 20–29"],
+    [30, 39, "Levels 30–39"],
+    [40, 99, "Level 40 and up"],
+  ];
+  // The trader picker opens over the map so a trader's whole list fits on screen at once.
+  function renderTraderPanel(fresh = false) {
+    const panel = $("trader-panel");
+    panel.hidden = !trader;
+    if (!trader) return;
+    const body = panel.querySelector(".picker-body"),
+      keepScroll = fresh || !body ? 0 : body.scrollTop;
     const all = traderQuests(trader),
       done = all.filter((q) => profile.completed.includes(q.id)).length,
+      picked = all.filter((q) => C.active(profile, q)).length,
       rows = availableOnly ? all.filter((q) => C.available(prog, profile, q)) : all;
-    $("quest-count").textContent = done + " of " + all.length + " done · " + rows.length + " shown";
-    const head = el("div", undefined, "trader-head");
-    const back = button(
-      "All traders",
-      () => {
-        trader = null;
-        renderLibrary();
-      },
-      "back-button",
+    panel.replaceChildren();
+    const head = el("div", undefined, "picker-head");
+    const title = el("div", undefined, "picker-title");
+    const h = el("h2", trader, "trader-title");
+    h.tabIndex = -1;
+    title.append(
+      portrait(trader, "trader-portrait large"),
+      (() => {
+        const t = el("div");
+        t.append(
+          h,
+          el("p", done + " of " + all.length + " done · " + picked + " in this raid", "picker-sub"),
+        );
+        return t;
+      })(),
     );
-    head.append(back, el("h3", trader, "trader-title"));
     const controls = el("div", undefined, "trader-controls");
     const avail = el("label", undefined, "switch");
     const box = el("input");
@@ -266,7 +327,7 @@
     box.checked = availableOnly;
     box.onchange = () => {
       availableOnly = box.checked;
-      renderLibrary();
+      renderTraderPanel(true);
     };
     avail.append(box, document.createTextNode(" Available only"));
     const lvl = el("label", undefined, "level-input");
@@ -280,27 +341,44 @@
       const v = Math.round(Number(num.value));
       profile.level = v >= 1 && v <= 79 ? v : null;
       persist();
-      renderLibrary();
+      renderTraderPanel();
     };
     lvl.append(document.createTextNode("Your level "), num);
-    controls.append(avail, lvl);
-    head.append(controls);
-    list.append(head);
-    if (!rows.length) {
-      list.append(
+    controls.append(avail, lvl, button("Back to map", closeTrader, "primary"));
+    head.append(title, controls);
+    const scroll = el("div", undefined, "picker-body");
+    if (!rows.length)
+      scroll.append(
         el(
           "p",
           availableOnly
             ? "Nothing available from " +
                 trader +
-                " yet. Mark the quests you've finished as done, or turn off Available only."
+                " right now. Mark the quests you've finished as done, raise your level, or turn off Available only."
             : "No quests for this trader.",
-          "quiet pad",
+          "quiet",
         ),
       );
-      return;
+    const groups = [];
+    for (const [lo, hi, label] of LEVEL_BANDS)
+      groups.push([
+        label,
+        rows.filter(
+          (q) => q.kind !== "arena" && prog.level.get(q.id) >= lo && prog.level.get(q.id) <= hi,
+        ),
+      ]);
+    groups.push(["Arena", rows.filter((q) => q.kind === "arena")]);
+    for (const [label, qs] of groups) {
+      if (!qs.length) continue;
+      const sec = el("section", undefined, "picker-group");
+      sec.append(el("h3", label + " (" + qs.length + ")"));
+      const grid = el("div", undefined, "picker-grid");
+      for (const q of qs) grid.append(traderRow(q));
+      sec.append(grid);
+      scroll.append(sec);
     }
-    for (const q of rows) list.append(traderRow(q));
+    panel.append(head, scroll);
+    scroll.scrollTop = keepScroll;
   }
   function traderRow(q) {
     const complete = profile.completed.includes(q.id),
@@ -316,7 +394,12 @@
     check.dataset.questCheckbox = q.id;
     check.setAttribute("aria-label", "Add " + q.name + " to this raid");
     check.onchange = () => setSelected(q, check.checked);
-    const open = button(q.name, () => chooseQuest(q.id), "quest-open");
+    // In the picker the whole name is a big click target that adds/removes the quest.
+    const open = button(
+      q.name,
+      () => (complete ? chooseQuest(q.id) : setSelected(q, !C.active(profile, q))),
+      "quest-open",
+    );
     let note = complete
       ? "Done"
       : blocked.length
@@ -374,8 +457,7 @@
     $("selected-total").textContent =
       data.quests.filter((q) => C.active(profile, q)).length + " selected";
     if (libView === "traders" && !searching) {
-      if (trader) renderTraderQuests(list);
-      else renderTraderGrid(list);
+      renderTraderGrid(list);
       return;
     }
     const rows = data.quests
@@ -535,6 +617,66 @@
     if (!rows.length)
       $("mapwide-list").append(el("p", "No other unfinished objectives for this map.", "quiet"));
   }
+  // ---- Objective photos ----
+  const isWikiImage = (u) => /^https:\/\/static\.wikia\.nocookie\.net\//.test(u || "");
+  function photoImg(photo, alt, large) {
+    const im = el("img");
+    im.src = isWikiImage(photo.thumb) && !large ? photo.thumb : photo.src;
+    im.alt = photo.caption || alt;
+    im.loading = "lazy";
+    im.onerror = () => (im.hidden = true);
+    return im;
+  }
+  // Spot photos (the exact place) come before overview maps.
+  function orderedPhotos(q, refs) {
+    const list = refs.map((i) => q.photos[i]).filter(Boolean);
+    return [...list.filter((p) => p.kind !== "map"), ...list.filter((p) => p.kind === "map")];
+  }
+  let viewer = { list: [], index: 0, quest: null };
+  function openPhoto(q, list, index) {
+    viewer = { list, index, quest: q };
+    showViewerPhoto();
+    $("photo-dialog").showModal();
+  }
+  function showViewerPhoto() {
+    const p = viewer.list[viewer.index];
+    const box = $("photo-view");
+    box.replaceChildren(photoImg(p, viewer.quest.name, true));
+    $("photo-caption").textContent = p.caption || viewer.quest.name;
+    $("photo-count").textContent =
+      viewer.list.length > 1 ? viewer.index + 1 + " of " + viewer.list.length : "";
+    $("photo-source").href = p.src;
+    $("photo-prev").hidden = $("photo-next").hidden = viewer.list.length < 2;
+  }
+  function stepPhoto(d) {
+    viewer.index = (viewer.index + d + viewer.list.length) % viewer.list.length;
+    showViewerPhoto();
+  }
+  function objectivePhotos(q, o) {
+    const list = orderedPhotos(q, o.photoRefs || []);
+    if (!list.length) return null;
+    const focused = selectedObjective === o.id;
+    const wrap = el("div", undefined, focused ? "objective-photos open" : "objective-photos");
+    list.forEach((p, i) => {
+      if (!focused && i >= 3) return;
+      const fig = el("figure", undefined, p.kind === "map" ? "is-map" : "");
+      const b = button("", () => openPhoto(q, list, i), "photo-button");
+      b.setAttribute("aria-label", "View full size: " + (p.caption || q.name));
+      b.append(photoImg(p, q.name, false));
+      fig.append(b);
+      if (focused) fig.append(el("figcaption", p.caption || ""));
+      wrap.append(fig);
+    });
+    if (!focused)
+      wrap.append(
+        button(
+          list.length > 3 ? "Show all " + list.length + " photos" : "Show photos",
+          () => chooseQuest(q.id, o.id),
+          "link-button photo-more",
+        ),
+      );
+    return wrap;
+  }
   function objectiveCard(q, o) {
     let card = el("div", undefined, "objective"),
       remaining = C.remaining(profile, o),
@@ -577,6 +719,8 @@
     if (o.optional) note += " · Optional";
     if (s.hidden) note += " · Skipped for this raid";
     card.append(el("div", note, "objective-note"));
+    const pics = objectivePhotos(q, o);
+    if (pics) card.append(pics);
     if (o.condition) card.append(el("div", o.condition, "objective-note"));
     if (o.time)
       card.append(
@@ -775,8 +919,10 @@
     if (q.photos?.length) {
       let d = el("details");
       d.dataset.key = "photos";
-      d.open = open.has("photos");
-      d.append(el("summary", "Fandom location photos · " + q.photos.length));
+      // Open by default when the photos aren't already shown on individual objectives.
+      d.open =
+        open.has("photos") || !C.objectives(q, profile.mode).some((o) => o.photoRefs?.length);
+      d.append(el("summary", "All wiki photos for this quest · " + q.photos.length));
       let gallery = el("div", undefined, "photo-grid"),
         loaded = false;
       const load = () => {
@@ -831,6 +977,7 @@
   function renderAll() {
     renderProfiles();
     renderLibrary();
+    renderTraderPanel();
     renderPack();
     renderDetail();
     renderOther();
@@ -1106,6 +1253,8 @@
   }
   function setView(v) {
     libView = v;
+    if (v !== "traders") trader = null;
+    renderTraderPanel();
     selectionOnly = v === "selected";
     listLimit = 150;
     renderTabs();
@@ -1175,6 +1324,18 @@
       renderLibrary();
     });
   $("traders-tab").onclick = () => setView("traders");
+  $("photo-prev").onclick = () => stepPhoto(-1);
+  $("photo-next").onclick = () => stepPhoto(1);
+  $("photo-dialog").addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") stepPhoto(-1);
+    if (e.key === "ArrowRight") stepPhoto(1);
+  });
+  $("photo-dialog").addEventListener("click", (e) => {
+    if (e.target === $("photo-dialog")) $("photo-dialog").close();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && trader && !document.querySelector("dialog[open]")) closeTrader();
+  });
   $("all-tab").onclick = () => setView("all");
   $("selected-tab").onclick = () => setView("selected");
   $("clear-selection").onclick = () =>

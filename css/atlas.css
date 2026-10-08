@@ -1144,3 +1144,292 @@ button:hover {
     font-size: 22px;
   }
 }
+
+/* ---------- Trader tiles with portraits ---------- */
+.trader-grid {
+  grid-template-columns: 1fr 1fr;
+}
+.trader-tile {
+  grid-template-columns: 36px 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 7px;
+}
+.trader-tile[aria-pressed="true"] {
+  border-color: var(--green);
+  box-shadow: inset 0 0 0 1px var(--green);
+}
+.trader-text {
+  display: grid;
+  min-width: 0;
+}
+.trader-text .trader-name {
+  margin-top: 0;
+  font-size: 14px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.trader-portrait {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  background: #121210;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.trader-portrait .trader-mono {
+  font-size: 17px;
+}
+.trader-portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85);
+}
+.trader-portrait.large {
+  width: 72px;
+  height: 72px;
+}
+.trader-portrait.large .trader-mono {
+  font-size: 32px;
+}
+.trader-tile .trader-picked {
+  position: static;
+  justify-self: start;
+  margin-top: 4px;
+  padding: 0 4px;
+}
+
+/* ---------- Trader picker (opens over the map) ---------- */
+.workspace {
+  position: relative;
+}
+.trader-panel {
+  grid-column: 2 / -1;
+  grid-row: 1;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #1a1916;
+  border-left: 1px solid var(--line);
+}
+/* Pin every panel to its grid cell so the picker can sit on top of the map and details. */
+.library {
+  grid-column: 1;
+  grid-row: 1;
+}
+.map-column {
+  grid-column: 2;
+  grid-row: 1;
+}
+.detail-pane {
+  grid-column: 3;
+  grid-row: 1;
+}
+.workspace.library-hidden .map-column {
+  grid-column: 1;
+}
+.workspace.library-hidden .detail-pane {
+  grid-column: 2;
+}
+.picker-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 22px 14px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #23211c, #1a1916);
+}
+.picker-title {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.picker-title .trader-title {
+  margin: 0;
+  font-size: 36px;
+}
+.picker-title .trader-title:focus {
+  outline: none;
+}
+.picker-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.picker-head .trader-controls {
+  gap: 16px;
+}
+.picker-body {
+  overflow-y: auto;
+  min-height: 0;
+  flex: 1;
+  padding: 6px 22px 22px;
+}
+.picker-group h3 {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 16px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 6px;
+}
+.picker-grid .trader-row {
+  border: 1px solid var(--line-soft);
+  background: #201f1a;
+  padding: 7px 8px;
+  gap: 8px;
+}
+.picker-grid .trader-row:hover {
+  border-color: var(--line);
+}
+.picker-grid .trader-row:has(input:checked) {
+  border-color: var(--green);
+  background: #2a2720;
+  box-shadow: none;
+}
+.picker-grid .quest-open {
+  font-size: 13px;
+  line-height: 1.25;
+}
+.picker-grid .done-button {
+  font-size: 10px;
+  padding: 2px 6px;
+}
+@media (max-width: 1150px) {
+  .library {
+    grid-row: 1 / 3;
+  }
+  .detail-pane {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .workspace.library-hidden .detail-pane {
+    grid-column: 1;
+  }
+  .trader-panel {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    max-height: calc(100dvh - 90px);
+    position: sticky;
+    top: 0;
+  }
+}
+@media (max-width: 700px) {
+  .trader-panel {
+    position: fixed;
+    inset: 0;
+    max-height: none;
+    z-index: 30;
+  }
+  .picker-head {
+    padding: 12px 14px;
+  }
+  .picker-body {
+    padding: 4px 14px 18px;
+  }
+  .picker-title .trader-title {
+    font-size: 28px;
+  }
+}
+
+/* ---------- Objective photos ---------- */
+.objective-photos {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 9px 0 0 27px;
+}
+.objective-photos figure {
+  margin: 0;
+}
+.objective-photos .photo-button {
+  display: block;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: #121210;
+  line-height: 0;
+}
+.objective-photos .photo-button:hover {
+  border-color: var(--green);
+}
+.objective-photos img {
+  width: 64px;
+  height: 44px;
+  object-fit: cover;
+}
+.objective-photos .photo-more {
+  margin-left: 4px;
+}
+/* The focused objective shows its photos at full panel width: the exact spot first. */
+.objective-photos.open {
+  display: grid;
+  gap: 10px;
+  margin-left: 0;
+}
+.objective-photos.open img {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: cover;
+}
+.objective-photos.open .is-map img {
+  max-height: 200px;
+  object-fit: contain;
+  background: #121210;
+}
+.objective-photos figcaption {
+  font-size: 12px;
+  color: var(--ink);
+  padding-top: 4px;
+  line-height: 1.4;
+}
+.objective-photos .is-map figcaption {
+  color: var(--muted);
+}
+.photo-dialog {
+  width: min(1100px, 96vw);
+  max-width: 96vw;
+  padding: 16px 18px;
+}
+.photo-dialog .dialog-top p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+}
+.photo-view {
+  margin: 10px 0;
+  background: #0d0d0b;
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+}
+.photo-view img {
+  max-width: 100%;
+  max-height: 72vh;
+  display: block;
+}
+.photo-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.photo-bar a {
+  margin-left: auto;
+}

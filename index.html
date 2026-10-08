@@ -89,6 +89,7 @@
           </button>
         </div>
       </aside>
+      <section id="trader-panel" class="trader-panel" aria-label="Trader quests" hidden></section>
       <section class="map-column" aria-label="Raid map">
         <div class="map-toolbar">
           <div class="inline">
@@ -188,6 +189,18 @@
         <button data-close="coverage-dialog" aria-label="Close coverage">×</button>
       </div>
       <div id="coverage-content"></div>
+    </dialog>
+    <dialog id="photo-dialog" class="photo-dialog" aria-label="Photo">
+      <div class="dialog-top">
+        <p id="photo-caption"></p>
+        <button data-close="photo-dialog" aria-label="Close photo">×</button>
+      </div>
+      <div id="photo-view" class="photo-view"></div>
+      <div class="photo-bar">
+        <button id="photo-prev">Previous</button><span id="photo-count"></span
+        ><button id="photo-next">Next</button>
+        <a id="photo-source" target="_blank" rel="noreferrer">Open on Fandom</a>
+      </div>
     </dialog>
     <div id="toast" role="status" hidden>
       <span id="toast-message"></span><button id="undo-button">Undo</button>

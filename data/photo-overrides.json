@@ -1,0 +1,4019 @@
+{
+ "657315df034d76585f032e01": {
+  "Shooting_Cans_Map.png": [
+   "O0",
+   "O1"
+  ],
+  "Tarbank_Building.png": [
+   "O0"
+  ],
+  "Tarbank_Building_Stairs.png": [
+   "O0"
+  ],
+  "Shooting_Cans_Utyos.png": [
+   "O0"
+  ],
+  "Capital_Insight_Building.png": [
+   "O1"
+  ],
+  "Capital_Insight_Building_Stairs.png": [
+   "O1"
+  ],
+  "Shooting_Cans_AGS.png": [
+   "O1"
+  ]
+ },
+ "657315e4a6af4ab4b50f3459": {
+  "Saving_the_Mole_Map.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3"
+  ],
+  "Ground_Zero_TerraGroup_Building.png": [
+   "O1",
+   "O2"
+  ],
+  "SavingTheMoleWay.png": [
+   "O2"
+  ],
+  "Terragroup_Scientist.png": [
+   "O2"
+  ],
+  "Scientist%27s_Office.png": [
+   "O0",
+   "O3"
+  ],
+  "Saving_the_mole_hard_drive_desk.png": [
+   "O3"
+  ],
+  "Saving_the_mole_hard_drive_location.png": [
+   "O3"
+  ],
+  "Saving_the_mole_hard_drive_location_2.png": [
+   "O3"
+  ],
+  "Saving_the_mole_hard_drive_location_3.png": [
+   "O3"
+  ]
+ },
+ "5a68665c86f774255929b4c7": {
+  "WoodsVanLocation.png": [
+   "O0",
+   "O1"
+  ],
+  "The_car_by_the_lake.png": [
+   "O0",
+   "O1"
+  ],
+  "The_blood_sample.png": [
+   "O0"
+  ]
+ },
+ "66b38e144f2ab7cc530c3fe7": {
+  "HCPP5.png": [
+   "O0"
+  ],
+  "The_breach_room.png": [
+   "O0"
+  ],
+  "EHKT_Factory_spot.png": [
+   "O0"
+  ],
+  "Every_Hunter_Knows_This_Map.png": [
+   "O1"
+  ],
+  "EHKT_Customs.png": [
+   "O1"
+  ]
+ },
+ "665eec4a4dfc83b0ed0a9dca": {
+  "ThirstyDeliveryWoodsMap.png": [
+   "O0",
+   "O2"
+  ],
+  "ThirstyDeliveryWoodsLocation.png": [
+   "O0",
+   "O2"
+  ],
+  "ThirstyDeliveryCustomsMap.png": [
+   "O1",
+   "O3"
+  ],
+  "ThirstyDeliveryCustomsStore.png": [
+   "O1",
+   "O3"
+  ],
+  "ThirstyDeliveryCustomsLocation.png": [
+   "O1",
+   "O3"
+  ]
+ },
+ "675c15fbf7da9792a4059871": {
+  "Provide_Viewership_map.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3",
+   "O4"
+  ],
+  "Provide_Viewership_building.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3",
+   "O4"
+  ],
+  "Provide_Viewership_spot_4.png": [
+   "O3"
+  ],
+  "Provide_Viewership_4_to_2.png": [
+   "O1"
+  ],
+  "Provide_Viewership_spot_2.png": [
+   "O1"
+  ],
+  "Provide_Viewership_spot_1_way.png": [
+   "O0"
+  ],
+  "Provide_Viewership_spot_1.png": [
+   "O0"
+  ],
+  "Provide_Viewership_spot_3_way.png": [
+   "O2"
+  ],
+  "Provide_Viewership_spot_3.png": [
+   "O2"
+  ]
+ },
+ "66058ccf06ef1d50a60c1f48": {
+  "DormOverseerKeyMap.png": [
+   "O0",
+   "O1"
+  ],
+  "DormOverseerKeyDoor.png": [
+   "O0",
+   "O1"
+  ],
+  "CompromisingInformationLocation.png": [
+   "O1"
+  ]
+ },
+ "66058ccbc7f3584787181478": {
+  "DormOverseerKeyMap.png": [
+   "O0",
+   "O2"
+  ],
+  "DormOverseerKeyDoor.png": [
+   "O0",
+   "O2"
+  ]
+ },
+ "675c085d59b0575973005f52": {
+  "Provide_Viewership_map.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3"
+  ],
+  "Break_the_Deal_building.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3"
+  ],
+  "Break_the_Deal_spot_1.png": [
+   "O2"
+  ],
+  "Break_the_Deal_spot_2.png": [
+   "O1"
+  ],
+  "Break_the_Deal_spot_3.png": [
+   "O3"
+  ],
+  "Break_the_Deal_spot_4.png": [
+   "O0"
+  ]
+ },
+ "666314bd920800278d0f6748": {
+  "Viewer_Woodsmap.png": [
+   "O1"
+  ],
+  "ViewerWoodsLocationOverview.png": [
+   "O1"
+  ],
+  "ViewerWoodsLocation.png": [
+   "O1"
+  ],
+  "The_TerraGroup_Trail_-_Part_19_Lighthouse_Map.jpg": [
+   "O2"
+  ],
+  "Lighthouse.png": [
+   "O2"
+  ],
+  "ViewerFactoryLocation.png": [
+   "O0"
+  ]
+ },
+ "666314c3acf8442f8b0531a3": {
+  "Viewer_Woodsmap.png": [
+   "O0"
+  ],
+  "ViewerWoodsLocationOverview.png": [
+   "O0"
+  ],
+  "ViewerWoodsLocation.png": [
+   "O0"
+  ],
+  "The_TerraGroup_Trail_-_Part_19_Lighthouse_Map.jpg": [
+   "O1"
+  ],
+  "Lighthouse.png": [
+   "O1"
+  ],
+  "ViewerFactoryLocation.png": [
+   "O2"
+  ]
+ },
+ "5ac346cf86f7741d63233a02": {
+  "SignalPart3Guide.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Signal2.png": [
+   "O0"
+  ],
+  "Signal1.png": [
+   "O1"
+  ],
+  "Signal3.png": [
+   "O2"
+  ]
+ },
+ "639136df4b15ca31f76bc31f": {
+  "TheHuntsmanPathAdministratorMapBEAR.png": [
+   "O0",
+   "O1"
+  ],
+  "TheHuntsmanPathAdministratorMapUSEC.png": []
+ },
+ "6a45208043b8d7604d00b8d5": {
+  "TheHuntsmanPathAdministratorMapBEAR.png": [],
+  "TheHuntsmanPathAdministratorMapUSEC.png": [
+   "O0",
+   "O1"
+  ]
+ },
+ "5a27bb3d86f77411ea361a21": {
+  "HealthResortEastWing.jpg": [
+   "O0"
+  ],
+  "CargoXPt2_FolderMap.png": [
+   "O0"
+  ],
+  "Inside_Room_108_in_East_wing_of_the_Resort.png": [
+   "O0"
+  ],
+  "ShorelineCargoXPt3.png": [
+   "O1",
+   "O3"
+  ],
+  "CargoXPt3_Guide.png": [
+   "O1",
+   "O3"
+  ],
+  "CargoXPt3Hole.png": [
+   "O3"
+  ]
+ },
+ "6179b4d1bca27a099552e04e": {
+  "Revision2Map.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3"
+  ],
+  "Revision2BRDMWestWater.png": [
+   "O0",
+   "O1"
+  ],
+  "Revision2BRDMNorthWater.png": [
+   "O0",
+   "O1"
+  ],
+  "Revision2BRDMUNCheckpoint.png": [
+   "O0",
+   "O1"
+  ],
+  "Revision2StrykerLighthouse.png": [
+   "O2",
+   "O3"
+  ],
+  "Revision2StrykerUphill.png": [
+   "O2",
+   "O3"
+  ],
+  "Revision2StrykerSeaside.png": [
+   "O2",
+   "O3"
+  ]
+ },
+ "5edab736cc183c769d778bc2": {
+  "Shoreline_Colleagues-1.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "2020-0.png": [
+   "O0"
+  ],
+  "18-39.png": [
+   "O2"
+  ],
+  "17-11.png": [
+   "O1"
+  ]
+ },
+ "5d25b6be86f77444001e1b89": {
+  "ZB_Bunker_location.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3"
+  ],
+  "Zb-016_entrance.png": [
+   "O0",
+   "O1"
+  ],
+  "The_survivalist_path_-_Thrifty_Crate_overview.png": [
+   "O0",
+   "O1"
+  ],
+  "The_survivalist_path_-_Thrifty_Crate_close-up.png": [
+   "O0",
+   "O1"
+  ],
+  "ZB-014-Bunker.png": [
+   "O2",
+   "O3"
+  ],
+  "The_survivalist_path_-_Thrifty_Crate_overview2.png": [
+   "O2",
+   "O3"
+  ],
+  "The_survivalist_path_-_Thrifty_Crate_close-up2.png": [
+   "O2",
+   "O3"
+  ]
+ },
+ "64f5aac4b63b74469b6c14c2": {
+  "StreetsOfTarkovMapCPSUPart2MarkedOnMap.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "CPSUPart2Outside.png": [
+   "O0",
+   "O2"
+  ],
+  "CPSUPart2Inside.png": [
+   "O0",
+   "O2"
+  ],
+  "CPSUPart2RoomDoor.png": [
+   "O0",
+   "O2"
+  ],
+  "JournalSpawn1.png": [
+   "O2"
+  ],
+  "CPSU_Part_2.png": [
+   "O2"
+  ],
+  "CPSU2_3rd_spawn.png": [
+   "O2"
+  ],
+  "JournalSpawn2.png": [
+   "O2"
+  ]
+ },
+ "5b4795fb86f7745876267770": {},
+ "5a27b75b86f7742e97191958": {},
+ "5a27bbf886f774333a418eeb": {},
+ "597a0f5686f774273b74f676": {},
+ "597a160786f77477531d39d2": {},
+ "597a171586f77405ba6887d3": {},
+ "665eeca45d86b6c8aa03c79d": {},
+ "66058cbb06ef1d50a60c1f46": {},
+ "626bd75e47ea7f506e5493c5": {},
+ "639136fa9444fb141f4e6eee": {},
+ "65734c186dc1e402c80dc19e": {},
+ "5a03173786f77451cb427172": {},
+ "61904daa7d0d857927447b9c": {},
+ "64ee99639878a0569d6ec8c9": {},
+ "5a68669a86f774255929b4d4": {},
+ "6086c852c945025d41566124": {},
+ "5ede55112c95834b583f052a": {
+  "Bunker_pt1.png": [
+   "O0",
+   "O1"
+  ],
+  "Bunker_Part_1_Guide_1.png": [
+   "O1"
+  ],
+  "Bunker_pt2.png": [
+   "O0",
+   "O2",
+   "O3",
+   "O4",
+   "O5",
+   "O6"
+  ],
+  "HermeticDoorExample.png": [
+   "O2",
+   "O3",
+   "O4",
+   "O5",
+   "O6"
+  ]
+ },
+ "6179ac7511973d018217d0b9": {
+  "EasyJobHeliMap.png": [
+   "O0",
+   "O1"
+  ],
+  "EasyJobHeliPic.png": [
+   "O0",
+   "O1"
+  ],
+  "EasyJob2Map.png": [
+   "O2"
+  ]
+ },
+ "6179b4f16e9dd54ac275e407": {
+  "MissingCargoHeliMap.png": [
+   "O1"
+  ],
+  "MissingCargoHeli.png": [
+   "O1"
+  ],
+  "MissingCargoChaletMap.png": [
+   "O0"
+  ],
+  "MissingCargoChalet.png": [
+   "O0"
+  ],
+  "MissingCargoDocuments.png": [
+   "O0"
+  ],
+  "MissingCargoMilitaryDocuments.jpg": [
+   "O0"
+  ]
+ },
+ "66d9cbb67b491f9d5304f6e6": {
+  "ITARWireBodyMap.png": [
+   "O0"
+  ],
+  "Mysterious_key_path1.png": [
+   "O0"
+  ],
+  "Mysterious_key_path2.png": [
+   "O0"
+  ],
+  "Mysterious_key_path3.png": [
+   "O0"
+  ],
+  "ITARWireBodyDoor.png": [
+   "O0"
+  ],
+  "ITARWireBody.png": [
+   "O0"
+  ],
+  "ITARPizzaLoverMap.png": [
+   "O1"
+  ],
+  "ITARPizzaLover.png": [
+   "O1"
+  ],
+  "ITARScaryHoleMap.png": [
+   "O2"
+  ],
+  "Mysterious_key_building_entrance.png": [
+   "O2"
+  ],
+  "ITARScaryHole.png": [
+   "O2"
+  ],
+  "ITARBurnedGirlMap.png": [
+   "O3"
+  ],
+  "X-ray_clinic_outside.png": [
+   "O3"
+  ],
+  "X-ray_key_upstairs.png": [
+   "O3"
+  ],
+  "ITARBurnedGirlDoor.png": [
+   "O3"
+  ],
+  "ITARBurnedGirl.png": [
+   "O3"
+  ],
+  "ITARDieHardGuyMap.png": [
+   "O4"
+  ],
+  "ITARDieHardGuy.png": [
+   "O4"
+  ],
+  "ITARJokeForProgrammersMap.png": [
+   "O5"
+  ],
+  "ITARJokeForProgrammers.png": [
+   "O5"
+  ],
+  "ITARChairsMap.png": [
+   "O6"
+  ],
+  "Tarbank_Building.png": [
+   "O6"
+  ],
+  "Tarbank_Building_Stairs.png": [
+   "O6"
+  ],
+  "ITARChairs.png": [
+   "O6"
+  ],
+  "ITARFriendWilsonMap.png": [
+   "O7"
+  ],
+  "ITARFriendWilson.png": [
+   "O7"
+  ],
+  "ITARKindledPlaceMap.png": [
+   "O8"
+  ],
+  "ITARKindledPlace.png": [
+   "O8"
+  ],
+  "ITARWelcomeSignMap.png": [
+   "O9"
+  ],
+  "ITARWelcomeSign.png": [
+   "O9"
+  ],
+  "ITARMegageniusMap.png": [
+   "O10"
+  ],
+  "ITARMegagenius.png": [
+   "O10"
+  ],
+  "ITARConscriptsTaskMap.png": [
+   "O11"
+  ],
+  "ITARConscriptsTask.png": [
+   "O11"
+  ],
+  "ITARChairRiddleMap.png": [
+   "O12"
+  ],
+  "ITARChairRiddle.png": [
+   "O12"
+  ],
+  "ITARTankVideogameMap.png": [
+   "O13"
+  ],
+  "ITARTankVideogame.png": [
+   "O13"
+  ],
+  "ITARBucketHeadMap.png": [
+   "O14"
+  ],
+  "ITARBucketHead.png": [
+   "O14"
+  ],
+  "ITARAnvil34Map.png": [
+   "O15"
+  ],
+  "ITARAnvil34.png": [
+   "O15"
+  ],
+  "ITARDevelopersNightmareMap.png": [
+   "O16"
+  ],
+  "ITARDevelopersNightmare.png": [
+   "O16"
+  ],
+  "ITARFirefighterBooksMap.png": [
+   "O17"
+  ],
+  "ITARFirefighterBooks.png": [
+   "O17"
+  ],
+  "ITARValveTechniciansMap.jpg": [
+   "O18"
+  ],
+  "ITARValveTechnicians.png": [
+   "O18"
+  ],
+  "ITARRussianBeautyMap.png": [
+   "O19"
+  ],
+  "ITARRussianBeauty.png": [
+   "O19"
+  ],
+  "ITARConspiracyTheoristMap.jpg": [
+   "O20"
+  ],
+  "FactoryLockedRoom.png": [
+   "O20"
+  ],
+  "ITARConspiracyTheorist.png": [
+   "O20"
+  ],
+  "ITARMagicSchoolMap.png": [
+   "O21"
+  ],
+  "ITARMagicSchool.png": [
+   "O21"
+  ],
+  "ITARStrategyGamesMap.jpg": [
+   "O22"
+  ],
+  "ITARStrategyGames.png": [
+   "O22"
+  ],
+  "ITARStairwaySkiesMap.png": [
+   "O23"
+  ],
+  "ITARStairwaySkies.png": [
+   "O23"
+  ],
+  "ITARBearCarMap.png": [
+   "O24"
+  ],
+  "ITARBearCar.png": [
+   "O24"
+  ],
+  "ITARUpsidedownChairMap.png": [
+   "O25"
+  ],
+  "ITARUpsidedownChairHouse.png": [
+   "O25"
+  ],
+  "ITARUpsidedownChair.png": [
+   "O25"
+  ],
+  "ITARNotSoLonelyBathroomMap.png": [
+   "O26"
+  ],
+  "PierOfficeBuilding.png": [
+   "O26"
+  ],
+  "ITARNotSoLonelyBathroom.png": [
+   "O26"
+  ]
+ },
+ "6089736efa70fc097863b8f6": {
+  "BackDoorD2Marked.png": [
+   "O0",
+   "O1"
+  ],
+  "D2_Switch.png": [
+   "O1"
+  ],
+  "D2_Extract.png": [
+   "O0"
+  ]
+ },
+ "67a09724972c11a3f5077324": {
+  "Labryrinth_missile_area_map.png": [
+   "O0",
+   "O1"
+  ],
+  "Confidential_Info_Spawn_1.png": [
+   "O0"
+  ],
+  "Confidential_Info_Spawn_2.png": [
+   "O0"
+  ],
+  "Confidential_Info_Spawn_3.png": [
+   "O0"
+  ],
+  "Confidential_Info_Spawn_4.png": [
+   "O0"
+  ],
+  "Confidential_Info_Spawn_5.png": [
+   "O0"
+  ],
+  "Confidential_Info_Spawn_6.png": [
+   "O0"
+  ]
+ },
+ "67a0972e77dd677f600804bd": {
+  "Labryrinth_torture_room_map.png": [
+   "O0",
+   "O1"
+  ],
+  "Labryrinth_torture_room.png": [
+   "O0",
+   "O1"
+  ],
+  "This_Tape_Sucks_Spawn_1.png": [
+   "O1"
+  ],
+  "This_Tape_Sucks_Spawn_2.png": [
+   "O1"
+  ],
+  "This_Tape_Sucks_Spawn_3.png": [
+   "O1"
+  ],
+  "This_Tape_Sucks_Spawn_4.png": [
+   "O1"
+  ]
+ },
+ "67a09761e720611a6a01f288": {
+  "Keepers_Word_map.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Keepers_Word_location_1.png": [
+   "O0"
+  ],
+  "Keepers_Word_location_2.png": [
+   "O1"
+  ],
+  "Keepers_Word_location_3.png": [
+   "O2"
+  ]
+ },
+ "639135bbc115f907b14700a6": {
+  "Apartment10Map.png": [
+   "O0",
+   "O1"
+  ],
+  "Apartment10Outside.png": [
+   "O0"
+  ],
+  "UnderpassKeyMap.png": [
+   "O0"
+  ],
+  "UnderpassKeyUnderpass.png": [
+   "O0"
+  ],
+  "UnderpassKeyWay1.png": [
+   "O0"
+  ],
+  "UnderpassKeyWay2.png": [
+   "O0"
+  ],
+  "UnderpassKeyWay3.png": [
+   "O0"
+  ],
+  "UnderpassKeyWay4.png": [
+   "O0"
+  ],
+  "UnderpassKeyStairsDoor.png": [
+   "O0"
+  ],
+  "UnderpassKeyUnderpassLockedDoor.png": [
+   "O0"
+  ],
+  "UnderpassKeyDoor.png": [
+   "O0"
+  ],
+  "MusicRoom.png": [
+   "O0",
+   "O1"
+  ],
+  "Apartment10Living2.png": [
+   "O0",
+   "O1"
+  ],
+  "Eg_pick_streets_spawn6.png": [
+   "O1"
+  ],
+  "Eg_pick_streets_spawn5.png": [
+   "O1"
+  ],
+  "Eg_pick_streets_spawn1.png": [
+   "O1"
+  ],
+  "Eg_pick_streets_spawn2.png": [
+   "O1"
+  ],
+  "EG_pick_streets_spawn3.png": [
+   "O1"
+  ],
+  "Eg_pick_streets_spawn8.png": [
+   "O1"
+  ],
+  "AudiophileSpawn10.png": [
+   "O1"
+  ],
+  "Eg_pick_streets_spawn9.png": [
+   "O1"
+  ],
+  "Eg_pick_streets_spawn7.png": [
+   "O1"
+  ],
+  "Eg_pick_streets_spawn4.png": [
+   "O1"
+  ]
+ },
+ "66aa61663aa37705c5024277": {
+  "StreetsTransitToInterchangeMap.png": [
+   "O1"
+  ],
+  "StreetsTransitToInterchange.png": [
+   "O1"
+  ]
+ },
+ "639135cd8ba6894d155e77cb": {
+  "Chekannaya15Map.png": [
+   "O0",
+   "O1"
+  ],
+  "Chekannaya15ApartmentBuilding.png": [
+   "O0",
+   "O1"
+  ],
+  "House_arrest_pt2_corridor.png": [
+   "O0"
+  ],
+  "House_arrest_pt2_wardenbody.png": [
+   "O0"
+  ],
+  "WesternStaircaseMap.png": [
+   "O1"
+  ],
+  "WesternStaircaseWay1.png": [
+   "O1"
+  ],
+  "WesternStaircaseWay2.png": [
+   "O1"
+  ],
+  "WesternStaircaseWay3.png": [
+   "O1"
+  ],
+  "Chekannaya15ApartmentBuildingWesternStairs.png": [
+   "O1"
+  ],
+  "Chek15TFHallway.png": [
+   "O1"
+  ],
+  "Chek15SFHallway.png": [
+   "O1"
+  ],
+  "Chek15AptDoor.png": [
+   "O1"
+  ]
+ },
+ "67e993b1ac26bf29380a320b": {
+  "DormOverseerKeyMap.png": [
+   "O0",
+   "O1"
+  ],
+  "DormOverseerKeyDoor.png": [
+   "O0",
+   "O1"
+  ],
+  "CompromisingInformationLocation.png": [
+   "O1"
+  ]
+ },
+ "66aba85403e0ee3101042877": {
+  "StreetsTransitToLabsMap.png": [
+   "O0",
+   "O2"
+  ],
+  "StreetsTransitToLabsUpstairs.png": [
+   "O0",
+   "O2"
+  ],
+  "StreetsTransitToLabsDownstairs.png": [
+   "O0",
+   "O2"
+  ],
+  "LabsControlRoomMap.png": [
+   "O5"
+  ],
+  "LabsControlRoom.png": [
+   "O5"
+  ],
+  "LabsServerRoomMap.png": [
+   "O1"
+  ],
+  "LabsServerRoom.png": [
+   "O1"
+  ],
+  "Quality_Standard_Yellow_Dome_Map.png": [
+   "O4"
+  ],
+  "Quality_Standard_Yellow_Dome.png": [
+   "O4"
+  ],
+  "TheLabTranistToStreetsOfTarkovMap.png": [
+   "O3"
+  ],
+  "TheLabTranistToStreetsOfTarkov.png": [
+   "O3"
+  ]
+ },
+ "669fa3a3ad7f1eac2607ed48": {
+  "HealthCarePrivacyPart6Map.jpg": [
+   "O0"
+  ],
+  "Blood1.png": [
+   "O0"
+  ],
+  "TheLabSanitarsRoom.png": [
+   "O2"
+  ],
+  "SanitarsRoom.png": [
+   "O2"
+  ]
+ },
+ "68481881f43abfdda2058369": {
+  "StreetsTransitToInterchangeMap.png": [
+   "O3"
+  ],
+  "StreetsTransitToInterchange.png": [
+   "O3"
+  ]
+ },
+ "684009026ceedc792c09b2a7": {
+  "Hobby_Club_Reserve_Warehouses_Map.png": [
+   "O0"
+  ],
+  "Hobby_Club_Reserve_Barrel_Location_1.png": [
+   "O0"
+  ],
+  "Hobby_Club_Reserve_Barrel_Location_2.png": [
+   "O0"
+  ],
+  "Hobby_Club_Reserve_Barrel_Location_3.png": [
+   "O0"
+  ],
+  "Military_Checkpoint_map.png": [
+   "O2",
+   "O3"
+  ],
+  "Military_Checkpoint_door.png": [
+   "O2",
+   "O3"
+  ],
+  "Hobby_Club_Customs_Dust_Cover_Location.png": [
+   "O2"
+  ],
+  "Hobby_Club_Customs_Stashing_Map.png": [
+   "O4",
+   "O6",
+   "O7",
+   "O8"
+  ],
+  "Hobby_Club_Customs_Stashing_Location.png": [
+   "O4",
+   "O6",
+   "O7",
+   "O8"
+  ]
+ },
+ "68400953506db3b4db0700e7": {
+  "Provide_Cover_Woods_Map.png": [
+   "O1",
+   "O2"
+  ],
+  "Provide_Cover_Woods_Building.png": [
+   "O1",
+   "O2"
+  ],
+  "Fair_Price_Spawn_1.png": [
+   "O2"
+  ],
+  "Fair_Price_Spawn_2.png": [
+   "O2"
+  ],
+  "Fair_Price_Spawn_3.png": [
+   "O2"
+  ]
+ },
+ "59674eb386f774539f14813a": {
+  "Delivery_from_the_past_Customs.png": [
+   "O0"
+  ],
+  "Customs-Factory1-Outside-3.png": [
+   "O0"
+  ],
+  "CustomsOffice.png": [
+   "O0"
+  ],
+  "Farming3Office.png": [
+   "O0"
+  ],
+  "Docs_0022-Delivery_From_the_Past.png": [
+   "O0"
+  ],
+  "Delivery_from_the_past_Factory.png": [
+   "O1"
+  ],
+  "Delivery_from_the_past_dropoff.png": [
+   "O1"
+  ]
+ },
+ "5969f9e986f7741dde183a50": {
+  "Pharmacist_Customs.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Carbon_Case_Location.png": [
+   "O0",
+   "O2"
+  ]
+ },
+ "596b43fb86f77457ca186186": {
+  "Customs.PNG": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "The_bush_where_the_hidden_body_is.png": [
+   "O1"
+  ],
+  "The_cabin_that_is_opened_by_the_unknown_key.png": [
+   "O0",
+   "O2"
+  ],
+  "Docs_0048-The_Extortionist.png": [
+   "O0"
+  ]
+ },
+ "5a27bc1586f7741f6d40fa2f": {},
+ "5d25e48d86f77408251c4bfb": {},
+ "5ede567cfa6dc072ce15d6e3": {},
+ "67a097379f2068e74603c6ac": {},
+ "608974d01a66564e74191fc0": {},
+ "5d4bec3486f7743cac246665": {},
+ "5c0bbaa886f7746941031d82": {},
+ "5c51aac186f77432ea65c552": {},
+ "5967530a86f77462ba22226b": {},
+ "596760e186f7741e11214d58": {},
+ "5967725e86f774601a446662": {},
+ "59689ee586f7740d1570bbd5": {},
+ "596a101f86f7741ddb481582": {},
+ "596a1e6c86f7741ddc2d3206": {},
+ "5979ed3886f77431307dc512": {},
+ "5979eee086f774311955e614": {},
+ "5e381b0286f77420e3417a74": {},
+ "5e383a6386f77465910ce1f3": {},
+ "5e4d4ac186f774264f758336": {},
+ "5e4d515e86f77438b2195244": {},
+ "5979f9ba86f7740f6c3fe9f2": {
+  "Chemical1_Traincar_Map.png": [
+   "O0",
+   "O1"
+  ],
+  "Chemical1Traincar.png": [
+   "O0",
+   "O1"
+  ],
+  "Chem1West2.png": [],
+  "Chem1West.png": [],
+  "Chem1East3.png": [],
+  "Chem1East1.png": [],
+  "Chem1East2.png": [],
+  "Docs_0013-Location.png": [
+   "O0"
+  ]
+ },
+ "597a0b2986f77426d66c0633": {
+  "Chemical2Map.png": [
+   "O0",
+   "O1"
+  ],
+  "Sliderkey_Location.png": [
+   "O0"
+  ],
+  "Sealed_Letter_Location.png": [
+   "O1"
+  ]
+ },
+ "5a27b80086f774429a5d7e20": {
+  "Eagle_Eye_Locations.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O4"
+  ],
+  "Firstshorelineuav.png": [
+   "O0",
+   "O2"
+  ],
+  "Secondshorelineuav.png": [
+   "O1",
+   "O4"
+  ],
+  "Shorelineuavsidepanel.png": [
+   "O1",
+   "O2"
+  ],
+  "SAS_disk_in_drone.png": [
+   "O1",
+   "O2"
+  ]
+ },
+ "5a27ba1c86f77461ea5a3c56": {
+  "WoodsRitualSpotMapMarked.png": [
+   "O0",
+   "O1"
+  ],
+  "CheckPointViewToMarkedCircle.png": [
+   "O0"
+  ],
+  "MarkedCircleViewToCheckpoint.png": [
+   "O0"
+  ],
+  "Cultists_ritual_place.png": [
+   "O0"
+  ],
+  "The_second_ritual_spot_in_the_Woods.png": [
+   "O1"
+  ],
+  "HealthResortEastWing.jpg": [
+   "O2"
+  ],
+  "HealthResortEastWingMarkedRoom.png": [
+   "O2"
+  ],
+  "Shorelineritualsite.png": [
+   "O2"
+  ]
+ },
+ "5ac3462b86f7741d6118b983": {
+  "Delivery_from_the_past_Customs.png": [
+   "O0",
+   "O1"
+  ],
+  "Customs-Factory1-Outside-3.png": [
+   "O0",
+   "O1"
+  ],
+  "CustomsOffice.png": [
+   "O0"
+  ],
+  "Farming3Office.png": [
+   "O0"
+  ],
+  "Farm3Closet.png": [
+   "O0"
+  ],
+  "Farming_part_3.png": [
+   "O0"
+  ],
+  "Farm3Copier.png": [
+   "O0"
+  ],
+  "Farming3Desk.png": [
+   "O0"
+  ]
+ },
+ "5ac3467986f7741d6224abc2": {
+  "SignalPart1Guide.jpg": [
+   "O0",
+   "O1",
+   "O2",
+   "O3"
+  ],
+  "Signal1.png": [
+   "O0",
+   "O1"
+  ],
+  "Signal2.png": [
+   "O2",
+   "O3"
+  ]
+ },
+ "5ae448f286f77448d73c0131": {
+  "The_Blood_of_War_Part_1_Map.jpg": [
+   "O0",
+   "O1"
+  ],
+  "Bloodofwartanker.png": [
+   "O0"
+  ],
+  "Bloodofwartanker3.png": [
+   "O0"
+  ],
+  "Bloodofwartanker2.png": [
+   "O1"
+  ],
+  "Bloodofwartanker4.png": [
+   "O1"
+  ]
+ },
+ "5ae4498786f7744bde357695": {
+  "The_key_to_success_Marked.png": [
+   "O0"
+  ],
+  "The_key_to_success_Book1Store.png": [
+   "O0"
+  ],
+  "The_key_to_success_Book2.png": [
+   "O0"
+  ],
+  "The_key_to_success_Marked2.png": [
+   "O1"
+  ],
+  "The_key_to_success_Book2Store.png": [
+   "O1"
+  ],
+  "The_key_to_success_Book1.png": [
+   "O1"
+  ]
+ },
+ "5b478b1886f7744d1b23c57d": {
+  "HotdeliveryAvokadoMap.png": [
+   "O0",
+   "O1"
+  ],
+  "Hot_delivery_comtac_6b47.png": [
+   "O0",
+   "O1"
+  ],
+  "HotdeliveryStageMap.png": [
+   "O2"
+  ],
+  "Hot_delivery_Gzhel.png": [
+   "O2"
+  ]
+ },
+ "5b478d0f86f7744d190d91b5": {
+  "InterchangeMinibusLocations.jpg": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Minibus1.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Minibus2.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Minibus3.png": [
+   "O0",
+   "O1",
+   "O2"
+  ]
+ },
+ "5b47926a86f7747ccc057c15": {
+  "Kiba_Arms_store_camera_Interhange_map.png": [
+   "O1"
+  ],
+  "Informed_means_armed_overlook.png": [
+   "O1"
+  ],
+  "Informed_means_armed_placement.png": [
+   "O1"
+  ],
+  "Pier_camera_Woods_map.png": [
+   "O0"
+  ],
+  "Pier.png": [
+   "O0"
+  ]
+ },
+ "5c0d0f1886f77457b8210226": {
+  "DrugLabMap.png": [
+   "O0",
+   "O1"
+  ],
+  "ContainerGroup.png": [
+   "O0",
+   "O1"
+  ],
+  "InsideLab.png": [
+   "O0",
+   "O1"
+  ]
+ },
+ "5c10f94386f774227172c572": {
+  "Blood_of_War_-_Part_3_Map.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Bow1.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Bow3.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Bow2.png": [
+   "O0",
+   "O1",
+   "O2"
+  ]
+ },
+ "5d25e4ad86f77443e625e387": {
+  "Vitamins1_Shoreline_outdoor_map.png": [
+   "O0",
+   "O1"
+  ],
+  "West_Wing_303_Door.png": [
+   "O0",
+   "O1"
+  ],
+  "Jaeger_Photo_Album.png": [
+   "O0"
+  ]
+ },
+ "5eda19f0edce541157209cee": {
+  "AnesthesiaxRiggedGameMap.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "AnesthesiaxRiggedGameLocation1.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "AnesthesiaxRiggedGameLocation2.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "AnesthesiaxRiggedGameLocation3.png": [
+   "O0",
+   "O1",
+   "O2"
+  ]
+ },
+ "5edaba7c0c502106f869bc02": {
+  "PierOfficeBuildingShorelineMap.png": [
+   "O0"
+  ],
+  "PierOfficeBuilding.png": [
+   "O0"
+  ],
+  "Surgery_kit.png": [
+   "O0"
+  ],
+  "LockedVillaShorelineMap.png": [
+   "O2"
+  ],
+  "ShorelineLockedVillaBackEntrance.png": [
+   "O2"
+  ],
+  "Ophtalmoscope.png": [
+   "O2"
+  ]
+ },
+ "5edac63b930f5454f51e128b": {
+  "TheLabSanitarsRoom.png": [
+   "O0",
+   "O1"
+  ],
+  "SanitarsRoom.png": [
+   "O0",
+   "O1"
+  ],
+  "Marked_with_tape_flash_drive-position.png": [
+   "O0"
+  ]
+ },
+ "60896e28e4a85c72ef3fa301": {
+  "HospitalMap.jpeg": [
+   "O0",
+   "O1"
+  ],
+  "Whitebishopstairs1.png": [
+   "O0",
+   "O1"
+  ],
+  "Whitebishopstairs2.png": [
+   "O0",
+   "O1"
+  ],
+  "RB-KSM_door.png": [
+   "O0"
+  ],
+  "Disease_history_Journal_1.png": [
+   "O0"
+  ],
+  "RB-SMP_door.png": [
+   "O1"
+  ],
+  "Disease_history_Journal_2.png": [
+   "O1"
+  ]
+ },
+ "608974af4b05530f55550c21": {
+  "InventoryCheck.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3",
+   "O4"
+  ],
+  "Black_pawn_objstaircase.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Reserve_-_RB-ORB3_key_-_door.png": [
+   "O2"
+  ],
+  "RB-OB_door1.png": [
+   "O1"
+  ],
+  "RB-ORBX_door.png": [
+   "O0"
+  ],
+  "Black_Pawn_Obj.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "White_pawn.png": [
+   "O3",
+   "O4"
+  ],
+  "Screenshot_2019-10-29_19.22.44.png": [
+   "O3"
+  ],
+  "RB-ORB2_door.png": [
+   "O4"
+  ],
+  "White_pawn_obj.png": [
+   "O3",
+   "O4"
+  ]
+ },
+ "626bd75b05f287031503c7f6": {
+  "DrugLabMap.png": [
+   "O0",
+   "O1"
+  ],
+  "ContainerGroup.png": [
+   "O0",
+   "O1"
+  ],
+  "InsideLab.png": [
+   "O0",
+   "O1"
+  ]
+ },
+ "626bd75d5bef5d7d590bd415": {
+  "RadarStationMap.png": [
+   "O0",
+   "O1"
+  ],
+  "RadarStation.png": [
+   "O0"
+  ],
+  "CommandersOffice.png": [
+   "O0"
+  ],
+  "CommandersOfficeClose.png": [
+   "O0",
+   "O1"
+  ],
+  "Top_Secret_Table.jpg": [
+   "O1"
+  ],
+  "Top_Secret_HDD.jpg": [
+   "O1"
+  ]
+ },
+ "639135c3744e452011470807": {
+  "Chekannaya15Map.png": [
+   "O0"
+  ],
+  "Chekannaya15ApartmentBuilding.png": [
+   "O0"
+  ],
+  "WesternStaircaseMap.png": [
+   "O0"
+  ],
+  "WesternStaircaseWay1.png": [
+   "O0"
+  ],
+  "WesternStaircaseWay2.png": [
+   "O0"
+  ],
+  "WesternStaircaseWay3.png": [
+   "O0"
+  ],
+  "Chekannaya15ApartmentBuildingWesternStairs.png": [
+   "O0"
+  ],
+  "HouseArrestCell1.png": [
+   "O0"
+  ],
+  "HouseArrestCell1Inside.png": [
+   "O0"
+  ],
+  "PineWoodHotelNorthMap.png": [
+   "O1"
+  ],
+  "PineWoodHotelNorthBuilding.png": [
+   "O1"
+  ],
+  "HotelRoom206Door.png": [
+   "O1"
+  ],
+  "DeadDebtor.png": [
+   "O1"
+  ]
+ },
+ "639135e0fa894f0a866afde6": {
+  "UrbanMedicineMap.png": [
+   "O0",
+   "O1"
+  ],
+  "LexOsClaymoreOverview.png": [
+   "O0",
+   "O1"
+  ],
+  "UrbanMedicineGarage.png": [
+   "O0",
+   "O1"
+  ],
+  "UrbanMedicineThirdBedSpawn.png": [
+   "O1"
+  ],
+  "Urban_Medicine_5.png": [
+   "O1"
+  ],
+  "UrbanMedicineFifthSixthShelfSpawn.png": [
+   "O1"
+  ],
+  "Urban.png": [
+   "O1"
+  ],
+  "UrbanMedicine_Spawn06.png": [
+   "O1"
+  ],
+  "Urban_Medicine_Spawn_2.png": [
+   "O1"
+  ],
+  "UrbanMedicineFourthShelfSpawn.png": [
+   "O1"
+  ],
+  "UrbanMedicineSpawn05_02.png": [
+   "O1"
+  ],
+  "UrbanMedicineTrolleySpawn1.png": [
+   "O1"
+  ],
+  "UrbanMedicineTrolleySpawn2.png": [
+   "O1"
+  ],
+  "UrbanMedicineFirstBedSpawn.png": [
+   "O1"
+  ],
+  "Urban_Medicine_3.png": [
+   "O1"
+  ],
+  "UrbanMedicineSeventhBedSpawn.png": [
+   "O1"
+  ],
+  "UrbanMedicine4thspawn2.png": [
+   "O1"
+  ],
+  "UrbanMedicine10.png": [
+   "O1"
+  ],
+  "UrbanMedicine10_2.png": [
+   "O1"
+  ],
+  "UrbanMedicineSecondBoxSpawn.png": [
+   "O1"
+  ],
+  "Urban_Medicine_4.png": [
+   "O1"
+  ]
+ },
+ "5a03296886f774569778596a": {},
+ "5a27b7d686f77460d847e6a6": {},
+ "5a27b87686f77460de0252a8": {},
+ "5a68661a86f774500f48afb0": {},
+ "5ac345dc86f774288030817f": {},
+ "5ac3477486f7741d651d6885": {},
+ "5ae448e586f7744dcf0c2a67": {},
+ "5ae4493486f7744efa289417": {},
+ "5ae449b386f77446d8741719": {},
+ "5ae449c386f7744bde357697": {},
+ "5ae449d986f774453a54a7e1": {},
+ "5b4794cb86f774598100d5d4": {},
+ "5d2495a886f77425cd51e403": {},
+ "5d24b81486f77439c92d6ba8": {},
+ "5d25e48186f77443e625e386": {},
+ "5edabd13218d181e29451442": {},
+ "5fd9fad9c1ce6b1a3b486d00": {},
+ "60896b7bfa70fc097863b8f5": {},
+ "6179b3a12153c15e937d52bc": {},
+ "6179b3bdc7560e13d23eeb8d": {},
+ "61958c366726521dd96828ec": {},
+ "639135f286e646067c176a87": {},
+ "639136d68ba6894d155e77cf": {
+  "StreetsConvoyMap.png": [
+   "O0",
+   "O1"
+  ],
+  "LexOsClaymoreOverview.png": [
+   "O0",
+   "O1"
+  ],
+  "StreetsConvoy.png": [
+   "O0"
+  ],
+  "StreetsConvoyAmbushSpot.png": [
+   "O1"
+  ]
+ },
+ "639282134ed9512be67647ed": {
+  "StreetsConvoyMap.png": [
+   "O0",
+   "O1"
+  ],
+  "LexOsClaymoreOverview.png": [
+   "O0",
+   "O1"
+  ],
+  "StreetsConvoy.png": [
+   "O1"
+  ],
+  "StreetsConvoyAmbushSpot.png": [
+   "O0"
+  ]
+ },
+ "63966fbeea19ac7ed845db2e": {
+  "Backup_hideout_key_Location_Map.png": [],
+  "HideoutBackupKeySpawnRoom.png": [],
+  "HideoutBackupKeySportBag.png": [],
+  "BackupHideoutMap.png": [
+   "O0",
+   "O1"
+  ],
+  "BackupHideoutDoor.png": [
+   "O0",
+   "O1"
+  ],
+  "MIJournal2.png": [
+   "O1"
+  ],
+  "MIJournal3.png": [
+   "O1"
+  ],
+  "MIJournal1.png": [
+   "O1"
+  ]
+ },
+ "63966fccac6f8f3c677b9d89": {
+  "SnatchContainerMap.png": [
+   "O1"
+  ],
+  "SnatchContainer.png": [
+   "O1"
+  ],
+  "SnatchContainerInside.png": [
+   "O1"
+  ],
+  "SnatchForgedIntel.png": [
+   "O1"
+  ],
+  "SnatchContainerBlue.png": [
+   "O1"
+  ],
+  "SnatchContainerBlueInside.png": [
+   "O1"
+  ],
+  "SurplusGoodsGarageMap.jpg": [
+   "O2",
+   "O3"
+  ],
+  "SurplusGoodsGarage.png": [
+   "O2",
+   "O3"
+  ],
+  "RB-ST_door_inside.png": [
+   "O2",
+   "O3"
+  ],
+  "SnatchBMP2.png": [
+   "O3"
+  ],
+  "SnatchOriginalIntel.png": [
+   "O2",
+   "O3"
+  ]
+ },
+ "63966fd9ea19ac7ed845db30": {
+  "PaybackFlareMap.png": [
+   "O2"
+  ]
+ },
+ "63966fe7ea74a47c2d3fc0e6": {
+  "ReturnTheFavorMap.png": [
+   "O1",
+   "O2"
+  ],
+  "RTTBlackSVU.png": [
+   "O1"
+  ],
+  "RTTBlackSVU2.png": [
+   "O1"
+  ],
+  "RTTCrates.png": [
+   "O2"
+  ],
+  "Woods_USEC_camp_northwest_approach_mines.png": [
+   "O1",
+   "O2"
+  ],
+  "Woods_USEC_camp_northwest_approach_mines2.png": [
+   "O1",
+   "O2"
+  ],
+  "Woods_USEC_camp_west_approach_mines2.png": [
+   "O1",
+   "O2"
+  ],
+  "Woods_USEC_camp_west_approach_mines.png": [
+   "O1",
+   "O2"
+  ]
+ },
+ "63966ff54c3ef01b6f3ffad8": {
+  "ProvocationKibaMap.png": [
+   "O1"
+  ],
+  "KibaFencedCrate.png": [
+   "O1"
+  ],
+  "ProvocationKibaPlacement.png": [
+   "O1"
+  ],
+  "SafeRoomMap.png": [
+   "O2"
+  ],
+  "IC-Saferoom_EXFIL.png": [
+   "O2"
+  ],
+  "ProvocationCouch.png": [
+   "O2"
+  ],
+  "21WSMap.png": [
+   "O3"
+  ],
+  "21ws_outside.jpg": [
+   "O3"
+  ],
+  "ToiletPaperPlacement.png": [
+   "O3"
+  ]
+ },
+ "639670029113f06a7c3b2377": {
+  "BreadCrumbsBlackTestingMap.png": [
+   "O1",
+   "O2"
+  ],
+  "Lab_Key_testing_area_%28weap.%29_-_Outside.png": [
+   "O1"
+  ],
+  "The_Lab_Showcase_16.png": [
+   "O2"
+  ],
+  "BreadCrumbsManagersMap.png": [
+   "O3"
+  ],
+  "ManagersOfficeEntrance.png": [
+   "O3"
+  ],
+  "BreadCrumbsReception.png": [
+   "O3"
+  ],
+  "BreadCrumbsReception2.png": [
+   "O3"
+  ],
+  "BreadCrumbsRightSideTable.png": [
+   "O3"
+  ],
+  "BreadCrumbsUnlocked1.png": [
+   "O3"
+  ],
+  "BreadCrumbsFloor.png": [
+   "O3"
+  ],
+  "BreadCrumbsChair1.png": [
+   "O3"
+  ],
+  "BreadCrumbsChair2.png": [
+   "O3"
+  ],
+  "BreadCrumbsOneScreenDesk.png": [
+   "O3"
+  ],
+  "BreadCrumbsDesk.png": [
+   "O3"
+  ]
+ },
+ "6396700fea19ac7ed845db32": {
+  "Apartment8KitchenMap.png": [
+   "O0",
+   "O1"
+  ],
+  "ConcordiaBuilding.png": [
+   "O0"
+  ],
+  "SpotterApartment8Outside.png": [
+   "O0"
+  ],
+  "HouseNr1Staircase.png": [
+   "O0"
+  ],
+  "HouseNr1Hallway.png": [
+   "O0"
+  ],
+  "Apartment8Door.png": [
+   "O0"
+  ],
+  "ConcordiaSnipingSpot.png": [
+   "O0",
+   "O1"
+  ],
+  "SpotterTable.png": [
+   "O1"
+  ],
+  "Apartment10Map.png": [
+   "O2",
+   "O3"
+  ],
+  "Apartment10Outside.png": [
+   "O2"
+  ],
+  "UnderpassKeyMap.png": [
+   "O2"
+  ],
+  "UnderpassKeyUnderpass.png": [
+   "O2"
+  ],
+  "UnderpassKeyWay1.png": [
+   "O2"
+  ],
+  "UnderpassKeyWay2.png": [
+   "O2"
+  ],
+  "UnderpassKeyWay3.png": [
+   "O2"
+  ],
+  "UnderpassKeyWay4.png": [
+   "O2"
+  ],
+  "UnderpassKeyStairsDoor.png": [
+   "O2"
+  ],
+  "UnderpassKeyUnderpassLockedDoor.png": [
+   "O2"
+  ],
+  "UnderpassKeyDoor.png": [
+   "O2"
+  ],
+  "Apt10Bedroom.png": [
+   "O2",
+   "O3"
+  ],
+  "SpotterPrimorsky.png": [
+   "O3"
+  ]
+ },
+ "63967028c4a91c5cb76abd81": {
+  "TroubleMap.png": [
+   "O0",
+   "O5",
+   "O6"
+  ],
+  "TroubleBigCity_MarkSpot.png": [
+   "O0",
+   "O5"
+  ],
+  "TroubleBigCity_MarkSpot2.png": [
+   "O0",
+   "O5"
+  ]
+ },
+ "639dbaf17c898a131e1cffff": {
+  "PineWoodHotelNorthMap.png": [
+   "O0"
+  ],
+  "PineWoodHotelNorthBuilding.png": [
+   "O0"
+  ],
+  "HotelRoom206Door.png": [
+   "O0"
+  ],
+  "DeadDebtor.png": [
+   "O0"
+  ],
+  "Chekannaya15Map.png": [
+   "O1"
+  ],
+  "Chekannaya15ApartmentBuilding.png": [
+   "O1"
+  ],
+  "WesternStaircaseMap.png": [
+   "O1"
+  ],
+  "WesternStaircaseWay1.png": [
+   "O1"
+  ],
+  "WesternStaircaseWay2.png": [
+   "O1"
+  ],
+  "WesternStaircaseWay3.png": [
+   "O1"
+  ],
+  "Chekannaya15ApartmentBuildingWesternStairs.png": [
+   "O1"
+  ],
+  "Chek15TFHallway.png": [
+   "O1"
+  ],
+  "Chek15SFHallway.png": [
+   "O1"
+  ],
+  "Chek15AptDoor.png": [
+   "O1"
+  ]
+ },
+ "63a88045abf76d719f42d715": {
+  "TheDeliciousSausageMap.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3"
+  ],
+  "TheDeliciousSausageShestyorochka.png": [
+   "O0"
+  ],
+  "SparjaStoreOutside.png": [
+   "O1"
+  ],
+  "TheDeliciousSausagePinewoodSparja.png": [
+   "O2"
+  ],
+  "TheDeliciousSausageGoshanOutside.png": [
+   "O3"
+  ],
+  "TheDeliciousSausageGoshanInside.png": [
+   "O3"
+  ]
+ },
+ "64f3176921045e77405d63b5": {
+  "Ambulances-streets.png": [
+   "O0"
+  ],
+  "Ambulances_Again_7.png": [
+   "O0"
+  ],
+  "Ambulances_Again_7_Location.png": [
+   "O0"
+  ],
+  "Ambulances_Again_4.png": [
+   "O0"
+  ],
+  "Ambulances_Again_4_Location.png": [
+   "O0"
+  ],
+  "Ambulances_Again_1.png": [
+   "O0"
+  ],
+  "Ambulances_Again_1.1.png": [
+   "O0"
+  ],
+  "Ambulances_Again_3.png": [
+   "O0"
+  ],
+  "Ambulances_Again_3_Location.png": [
+   "O0"
+  ],
+  "Ambulances_Again_2.png": [
+   "O0"
+  ],
+  "Ambulances_Again_2.1.png": [
+   "O0"
+  ],
+  "Ambulances_Again_5.png": [
+   "O0"
+  ],
+  "Ambulances_Again_5.1.png": [
+   "O0"
+  ],
+  "Ambulances_Again_8.png": [
+   "O0"
+  ],
+  "Ambulances_Again_8.1.png": [
+   "O0"
+  ],
+  "Ambulances_Again_6.png": [
+   "O0"
+  ],
+  "Ambulances_Again_6_Location.png": [
+   "O0"
+  ]
+ },
+ "64f731ab83cfca080a361e42": {
+  "StreetsOfTarkovVetClinic.png": [
+   "O0"
+  ],
+  "VetClinic1.png": [
+   "O0"
+  ],
+  "VetClinic2.png": [
+   "O0"
+  ],
+  "VetClinic3.png": [
+   "O0"
+  ],
+  "VetClinic4.png": [
+   "O0"
+  ],
+  "X-ray_key_room_onmap.png": [
+   "O1"
+  ],
+  "X-ray_clinic_outside.png": [
+   "O1"
+  ],
+  "X-ray_key_upstairs.png": [
+   "O1"
+  ],
+  "X-ray_key_path1.png": [
+   "O1"
+  ],
+  "X-ray_key_locked_door.png": [
+   "O1"
+  ],
+  "Pets_Won%27t_Need_It_Part_2_Map.png": [
+   "O2",
+   "O3",
+   "O4"
+  ],
+  "Pets_Won%27t_Need_It_Part_2_Pharmacy_3.png": [
+   "O2"
+  ],
+  "Pets_Won%27t_Need_It_Part_2_Pharmacy_2.png": [
+   "O3"
+  ],
+  "Pets_Won%27t_Need_It_Part_2_Pharmacy_1.png": [
+   "O4"
+  ]
+ },
+ "657315e1dccd301f1301416a": {
+  "Luxurious_Life_Map.png": [
+   "O0",
+   "O1"
+  ],
+  "ASAP_Winery.png": [
+   "O0",
+   "O1"
+  ],
+  "Luxurious_Life_Spawn_3.png": [
+   "O1"
+  ],
+  "Luxurious_Life_Spawn_1.png": [
+   "O1"
+  ],
+  "Luxurious_Life_Spawn_2.png": [
+   "O1"
+  ],
+  "Luxurious_Life_Spawn_4_5_6.png": [
+   "O1"
+  ]
+ },
+ "6573387d0b26ed4fde798de3": {
+  "Pets_Won%27t_Need_It_Part_2_Map.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Pets_Won%27t_Need_It_Part_2_Pharmacy_3.png": [
+   "O0"
+  ],
+  "Pets_Won%27t_Need_It_Part_2_Pharmacy_2.png": [
+   "O1"
+  ],
+  "Pets_Won%27t_Need_It_Part_2_Pharmacy_1.png": [
+   "O2"
+  ]
+ },
+ "66631493312343839d032d22": {
+  "SmallBusinessPart3ChurchMap.png": [
+   "O0"
+  ],
+  "SmallBusinessPart3Church.png": [
+   "O0"
+  ],
+  "ShorelineChurchInside.png": [
+   "O0"
+  ],
+  "HealthResortEastWing.jpg": [
+   "O1"
+  ],
+  "HealthResortEastWingMarkedRoom.png": [
+   "O1"
+  ],
+  "Shorelineritualsite.png": [
+   "O1"
+  ],
+  "WoodsRitualSpotMapMarked.png": [
+   "O2",
+   "O3"
+  ],
+  "The_second_ritual_spot_in_the_Woods.png": [
+   "O2"
+  ],
+  "CheckPointViewToMarkedCircle.png": [
+   "O3"
+  ],
+  "MarkedCircleViewToCheckpoint.png": [
+   "O3"
+  ],
+  "Cultists_ritual_place.png": [
+   "O3"
+  ]
+ },
+ "66aa58245ab22944110db6e9": {
+  "MarathonNewDayNewPathsGZMap.png": [
+   "O1"
+  ],
+  "MarathonNewDayNewPathsGZ.png": [
+   "O1"
+  ],
+  "Ground_Zero_to_Streets_of_Tarkov_Map.png": [
+   "O2"
+  ],
+  "Ground_Zero_to_Street_of_Tarkov.png": [
+   "O2"
+  ]
+ },
+ "66aa74571e5e199ecd094f18": {
+  "MarathonSecretsOfPolikhimCustomsMap.png": [
+   "O1"
+  ],
+  "MarathonSecretsOfPolikhimCustoms1.png": [
+   "O1"
+  ],
+  "MarathonSecretsOfPolikhimCustoms2.png": [
+   "O1"
+  ],
+  "MarathonSecretsOfPolikhimCustoms3.png": [
+   "O1"
+  ],
+  "MarathonSecretsOfPolikhimCustoms4.png": [
+   "O1"
+  ],
+  "MarathonSecretsOfPolikhimCustoms5.png": [
+   "O1"
+  ],
+  "MarathonSecretsOfPolikhimCustoms6.png": [
+   "O1"
+  ],
+  "CustomsTransitToFactoryMap.png": [],
+  "CustomsTransitToFactory.png": [],
+  "MarathonSecretsOfPolikhimFactoryMap.jpg": [
+   "O2"
+  ],
+  "MarathonSecretsOfPolikhimFactory1.png": [
+   "O2"
+  ],
+  "MarathonSecretsOfPolikhimFactory2.png": [
+   "O2"
+  ]
+ },
+ "66ab970848ddbe9d4a0c49a8": {
+  "MarathonSpecialCommsWoodsMap.png": [
+   "O0"
+  ],
+  "MarathonSpecialCommsWoods.png": [
+   "O0"
+  ],
+  "WoodsTransitToReserve.png": [
+   "O1"
+  ],
+  "WoodsTransitToReserve2.png": [
+   "O1"
+  ],
+  "MarathonSpecialCommsReserveMap.png": [
+   "O2"
+  ],
+  "MarathonSpecialCommsReserve.png": [
+   "O2"
+  ]
+ },
+ "66b38c7bf85b8bf7250f9cb6": {
+  "Rough_Tarkov_Woods_Map.png": [
+   "O0"
+  ],
+  "RoughTarkovSandbags.png": [
+   "O0"
+  ],
+  "Woods_USEC_camp_northwest_approach_mines.png": [
+   "O0"
+  ],
+  "Woods_USEC_camp_northwest_approach_mines2.png": [
+   "O0"
+  ],
+  "Woods_USEC_camp_west_approach_mines2.png": [
+   "O0"
+  ],
+  "Woods_USEC_camp_west_approach_mines.png": [
+   "O0"
+  ],
+  "Rough_Tarkov_Ground_Zero_Map.png": [
+   "O1"
+  ],
+  "Tarbank_Building.png": [
+   "O1"
+  ],
+  "Rough_Tarkov_Ground_Zero_Approach1.png": [
+   "O1"
+  ],
+  "Rough_Tarkov_Ground_Zero_Approach3.png": [
+   "O1"
+  ],
+  "Rough_Tarkov_Ground_Zero_Approach2.png": [
+   "O1"
+  ]
+ },
+ "673f2cd5d3346c2167020484": {
+  "Shipping_Delay_Part_2_location.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Warehouse_Depot_Woods.png": [
+   "O1"
+  ],
+  "A_Helping_Hand_Building.png": [
+   "O0"
+  ],
+  "Garages_Depot_Woods.png": [
+   "O2"
+  ],
+  "WoodsTrainDepotExit.png": [],
+  "WoodsTrainDepotExit2.png": []
+ },
+ "673f4e956f1b89c7bc0f56ef": {
+  "HotWheelsMap.png": [
+   "O0"
+  ],
+  "SurplusGoodsGarage.png": [
+   "O0"
+  ],
+  "HotWheelsLocation.png": [
+   "O0"
+  ]
+ },
+ "673f6027352b4da8e00322d2": {
+  "WoodsTransitToReserve.png": [
+   "O1"
+  ],
+  "WoodsTransitToReserve2.png": [
+   "O1"
+  ]
+ },
+ "673f61a066e6a521aa04b62b": {
+  "Airspace_Control_Center_Map.jpg": [
+   "O0"
+  ],
+  "Order_From_Outside_Room_Map.png": [
+   "O0"
+  ],
+  "Order_From_Outside_Door.png": [
+   "O0"
+  ],
+  "Order_From_Outside_Spawn_1.png": [
+   "O0"
+  ],
+  "Order_From_Outside_Spawn_2.png": [
+   "O0"
+  ],
+  "Order_From_Outside_Spawn_3.png": [
+   "O0"
+  ],
+  "Protect_the_Sky_Map.png": [
+   "O1"
+  ],
+  "Order_From_Outside_Stashing_Location.png": [
+   "O1"
+  ]
+ },
+ "674492b6909d2013670a347a": {
+  "Ask_for_Directions_Map.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3"
+  ],
+  "Ask_for_Directions_Plant_1.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3"
+  ],
+  "Ask_for_Directions_Plant_2.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3"
+  ],
+  "Ask_for_Directions_Plant_3.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3"
+  ],
+  "Ask_for_Directions_Plant_4.png": [
+   "O0",
+   "O1",
+   "O2",
+   "O3"
+  ]
+ },
+ "64ee9df4496db64f9b7a4432": {},
+ "6572e876dc0d635f633a5714": {},
+ "65733403eefc2c312a759ddb": {},
+ "6573397ef3f8344c4575cd87": {},
+ "669fa38fad7f1eac2607ed46": {},
+ "669fa3910c828825de06d69f": {},
+ "669fa39c64ea11e84c0642a6": {},
+ "66ab9da7eb102b9bcd08591c": {},
+ "673f348dd3346c21670217e7": {},
+ "6740a02a69a58fceba0ff399": {},
+ "6744aca8d3346c216702c583": {
+  "Discombobulate_Map.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Discombobulate_Spot_1.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Discombobulate_Spot_2.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Discombobulate_Spot_3.png": [
+   "O0",
+   "O1",
+   "O2"
+  ]
+ },
+ "6744af0969a58fceba101fed": {
+  "Provide_Viewership_map.png": [
+   "O0"
+  ],
+  "Provide_Viewership_building.png": [
+   "O0"
+  ],
+  "TPoI_Letter_Office.png": [
+   "O0"
+  ],
+  "TPoI_Spawn_1.png": [
+   "O0"
+  ],
+  "TPoI_Spawn_2.png": [
+   "O0"
+  ],
+  "TPoI_Spawn_3.png": [
+   "O0"
+  ],
+  "TPoI_Spawn_4.png": [
+   "O0"
+  ],
+  "TPoI_Spawn_5.png": [
+   "O0"
+  ],
+  "CustomsTransitToReserveMap.png": [
+   "O1"
+  ],
+  "CustomsTransitToReserve.png": [
+   "O1"
+  ],
+  "TPoI_Letter_Map_Reserve.jpg": [
+   "O2"
+  ],
+  "TPoI_Reserve_Stashing_Location.png": [
+   "O2"
+  ],
+  "ReserveTransitToWoodsMap.png": [
+   "O3"
+  ],
+  "ReserveTransitToWoods.png": [
+   "O3"
+  ],
+  "WoodsTransitToLighthouseMap.jpg": [
+   "O5"
+  ],
+  "WoodsTransitToLighthouse.png": [
+   "O5"
+  ],
+  "TPoI_Flares_Map.png": [
+   "O6",
+   "O7"
+  ]
+ },
+ "6745cbee909d2013670a4a55": {
+  "Provide_Viewership_map.png": [
+   "O0"
+  ],
+  "Provide_Viewership_building.png": [
+   "O0"
+  ],
+  "TPoI_Letter_Office.png": [
+   "O0"
+  ],
+  "TPoI_Spawn_1.png": [
+   "O0"
+  ],
+  "TPoI_Spawn_2.png": [
+   "O0"
+  ],
+  "TPoI_Spawn_3.png": [
+   "O0"
+  ],
+  "TPoI_Spawn_4.png": [
+   "O0"
+  ],
+  "TPoI_Spawn_5.png": [
+   "O0"
+  ],
+  "CustomsTransitToReserveMap.png": [
+   "O1"
+  ],
+  "CustomsTransitToReserve.png": [
+   "O1"
+  ],
+  "TPoI_Letter_Map_Reserve.jpg": [
+   "O2"
+  ],
+  "TPoI_Reserve_Stashing_Location.png": [
+   "O2"
+  ],
+  "ReserveTransitToWoodsMap.png": [
+   "O3"
+  ],
+  "ReserveTransitToWoods.png": [
+   "O3"
+  ],
+  "WoodsTransitToLighthouseMap.jpg": [
+   "O5"
+  ],
+  "WoodsTransitToLighthouse.png": [
+   "O5"
+  ],
+  "TPoI_Flares_Map.png": [
+   "O6",
+   "O7"
+  ]
+ },
+ "67460662d0fbbc74ca0f7229": {
+  "CustomsTransitToReserveMap.png": [
+   "O0"
+  ],
+  "CustomsTransitToReserve.png": [
+   "O0"
+  ],
+  "ReserveTransitToWoodsMap.png": [
+   "O1"
+  ],
+  "ReserveTransitToWoods.png": [
+   "O1"
+  ],
+  "WoodsTransitToLighthouseMap.jpg": [
+   "O2"
+  ],
+  "WoodsTransitToLighthouse.png": [
+   "O2"
+  ]
+ },
+ "675c03d1f7da9792a405549a": {
+  "Abandoned_Cargo_Map.png": [
+   "O0",
+   "O1"
+  ],
+  "Abandoned_Cargo_1.png": [
+   "O0",
+   "O1"
+  ],
+  "Warehouse17Map.png": [
+   "O0",
+   "O3",
+   "O6",
+   "O7"
+  ],
+  "Warehouse17.png": [
+   "O0",
+   "O3",
+   "O6",
+   "O7"
+  ],
+  "Abandoned_Cargo_7.png": [
+   "O0",
+   "O7"
+  ],
+  "Abandoned_Cargo_3.png": [
+   "O0",
+   "O3"
+  ],
+  "Abandoned_Cargo_6.png": [
+   "O0",
+   "O6"
+  ],
+  "BoilerBuildingMap.png": [
+   "O0",
+   "O2",
+   "O4",
+   "O5"
+  ],
+  "BoilerBuilding.png": [
+   "O0",
+   "O2",
+   "O4",
+   "O5"
+  ],
+  "Abandoned_Cargo_5.png": [
+   "O0",
+   "O5"
+  ],
+  "Abandoned_Cargo_2.png": [
+   "O0",
+   "O2"
+  ],
+  "Abandoned_Cargo_4.png": [
+   "O0",
+   "O4"
+  ]
+ },
+ "67a09636b8725511260bc421": {
+  "Shady_Contractor_Map.png": [
+   "O0",
+   "O1"
+  ],
+  "Shady_Contractor_Car.png": [
+   "O0",
+   "O1"
+  ],
+  "Shady_Contractor_Spawn_1.png": [
+   "O1"
+  ],
+  "Shady_Contractor_Spawn_2.png": [
+   "O1"
+  ],
+  "Shady_Contractor_Spawn_3.png": [
+   "O1"
+  ]
+ },
+ "67a0964e972c11a3f507731b": {
+  "Needle_in_a_Haystack_Ground_Zero_Map.png": [
+   "O0"
+  ],
+  "Needle_in_a_Haystack_Ground_Zero_Courtyard.png": [
+   "O0"
+  ],
+  "Needle_in_a_Haystack_Interchange_Map.png": [
+   "O1",
+   "O2"
+  ],
+  "Needle_in_a_Haystack_Interchange_Track.png": [
+   "O1"
+  ],
+  "Needle_in_a_Haystack_Interchange_Playground.png": [
+   "O2"
+  ],
+  "Needle_in_a_Haystack_Streets_of_Tarkov_Map.png": [
+   "O3"
+  ],
+  "Needle_in_a_Haystack_Streets_of_Tarkov_Playground.png": [
+   "O3"
+  ],
+  "Needle_in_a_Haystack_Shoreline_Map.png": [
+   "O4",
+   "O5"
+  ],
+  "Needle_in_a_Haystack_Shoreline_Playground.png": [
+   "O5"
+  ],
+  "Needle_in_a_Haystack_Shoreline_Construction.png": [
+   "O4"
+  ]
+ },
+ "67a096577e86e067eb045733": {
+  "Vitamins1_Shoreline_outdoor_map.png": [
+   "O0",
+   "O1"
+  ],
+  "The_Labyrinth_Transit_Map.png": [
+   "O1"
+  ],
+  "The_Labyrinth_Transit_Door.png": [
+   "O1"
+  ]
+ },
+ "69c27158e350f01390049e77": {
+  "WoodsTransitToLighthouseMap.jpg": [
+   "O0",
+   "O1"
+  ],
+  "WoodsTransitToLighthouse.png": [
+   "O0",
+   "O1"
+  ],
+  "LighthouseTransitToWoodsMap.png": [
+   "O2"
+  ],
+  "LighthouseTransitToWoods.png": [
+   "O2"
+  ]
+ },
+ "6a7ae35b2dbf91eb050af95a": {
+  "To_the_Light_Getting_Acquainted_Chalet_Map.png": [
+   "O4",
+   "O5"
+  ],
+  "Invasive_Therapy_Med_bay_Stash.png": [
+   "O4"
+  ],
+  "Invasive_Therapy_Guest_hall_Stash.png": [
+   "O5"
+  ],
+  "Invasive_Therapy_Invasive_Therapy_Map_2.png": [
+   "O6"
+  ],
+  "Invasive_Therapy_Ammo_stockpile_Stash.png": [
+   "O6"
+  ]
+ },
+ "6a7b0df31ea00c9a980e2742": {
+  "Sisyphus_Case_1_Spawn_Map.png": [
+   "O2"
+  ],
+  "ZB-014-Bunker.png": [
+   "O2"
+  ],
+  "Sisyphus_Case_1_Spawn.png": [
+   "O2"
+  ],
+  "Sisyphus_Case_1_Stashing_Map.png": [
+   "O0"
+  ],
+  "Sisyphus_Case_1_Stashing.png": [
+   "O0"
+  ],
+  "Sisyphus_Case_2_Spawn_Map.png": [
+   "O3"
+  ],
+  "Sisyphus_Case_2_Spawn.png": [
+   "O3"
+  ],
+  "Sisyphus_Case_2_Stashing_Map.jpg": [
+   "O1"
+  ],
+  "Sisyphus_Case_2_Stashing.png": [
+   "O1"
+  ]
+ },
+ "69e5583240c3e6c8ba0edbd5": {
+  "Wiring_the_Vessel_Leading_to_engine_Map.jpg": [
+   "O0"
+  ],
+  "Wiring_the_Vessel_Leading_to_engine_Equipment.png": [
+   "O0"
+  ],
+  "Wiring_the_Vessel_Near_the_storage_Map.jpg": [
+   "O2"
+  ],
+  "Wiring_the_Vessel_Near_the_storage_Equipment.png": [
+   "O2"
+  ],
+  "Peaceful_Atom_Automation_Room_Map.jpg": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Peaceful_Atom_Automation_Room_Code_Room.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Peaceful_Atom_Automation_Room_Code.png": [
+   "O0",
+   "O1",
+   "O2"
+  ],
+  "Wiring_the_Vessel_Under_engine_Entry.png": [
+   "O1"
+  ],
+  "Wiring_the_Vessel_Under_engine_Equipment.png": [
+   "O1"
+  ],
+  "Peaceful_Atom_Control_Room_Map.jpg": [
+   "O3"
+  ],
+  "Wiring_the_Vessel_Control_Room.png": [
+   "O3"
+  ],
+  "Wiring_the_Vessel_Control_Room_Placement.png": [
+   "O3"
+  ]
+ },
+ "683425dd8f5b18d29a05d9d1": {
+  "DormOverseerKeyMap.png": [
+   "O0",
+   "O1"
+  ],
+  "DormOverseerKeyDoor.png": [
+   "O0",
+   "O1"
+  ],
+  "CompromisingInformationLocation.png": [
+   "O1"
+  ]
+ },
+ "683427418f5b18d29a05d9e3": {
+  "DormOverseerKeyMap.png": [
+   "O0",
+   "O1"
+  ],
+  "DormOverseerKeyDoor.png": [
+   "O0",
+   "O1"
+  ],
+  "CompromisingInformationLocation.png": [
+   "O1"
+  ]
+ },
+ "6834233fecd5cf3a440d855b": {
+  "DormOverseerKeyMap.png": [
+   "O0",
+   "O2"
+  ],
+  "DormOverseerKeyDoor.png": [
+   "O0",
+   "O2"
+  ]
+ },
+ "story-tour": {
+  "Tutorial_By_xTycho.png": [],
+  "Tour_Shoreline_Map.png": [
+   "O24"
+  ],
+  "Tour_Shoreline_Tower.png": [
+   "O24"
+  ],
+  "Tour_Shoreline_Intercom.png": [
+   "O24"
+  ],
+  "StreetsTransitToLabsMap.png": [
+   "O37"
+  ],
+  "StreetsTransitToLabsUpstairs.png": [
+   "O37"
+  ],
+  "StreetsTransitToLabsDownstairs.png": [
+   "O37"
+  ],
+  "FactoryTransitToLabsMap.png": [
+   "O38"
+  ],
+  "FactoryTransitToTheLab2.png": [
+   "O38"
+  ],
+  "FactoryTransitToTheLab.png": [
+   "O38"
+  ],
+  "Lab_Managers_Location.png": [
+   "O34"
+  ],
+  "Lab_Managers_Bridge.png": [
+   "O34"
+  ],
+  "LabsServerRoomMap.png": [
+   "O33"
+  ],
+  "LabsServerRoom.png": [
+   "O33"
+  ],
+  "Tour_The_Lab_Escape_path_Map.png": [
+   "O32"
+  ],
+  "Tour_The_Lab_Escape_path_1.png": [
+   "O32"
+  ],
+  "Tour_The_Lab_Escape_path_2.png": [
+   "O32"
+  ]
+ },
+ "story-falling-skies": {
+  "Falling_Skies_Map.jpg": [
+   "O10"
+  ],
+  "Woods_Showcase_12.png": [
+   "O10"
+  ],
+  "FallingSkiesGWagonUSBMap.png": [
+   "O2",
+   "O3"
+  ],
+  "FallingSkiesGWagonUSBSpawn.png": [
+   "O2",
+   "O3"
+  ],
+  "FallingSkiesFlightRecorderSpawn.png": [
+   "O10"
+  ],
+  "FallingSkiesFlightRecorderSpawnCloseUp.png": [
+   "O10"
+  ],
+  "FallingSkiesFlightRecorderStashMap.png": [
+   "O11"
+  ],
+  "FallingSkiesFlightRecorderStashLocation.png": [
+   "O11"
+  ],
+  "FallingSkiesElektroniksUSBMap.png": [
+   "O20",
+   "O21"
+  ],
+  "Chairman_house.png": [
+   "O20",
+   "O21"
+  ],
+  "FallingSkiesElektroniksTranscript.png": [
+   "O20"
+  ],
+  "FallingSkiesElektroniksFlashDrive.png": [
+   "O21"
+  ],
+  "FallingSkiesArmoredCaseSpawn.png": [
+   "O25"
+  ],
+  "FallingSkiesKermanNoteSpawn.png": [
+   "O27"
+  ]
+ },
+ "6745fdddd3346c216702e0bf": {},
+ "674600a366e6a521aa05eb66": {},
+ "674602307e3818d5bb069489": {},
+ "675c1ec7a46173572a0bf20a": {},
+ "675c3507a06634b5110e3c18": {},
+ "67a09673972c11a3f507731d": {},
+ "68ee1c18b4e5bc9a68018cd7": {},
+ "6a7aef2360157cb5e3029a5f": {},
+ "68341b407559f4e6d50bc0ce": {},
+ "story-batya": {
+  "EasyMoneyPart1CustomsMap1.png": [
+   "O0"
+  ],
+  "ZB-013_Building.png": [
+   "O0"
+  ],
+  "Batya_Customs_Activation_Location.png": [
+   "O0"
+  ],
+  "RadarStationGuide.jpg": [
+   "O0"
+  ],
+  "Reserve_Showcase_4.png": [
+   "O0"
+  ],
+  "SpaTour5BunkerMap.jpg": [
+   "O0",
+   "O49"
+  ],
+  "The_bunker_by_rock_passage.png": [
+   "O0",
+   "O49"
+  ],
+  "Batya_Woods_Activation_Map.png": [
+   "O0"
+  ],
+  "Batya_Woods_Activation_Location.png": [
+   "O0"
+  ],
+  "Hobby_Club_Customs_Stashing_Map.png": [
+   "O0"
+  ],
+  "Hobby_Club_Customs_Stashing_Location.png": [
+   "O0"
+  ],
+  "Bogatyrs_patch_Customs_spawn.png": [
+   "O1"
+  ],
+  "Bogatyrs_patch_Woods_map.jpg": [
+   "O1"
+  ],
+  "Bogatyrs_patch_Woods_BRDM.png": [
+   "O1"
+  ],
+  "Bogatyrs_patch_Woods_spawn.png": [
+   "O1"
+  ],
+  "Airspace_Control_Center_Map.jpg": [
+   "O1"
+  ],
+  "Bogatyrs_patch_Reserve_spawn.png": [
+   "O1"
+  ],
+  "Bogatyrs_patch_Lighthouse_map.png": [
+   "O1",
+   "O48"
+  ],
+  "Bogatyrs_patch_Lighthouse_BEAR_camp.png": [
+   "O1",
+   "O48"
+  ],
+  "Bogatyrs_patch_Lighthouse_spawn.png": [
+   "O1"
+  ],
+  "Moreman%27s_dogtag_Spawn.png": [
+   "O2",
+   "O15"
+  ],
+  "Batya_Carousel_Outpost_Voevoda%27s_audio_recorder.png": [
+   "O5",
+   "O24",
+   "O28"
+  ],
+  "Gnezdo_outpost_Map.jpg": [
+   "O8",
+   "O11"
+  ],
+  "Gnezdo_outpost.png": [
+   "O8",
+   "O11"
+  ],
+  "Gnezdo_-_Audio_tape_with_report.png": [
+   "O11"
+  ],
+  "Gnezdo_-_Moreman%27s_personal_file.png": [
+   "O11"
+  ],
+  "Gnezdo_-_Map_with_triangulated_signal.png": [
+   "O11",
+   "O25"
+  ],
+  "Gnezdo_-_Bogatyr_squad_operations_report.png": [
+   "O11",
+   "O9",
+   "O10",
+   "O12",
+   "O13",
+   "O16",
+   "O22"
+  ],
+  "Gnezdo_-_First_piece_of_code_note.png": [
+   "O11",
+   "O25"
+  ],
+  "Gnezdo_-_BEAR_note_from_the_outpost_behind_Ultra.png": [
+   "O11"
+  ],
+  "Batya_Woods_Ambush_Spot_Map.png": [
+   "O14",
+   "O15",
+   "O17"
+  ],
+  "Batya_Woods_Ambush_Spot.png": [
+   "O14",
+   "O15",
+   "O17"
+  ],
+  "Moreman%27s_phone_Spawn.png": [
+   "O17",
+   "O18"
+  ],
+  "Ryabina_outpost_location.png": [
+   "O21"
+  ],
+  "Batya_Ryabina_Camp_Note_1.png": [
+   "O21"
+  ],
+  "Batya_Ryabina_Camp_Note_2.png": [
+   "O21"
+  ],
+  "Carousel_outpost.jpg": [
+   "O23"
+  ],
+  "Carousel_outpost.png": [
+   "O23"
+  ],
+  "Batya_Carousel_Outpost_Voevoda%27s_thoughts_audio_tape.png": [
+   "O24",
+   "O28"
+  ],
+  "Batya_Carousel_Outpost_Voevoda%27s_personal_file.png": [
+   "O24",
+   "O28"
+  ],
+  "Batya_Contact_Voevoda_via_Intel_Center_3_1.png": [
+   "O24"
+  ],
+  "Batya_Contact_Voevoda_via_Intel_Center_3_2.png": [
+   "O24"
+  ],
+  "Batya_Contact_Voevoda_via_Intel_Center_3_3.png": [
+   "O24"
+  ],
+  "Second_piece_of_code_note_Spawn.png": [
+   "O25"
+  ],
+  "Batya_Carousel_Outpost_Taran%27s_postcard.png": [
+   "O26"
+  ],
+  "Batya_Carousel_Outpost_Taran%27s_personal_file.png": [
+   "O26"
+  ],
+  "Strelets_Amulet_1.png": [
+   "O27"
+  ],
+  "Strelets_Amulet_2.png": [
+   "O27"
+  ],
+  "Batya_Carousel_Outpost_Strelets%27_personal_file.png": [
+   "O27"
+  ],
+  "Batya_Carousel_Outpost_Strelets%27_note.png": [
+   "O27"
+  ],
+  "LightkeeperMap.png": [
+   "O35"
+  ],
+  "Lightkeeper_Area_Door.png": [
+   "O35"
+  ],
+  "Lighthouse_agent_network_documents.png": [
+   "O48"
+  ],
+  "Voevoda%27s_photo_with_a_cultist_mark_Spawn.png": [
+   "O51",
+   "O52"
+  ],
+  "Note_mentioning_General_Woods_Spawn.png": [
+   "O51",
+   "O53"
+  ],
+  "TheCultPart2DormsMap.png": [
+   "O51",
+   "O55"
+  ],
+  "Marked_Room_Door.png": [
+   "O51",
+   "O55"
+  ],
+  "Dorm_314_general_note.png": [
+   "O51",
+   "O55"
+  ],
+  "WetJob2IslandMap.png": [
+   "O52"
+  ],
+  "Cultists_ritual_place.png": [
+   "O52",
+   "O53",
+   "O54"
+  ],
+  "WoodsSouthernMarkedCircleMap.png": [
+   "O53"
+  ]
+ },
+ "story-the-unheard": {
+  "BeyondMeat2.png": [
+   "O3"
+  ],
+  "TerraGroup_security_post_Building.png": [
+   "O3"
+  ],
+  "TerraGroup_security_armory_Way_1.png": [
+   "O3"
+  ],
+  "TerraGroup_security_armory_Way_2.png": [
+   "O3"
+  ],
+  "The_Unheard_Activation_Location_1.png": [
+   "O3"
+  ],
+  "Saving_the_Mole_Map.png": [
+   "O3"
+  ],
+  "Ground_Zero_TerraGroup_Building.png": [
+   "O3"
+  ],
+  "Scientist%27s_Office.png": [
+   "O3"
+  ],
+  "The_Unheard_Activation_Location_3.png": [
+   "O3"
+  ],
+  "TerraGroup_storage_room_keycard_map.png": [
+   "O3"
+  ],
+  "TerraGroup_storage_room_keycard_door.png": [
+   "O3"
+  ],
+  "Order_from_TerraGroup_Worldwide_headquarters_spawn.png": [
+   "O3"
+  ],
+  "Copy_of_report_for_TG_Worldwide_spawn.png": [
+   "O3"
+  ],
+  "Beyond_the_Red_Meat_2_31.png": [
+   "O4"
+  ],
+  "The_Unheard_Activation_Location_2.png": [
+   "O4"
+  ],
+  "The_Unheard_Changes_and_Fax_Map.png": [
+   "O4"
+  ],
+  "The_Unheard_Changes_Lab.png": [
+   "O4"
+  ],
+  "The_Unheard_Changes.png": [
+   "O4"
+  ],
+  "The_Unheard_Fax.png": [
+   "O4"
+  ],
+  "The_Unheard_Transport_Log_Map.jpg": [
+   "O4"
+  ],
+  "Location_of_unheard_log.png": [
+   "O4"
+  ],
+  "Guard_post_note_spawn.png": [
+   "O4"
+  ],
+  "Rzhevsky%27s_Service_Vehicle_on_map.png": [
+   "O6",
+   "O8",
+   "O10"
+  ],
+  "Rzhevsky%27s_Service_Vehicle.png": [
+   "O6",
+   "O8",
+   "O10"
+  ],
+  "HDD_in_Rzhevsky%27s_Service_Vehicle.png": [
+   "O8",
+   "O10"
+  ],
+  "The_Unheard_Fuel_catalyst_test_report_Spawn_2.png": [
+   "O11"
+  ],
+  "The_Unheard_Fuel_catalyst_test_report_Spawn_1.png": [
+   "O11"
+  ],
+  "The_Unheard_Burnt_document_Spawn_1.png": [
+   "O11"
+  ],
+  "The_Unheard_Burnt_document_Spawn_2.png": [
+   "O11"
+  ],
+  "Fragment_of_an_unknown_document_spawn.png": [
+   "O11"
+  ],
+  "APsWhiteboardAndTapes.png": [
+   "O15",
+   "O17"
+  ],
+  "The_Unheard_AP_Whiteboard_1.png": [
+   "O15"
+  ],
+  "The_Unheard_AP_Whiteboard_2.png": [
+   "O15"
+  ],
+  "Location_of_first_tapeunheardlabs.png": [
+   "O15",
+   "O17"
+  ],
+  "Location_of_second_tapetheunheardlabs.png": [
+   "O15",
+   "O17"
+  ],
+  "HealthResortEastWing.jpg": [
+   "O16",
+   "O21"
+  ],
+  "Sliderkey_flash_drive_marked_with_A.P._spawn.png": [
+   "O21"
+  ],
+  "TerraGroup_Corporate_Apartment_Key_Spawn.png": [
+   "O28"
+  ],
+  "Cardinal_apartment_complex_Map.jpg": [
+   "O28",
+   "O29",
+   "O30"
+  ],
+  "Cardinal_apartment_complex.png": [
+   "O28",
+   "O29",
+   "O30"
+  ],
+  "TerraGroup_corporate_apartment_key_door.png": [
+   "O28",
+   "O29"
+  ],
+  "TerraGroup_corporate_apartment_key_inside_4.png": [
+   "O30"
+  ],
+  "Document_mentioning_a_protocol_spawn.png": [
+   "O33"
+  ],
+  "Document_mentioning_the_Warden_spawn.png": [
+   "O12"
+  ]
+ },
+ "story-blue-fire": {
+  "CarDealerMap.png": [
+   "O2"
+  ],
+  "LexOsClaymoreOverview.png": [
+   "O2"
+  ],
+  "CarDealer.png": [
+   "O2"
+  ],
+  "CarDealerClosedSectionDoor.png": [
+   "O2"
+  ],
+  "Blue_Fire_Device_Fragment_inside_LexOS_Sect..png": [
+   "O2"
+  ],
+  "Mysterious_marked_key_onmap.png": [
+   "O2"
+  ],
+  "Mysterious_key_building_entrance.png": [
+   "O2"
+  ],
+  "Mysterious_key_path1.png": [
+   "O2"
+  ],
+  "Mysterious_key_path2.png": [
+   "O2"
+  ],
+  "Mysterious_key_path3.png": [
+   "O2"
+  ],
+  "Mysterious_key_room_door.png": [
+   "O2"
+  ],
+  "Chek13_MRK_img.png": [
+   "O2"
+  ],
+  "Labs_Server_Room_Plant_Location.png": [
+   "O4"
+  ],
+  "Labs_Server_Room_Plant_Location_2.png": [
+   "O4"
+  ],
+  "Saving_the_Mole_Map.png": [
+   "O7"
+  ],
+  "Ground_Zero_TerraGroup_Building.png": [
+   "O7"
+  ],
+  "Scientist%27s_Office.png": [
+   "O7",
+   "O9"
+  ],
+  "Blue_Fire_Note_on_the_Ground_Zero.png": [
+   "O7"
+  ],
+  "BlueChaletMapKTT.png": [
+   "O7"
+  ],
+  "BlueFire2.png": [
+   "O7"
+  ],
+  "Blue_Fire_Office_in_the_laboratory_map.png": [
+   "O7"
+  ],
+  "Blue_Fire_Note_in_the_Lab_01.png": [
+   "O7"
+  ],
+  "Blue_Fire_Note_in_the_Lab_02.png": [
+   "O7"
+  ],
+  "PostOfficeMap.png": [
+   "O8"
+  ],
+  "PostOffice.png": [
+   "O8"
+  ],
+  "Rus_Post_audio_tape_1_spawn.png": [
+   "O8"
+  ],
+  "Rus_Post_audio_tape_2_spawn.png": [
+   "O8"
+  ],
+  "Rus_Post_audio_tape_3_spawn.png": [
+   "O8"
+  ],
+  "Rus_Post_car_key_Location.png": [
+   "O9"
+  ],
+  "RusPostCarKeySpawn.png": [
+   "O9"
+  ],
+  "The_Ticket_Item_1156_Specification_Spawn.png": [
+   "O10"
+  ]
+ },
+ "story-they-are-already-here": {
+  "They_Are_Already_Here_Customs_Activation_Location.png": [
+   "O0"
+  ],
+  "They_Are_Already_Here_Reserve_Activation_Location_1.png": [
+   "O0"
+  ],
+  "They_Are_Already_Here_Reserve_Activation_Location_2.png": [
+   "O0"
+  ],
+  "They_Are_Already_Here_Reserve_Activation_Location_3.png": [
+   "O0"
+  ],
+  "They_Are_Already_Here_Woods_Activation_Location_Map.png": [
+   "O0"
+  ],
+  "The_second_ritual_spot_in_the_Woods.png": [
+   "O0"
+  ],
+  "They_Are_Already_Here_Woods_Activation_Location.png": [
+   "O0"
+  ],
+  "WetJob2IslandMap.png": [
+   "O0"
+  ],
+  "EOTW_Shoreline_location.png": [
+   "O0"
+  ],
+  "CultVictimsApartmentKeyMap.png": [
+   "O2"
+  ],
+  "CultVictimsApartmentKeyBuilding.png": [
+   "O2"
+  ],
+  "CultVictimsApartmentKeyDoor.png": [
+   "O2"
+  ],
+  "Cult_Victim_Apartment_Office.png": [
+   "O2",
+   "O5"
+  ],
+  "Cult_victims_apartment_key_Spawn_Map.png": [
+   "O3"
+  ],
+  "Cult_victims_apartment_key_Spawn_House.png": [
+   "O3"
+  ],
+  "Cult_victim_audio_tape_2_spawn.png": [
+   "O3"
+  ],
+  "Cult_victims_apartment_key_Spawn_4.png": [
+   "O3"
+  ],
+  "Cult_victims_apartment_key_Spawn_1.png": [
+   "O3"
+  ],
+  "Cult_victims_apartment_key_Spawn_2.png": [
+   "O3"
+  ],
+  "Cult_victims_apartment_key_Spawn_3.png": [
+   "O3"
+  ],
+  "Book_on_the_Arrival.png": [
+   "O4",
+   "O5"
+  ],
+  "Note_on_preparations_for_the_Arrival.png": [
+   "O5"
+  ],
+  "Cult_Victim_Tape_1.png": [
+   "O5",
+   "O6"
+  ],
+  "TheCultPart2DormsMap.png": [
+   "O10"
+  ],
+  "Marked_Room_Door.png": [
+   "O10"
+  ],
+  "Customs_Cultist_priest%27s_note_spawn.png": [
+   "O10"
+  ],
+  "AbandonedFactoryNorthernBuilding.png": [
+   "O10"
+  ],
+  "FactoryMarkedRoomDoor.png": [
+   "O10"
+  ],
+  "Streets_of_Tarkov_Cultist_priest%27s_note_spawn.png": [
+   "O10"
+  ],
+  "RB-BK_lock_location.png": [
+   "O10"
+  ],
+  "2019-10-28marked.png": [
+   "O10"
+  ],
+  "Reserve_RB-BK_Cultist_priest%27s_note_spawn.png": [
+   "O10"
+  ],
+  "RB-PKPM.png": [
+   "O10"
+  ],
+  "RBPKPM_Entrance.png": [
+   "O10"
+  ],
+  "Reserve_RB-PKPM_Cultist_priest%27s_note_spawn.png": [
+   "O10"
+  ],
+  "RB-VO_lock_location.png": [
+   "O10"
+  ],
+  "RB-VO.png": [
+   "O10"
+  ],
+  "Reserve_RB-VO_Cultist_priest%27s_note_spawn.png": [
+   "O10"
+  ],
+  "Shoreline_Eye_of_World_Map.jpg": [
+   "O11",
+   "O12"
+  ],
+  "Signal3.png": [
+   "O11",
+   "O12"
+  ],
+  "Shoreline_Eye_of_World_Location.png": [
+   "O11",
+   "O12"
+  ],
+  "Shoreline_Eye_of_World_Dead_Body_Relative_Location.png": [
+   "O12"
+  ],
+  "Note_in_dead_body.png": [
+   "O12"
+  ],
+  "Repair_location_for_the_Sordi_tower.png": [
+   "O13"
+  ],
+  "EFT_TAAH_Woods_House_Map.png": [
+   "O14",
+   "O15"
+  ],
+  "EFT_TAAH_Woods_House.png": [
+   "O14",
+   "O15"
+  ],
+  "EFT_TAAH_Woods_Newspaper.png": [
+   "O15"
+  ],
+  "BlueChaletMapKTT.png": [
+   "O16",
+   "O19"
+  ],
+  "Victim%27s_Note_Spawn.png": [
+   "O16",
+   "O19"
+  ],
+  "14-4_dmg._Spawn.png": [
+   "O20"
+  ],
+  "PowerStationMap.png": [
+   "O24",
+   "O25"
+  ],
+  "InterchangePowerStation.png": [
+   "O24",
+   "O25"
+  ],
+  "PowerStationStairsDoor.png": [
+   "O24",
+   "O25"
+  ],
+  "Station_14-4_KORD_Door.png": [
+   "O24",
+   "O34"
+  ],
+  "Reader_in_14-4_KORD.png": [
+   "O25",
+   "O34"
+  ],
+  "Grate_door_in_14-4_KORD.png": [
+   "O25",
+   "O34"
+  ],
+  "Lever_in_14-4_KORD.png": [
+   "O25",
+   "O34",
+   "O36"
+  ],
+  "USB_Plant_Location_inside_Cooling_Room_in_14-4_KORD.png": [
+   "O26"
+  ],
+  "ARRS_USB_spawn.png": [
+   "O27",
+   "O29"
+  ],
+  "ARRS_mech..png": [
+   "O34",
+   "O37"
+  ],
+  "ARRS_disconnect_button.png": [
+   "O34",
+   "O35",
+   "O37"
+  ]
+ },
+ "story-accidental-witness": {
+  "Accidental_Witness_Map.png": [
+   "O0"
+  ],
+  "Accidental_Witness_Car.png": [
+   "O0"
+  ],
+  "Customs_2_Story_Dorms_Map.png": [
+   "O0",
+   "O2"
+  ],
+  "Room_110_Door.png": [
+   "O2",
+   "O5"
+  ],
+  "Letter_from_Kozlov%27s_room_spawn.png": [
+   "O5"
+  ],
+  "Zmeevsky3Apt8Map.png": [
+   "O7"
+  ],
+  "Zmeevsky3Building.png": [
+   "O7"
+  ],
+  "Zmeevsky3Door2.png": [
+   "O7",
+   "O12"
+  ],
+  "The_Ninth_Circle_Issue_19_Spawn_1.png": [
+   "O9",
+   "O12"
+  ],
+  "The_Ninth_Circle_Issue_19_Spawn_2.png": [
+   "O9",
+   "O12"
+  ],
+  "Tarkov_Herald_summary_Spawn_3.png": [
+   "O9",
+   "O12"
+  ],
+  "Tarkov_Herald_summary_Spawn_1.png": [
+   "O9",
+   "O12"
+  ],
+  "Tarkov_Herald_summary_Spawn_2.png": [
+   "O9",
+   "O12"
+  ],
+  "FSB_Report_Spawn_1.png": [
+   "O9",
+   "O12"
+  ],
+  "FSB_Report_Spawn_2.png": [
+   "O9",
+   "O12"
+  ],
+  "The_Ninth_Circle_Issue_14_Spawn_1.png": [
+   "O9",
+   "O12"
+  ],
+  "The_Ninth_Circle_Issue_14_Spawn_2.png": [
+   "O9",
+   "O12"
+  ],
+  "AccidentalWitnessAnastasiaBuildingMap.png": [
+   "O15",
+   "O16"
+  ],
+  "AccidentalWitnessAnastasiaBuildingEntrance.png": [
+   "O15",
+   "O16"
+  ],
+  "AccidentalWitnessAnastasiaApartmentDoor.png": [
+   "O15"
+  ],
+  "AccidentalWitnessAnastasiaMailboxNote1.png": [
+   "O16",
+   "O17"
+  ],
+  "AccidentalWitnessAnastasiaMailboxNote2.png": [
+   "O16",
+   "O17"
+  ],
+  "AccidentalWitnessPashaMap.png": [
+   "O18"
+  ],
+  "AccidentalWitnessPashaLocation.png": [
+   "O18",
+   "O19"
+  ],
+  "AccidentalWitnessPashaNote.png": [
+   "O19",
+   "O23"
+  ],
+  "ReshalasBunkhouseKeyMap.png": [
+   "O21",
+   "O22",
+   "O26"
+  ],
+  "ReshalasBunkhouse.png": [
+   "O21",
+   "O26"
+  ],
+  "AccidentalWitnessReshalasStashNote1.png": [
+   "O24"
+  ],
+  "AccidentalWitnessReshalasStashNote2.png": [
+   "O24"
+  ],
+  "AccidentalWitnessReshalasStashNote3.png": [
+   "O24"
+  ],
+  "AccidentalWitnessKozlovOptionalNote.png": [
+   "O27"
+  ],
+  "AccidentalWitnessKozlovsHideoutMap.png": [
+   "O27"
+  ],
+  "AccidentalWitnessKozlovsHideout1.png": [
+   "O27"
+  ],
+  "AccidentalWitnessKozlovsHideout2.png": [
+   "O27"
+  ],
+  "AccidentalWitnessKozlovsHideoutOptionalPhoto.png": [
+   "O27"
+  ],
+  "AccidentalWitnessKozlovsHideoutTapeFar.png": [
+   "O28"
+  ],
+  "AccidentalWitnessKozlovsHideoutTapeClose.png": [
+   "O28"
+  ]
+ },
+ "story-the-labyrinth": {
+  "Vitamins1_Shoreline_outdoor_map.png": [
+   "O4"
+  ],
+  "The_Labyrinth_Transit_Map.png": [
+   "O4"
+  ],
+  "The_Labyrinth_Transit_Door.png": [
+   "O4",
+   "O5"
+  ],
+  "The_Labyrinth_Transit.png": [
+   "O4",
+   "O5"
+  ],
+  "Leshy%27s_orders_location_map.png": [
+   "O6"
+  ],
+  "Leshy%27s_orders_location_far.png": [
+   "O6"
+  ],
+  "Leshy%27s_orders_location_close.png": [
+   "O6"
+  ],
+  "Labryrinth_missile_area_map.png": [
+   "O7"
+  ],
+  "Labryrinth_torture_room_map.png": [
+   "O8"
+  ],
+  "Leshy%27s_diary_location_far.png": [
+   "O8"
+  ],
+  "Leshy%27s_diary_location_close.png": [
+   "O8"
+  ],
+  "The_Labyrinth_Scientist_locations_map.png": [
+   "O9",
+   "O12"
+  ],
+  "Assistant_note_3_spawn.png": [
+   "O9",
+   "O12"
+  ],
+  "Assistant_note_3_and_10_spawn.png": [
+   "O9",
+   "O12"
+  ],
+  "Assistant_note_8_spawn.png": [
+   "O9",
+   "O12"
+  ],
+  "Assistant_note_12_spawn.png": [
+   "O9",
+   "O12"
+  ],
+  "Assistant_note_on_TG-Vi-24_test_subject_spawn.png": [
+   "O9",
+   "O12"
+  ],
+  "Observation_room_Map.png": [
+   "O12"
+  ],
+  "Observation_room_Door.png": [
+   "O12"
+  ],
+  "Deceased_scientist%27s_audio_tape_location_far.png": [
+   "O12"
+  ],
+  "Deceased_scientist%27s_audio_tape_location_close.png": [
+   "O12"
+  ],
+  "Labyrinth_facility_research_report_location_map.png": [
+   "O14"
+  ],
+  "Labyrinth_facility_research_report_location_far.png": [
+   "O14"
+  ],
+  "Labyrinth_facility_research_report_location_close.png": [
+   "O14"
+  ]
+ },
+ "story-the-ticket": {
+  "Bogatyrs_patch_Lighthouse_map.png": [
+   "O4"
+  ],
+  "Bogatyrs_patch_Lighthouse_BEAR_camp.png": [
+   "O4"
+  ],
+  "NoteFromPraporsMenSpawn1.png": [
+   "O5"
+  ],
+  "NoteFromPraporsMenSpawn2.png": [
+   "O5"
+  ],
+  "TheTicketULTRAFlareYellowMap.jpg": [
+   "O12"
+  ],
+  "TheTicketExperimentalSignalJammerMap.png": [
+   "O20"
+  ],
+  "Experimental_Signal_Jammer_Spawn_1.png": [
+   "O20"
+  ],
+  "Experimental_Signal_Jammer_Spawn_2.png": [
+   "O20"
+  ],
+  "Experimental_Signal_Jammer_Spawn_3.png": [
+   "O20"
+  ],
+  "Kruglov%27s_office_map.png": [
+   "O30"
+  ],
+  "Kruglov%27s_office_door.png": [
+   "O30"
+  ],
+  "Kruglov%27s_office_safe.png": [
+   "O30"
+  ],
+  "Labs_Master_Keycard_Safe_Spawn.png": [
+   "O30"
+  ],
+  "ElektroniksKeyMap.png": [
+   "O36"
+  ],
+  "ElektroniksKeyBuilding.png": [
+   "O36"
+  ],
+  "RFID_Keycard_Encryption_doorway.png": [
+   "O36"
+  ],
+  "RFID_Keycard_Encryption_Device_-_The_Ticket.png": [
+   "O36"
+  ],
+  "Tour_Shoreline_Map.png": [
+   "O47",
+   "O65"
+  ],
+  "Tour_Shoreline_Tower.png": [
+   "O47",
+   "O65"
+  ],
+  "Tour_Shoreline_Intercom.png": [
+   "O47",
+   "O65"
+  ]
+ },
+ "wiki-tothelighttrustbutverify": {
+  "Trust_but_Verify_map.png": [
+   "O0",
+   "O1"
+  ],
+  "Trust_but_Verify_location.png": [],
+  "LabsVentilationShaftExtract.png": [
+   "O0",
+   "O1"
+  ]
+ },
+ "wiki-tothelightcliptheirwings": {
+  "TTLClipTheirWingsWoodsMap.png": [
+   "O0",
+   "O1"
+  ],
+  "Steady_Signal_2.png": [
+   "O0"
+  ],
+  "WoodsBrickhouse.png": [
+   "O1"
+  ],
+  "WoodsTransitToCustoms.png": [
+   "O2"
+  ],
+  "TTLClipTheirWingsCustomsMap.png": [
+   "O3"
+  ],
+  "TTLClipTheirWingsCustomsConstructionSite.png": [
+   "O3"
+  ],
+  "TTLClipTheirWingsCustomsConsutructionSitePlant.png": [
+   "O3"
+  ],
+  "CustomsTransitToShoreline.png": [
+   "O4"
+  ],
+  "TTLClipTheirWingsShorelineMap.png": [
+   "O5"
+  ],
+  "TTLClipTheirWingsHealthResortAdmin.png": [
+   "O5"
+  ],
+  "TTLClipTheirWingsHealthResortAdminPlant.png": [
+   "O5"
+  ]
+ },
+ "wiki-tothelighttheotherside": {
+  "RB-BK_lock_location.png": [
+   "O0"
+  ],
+  "2019-10-28marked.png": [
+   "O0"
+  ],
+  "RB-BK1.png": [
+   "O0"
+  ],
+  "RB-PKPM.png": [
+   "O0"
+  ],
+  "RBPKPM_Entrance.png": [
+   "O0"
+  ],
+  "PKPM-Room.png": [
+   "O0"
+  ],
+  "RB-VO_lock_location.png": [
+   "O0"
+  ],
+  "RB-VO.png": [
+   "O0"
+  ],
+  "AbandonedFactoryNorthernBuilding.png": [],
+  "FactoryMarkedRoomOutside.png": [],
+  "MarkedRoomFromStairsView.png": [],
+  "FactoryMarkedRoomDoor.png": [],
+  "FactoryMarkedRoomInside3.png": [],
+  "Mysterious_marked_key_onmap.png": [
+   "O1"
+  ],
+  "Mysterious_key_building_entrance.png": [
+   "O1"
+  ],
+  "Mysterious_key_path1.png": [
+   "O1"
+  ],
+  "Mysterious_key_path2.png": [
+   "O1"
+  ],
+  "Mysterious_key_path3.png": [
+   "O1"
+  ],
+  "Mysterious_key_room_door.png": [
+   "O1"
+  ],
+  "Mysterious_key_room.png": [
+   "O1"
+  ],
+  "TheCultPart2DormsMap.png": [
+   "O2"
+  ],
+  "Marked_Room_Door.png": [
+   "O2"
+  ],
+  "Marked_Room_Room.png": [
+   "O2"
+  ]
+ },
+ "wiki-tothelightgettingacquainted": {
+  "To_the_Light_Getting_Acquainted_Chalet_Map.png": [
+   "O0"
+  ],
+  "To_the_Light_Getting_Acquainted_Spawn_3.png": [
+   "O0"
+  ],
+  "To_the_Light_Getting_Acquainted_Spawn_4.png": [
+   "O0"
+  ],
+  "To_the_Light_Getting_Acquainted_Spawn_2.png": [
+   "O0"
+  ],
+  "LostContactMap.png": [],
+  "To_the_Light_Getting_Acquainted_Spawn_1.png": [
+   "O0"
+  ]
+ },
+ "wiki-makeamends": {
+  "To_the_Light_Getting_Acquainted_Chalet_Map.png": [
+   "O0"
+  ],
+  "To_the_Light_Getting_Acquainted_Spawn_3.png": [
+   "O0"
+  ],
+  "To_the_Light_Getting_Acquainted_Spawn_4.png": [
+   "O0"
+  ],
+  "To_the_Light_Getting_Acquainted_Spawn_2.png": [
+   "O0"
+  ],
+  "LostContactMap.png": [],
+  "To_the_Light_Getting_Acquainted_Spawn_1.png": [
+   "O0"
+  ]
+ },
+ "wiki-newbeginningprestige5": {
+  "StreetsTransitToInterchangeMap.png": [
+   "O4"
+  ],
+  "StreetsTransitToInterchange.png": [
+   "O4"
+  ],
+  "InterchangeTransitToCustomsMap.jpg": [
+   "O5"
+  ],
+  "InterchangeTransitToCustoms.png": [
+   "O5"
+  ]
+ },
+ "wiki-newbeginningprestige6": {
+  "StreetsTransitToInterchangeMap.png": [
+   "O5"
+  ],
+  "StreetsTransitToInterchange.png": [
+   "O5"
+  ],
+  "InterchangeTransitToCustomsMap.jpg": [
+   "O6"
+  ],
+  "InterchangeTransitToCustoms.png": [
+   "O6"
+  ],
+  "CustomsTransitToReserveMap.png": [
+   "O7"
+  ],
+  "CustomsTransitToReserve.png": [
+   "O7"
+  ]
+ },
+ "wiki-tothelightfalsecall": {},
+ "wiki-makeamendssecurity": {},
+ "wiki-honestreview": {},
+ "story-boreas": {}
+}
