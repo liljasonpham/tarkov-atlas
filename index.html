@@ -7,216 +7,118 @@
     <meta name="referrer" content="no-referrer" />
     <meta
       name="description"
-      content="Choose your Escape from Tarkov quests, track objectives, and pack for your next raid."
+      content="Tarkov Atlas: pick your Escape from Tarkov quests, see every objective on the map with the exact spot from the wiki, and get a packing list for your next raid."
     />
-    <title>Tarkov Atlas · Quest library & raid map</title>
+    <title>Tarkov Atlas · Quest planner for Escape from Tarkov</title>
+    <script>
+      // Old shared links pointed at the planner on this address (…/#map=customs&quest=…).
+      if (/(^|[#&])(map|quest|view)=/.test(location.hash))
+        location.replace("planner.html" + location.hash);
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap"
     />
-    <link rel="stylesheet" href="css/atlas.css?v=7" />
+    <link rel="stylesheet" href="css/home.css?v=7" />
   </head>
   <body>
-    <header>
-      <div class="brand">
-        <h1 class="wordmark">Tarkov Atlas</h1>
-        <p class="tagline">Pick your quests. See where to go. Know what to bring.</p>
-      </div>
-      <div class="header-actions">
-        <button id="story-open">Story</button
-        ><button id="library-toggle" aria-expanded="true">Quest library</button
-        ><label class="sr-only" for="profile-select">Progress profile</label
-        ><select id="profile-select"></select
-        ><button id="profiles-button">Profiles & backups</button>
-      </div>
+    <header class="site-head">
+      <a class="wordmark" href="./">Tarkov Atlas</a>
+      <nav aria-label="Main">
+        <a href="planner.html#view=story">Story chapters</a>
+        <a href="https://github.com/liljasonpham/tarkov-atlas" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="nav-cta" href="planner.html">Open the raid planner</a>
+      </nav>
     </header>
-    <main class="workspace" id="workspace">
-      <aside class="library" aria-label="Quest library">
-        <div class="library-head">
-          <div class="section-title">
-            <h2>Build your raid</h2>
-            <span class="badge" id="selected-total">0 selected</span>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>Know where you're going before you load in.</h1>
+          <p class="lede">
+            Pick the quests you're working on. Every objective lands on the map at the exact spot from
+            the wiki, with the photo, and a packing list builds itself for the raid.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="planner.html">Open the raid planner</a>
+            <a class="button" href="planner.html#view=story">Story chapters</a>
           </div>
-          <div class="tabs" role="group" aria-label="Browse quests">
-            <button id="traders-tab" aria-pressed="true">Traders</button
-            ><button id="all-tab" aria-pressed="false">All quests</button
-            ><button id="selected-tab" aria-pressed="false">Selected</button>
-          </div>
-          <label class="sr-only" for="quest-search">Search every quest</label
-          ><input
-            id="quest-search"
-            type="search"
-            placeholder="Search quests, items or objectives"
-            autocomplete="off"
-          />
-          <details id="filters-panel">
-            <summary>Filters</summary>
-            <div class="filter-grid">
-              <label
-                >Trader<select id="trader-filter">
-                  <option value="">All traders</option>
-                </select></label
-              ><label
-                >Category<select id="kind-filter">
-                  <option value="">All quests</option>
-                  <option value="side">Side quests</option>
-                  <option value="story">Story chapters</option>
-                  <option value="arena">Arena</option>
-                </select></label
-              ><label
-                >Map<select id="map-filter">
-                  <option value="">All maps</option>
-                  <option value="current">Current map</option>
-                </select></label
-              ><label
-                >Progress<select id="progress-filter">
-                  <option value="">All progress</option>
-                  <option value="unfinished">Not completed</option>
-                  <option value="completed">Completed</option>
-                  <option value="unverified">Needs location checks</option>
-                </select></label
-              >
+          <div id="your-run" class="your-run" hidden></div>
+        </div>
+        <figure class="hero-map" aria-label="Golden Swag on the Customs map">
+          <div id="hero-frame" class="hero-frame">
+            <div id="hero-world" class="hero-world">
+              <img src="assets/maps/customs-Ground_Level.webp" alt="" />
             </div>
-          </details>
-          <div class="count-row">
-            <span id="quest-count" aria-live="polite"></span
-            ><button id="clear-selection" class="link-button">Clear selection</button>
           </div>
-        </div>
-        <div id="quest-list" class="quest-list"></div>
-        <div class="library-foot">
-          Catalog · 7 October 2026<br /><button id="coverage-button">
-            Sources & location coverage
-          </button>
-        </div>
-      </aside>
-      <section id="trader-panel" class="trader-panel" aria-label="Trader quests" hidden></section>
-      <section class="map-column" aria-label="Raid map">
-        <div class="map-toolbar">
-          <div class="inline">
-            <label class="sr-only" for="map-select">Raid map</label
-            ><select id="map-select"></select
-            ><span id="map-quest-count" class="muted" style="font-size: 11px"></span>
-          </div>
-          <div id="progress-counters" class="progress-counters" aria-label="Quest progress"></div>
-          <div class="map-tools">
-            <button id="zoom-out" aria-label="Zoom out">−</button
-            ><button id="zoom-in" aria-label="Zoom in">+</button><button id="fit">Fit map</button>
-          </div>
-        </div>
-        <div class="map-options">
-          <div id="layer-toggles" class="layer-toggles" aria-label="Show on map"></div>
-          <div id="floor-buttons" class="floor-buttons" role="group" aria-label="Map floor"></div>
-          <label class="sr-only" for="floor-select">Map floor</label
-          ><select id="floor-select" hidden></select>
-        </div>
-        <div class="map-viewport" id="map-viewport">
-          <canvas
-            id="map-canvas"
-            aria-label="Interactive quest map. Drag to pan, scroll to zoom, or use the objective buttons in the details panel."
-          ></canvas>
-          <div id="map-status" class="map-stat" aria-live="polite"></div>
-          <div id="map-tip" class="map-tip" hidden></div>
-          <div id="boss-legend" class="map-overlay boss-legend"></div>
-          <div id="map-todo" class="map-overlay map-todo"></div>
-          <div id="map-empty" class="map-empty">
-            <button id="empty-close" class="map-empty-close" aria-label="Dismiss tip" title="Dismiss">×</button>
-            <h3>Choose your next objective.</h3>
-            <p>
-              Select quests from the library. Their locations appear here, and your packing list
-              builds itself.
-            </p>
-            <button id="empty-open-library">Open quest library</button>
-          </div>
-        </div>
-        <div class="map-caption">
-          <span>Drag to pan · scroll to zoom · click a quest pin for its objective</span
-          ><a id="map-wiki" target="_blank" rel="noreferrer">Fandom map guide ↗</a>
-        </div>
-        <section id="bottom-dock" class="bottom-dock" aria-label="Raid lists"></section>
+          <figcaption id="hero-callout" class="hero-callout">
+            <img id="hero-photo" alt="The golden Zibbo lighter on the desk in dorm room 303" />
+            <div>
+              <strong>Golden Swag</strong>
+              <span>Dorm room 303, three-story dorms. The lighter is on the desk.</span>
+            </div>
+          </figcaption>
+        </figure>
       </section>
-      <aside class="detail-pane" aria-label="Packing list and quest guidance">
-        <div id="selected-detail" aria-live="polite"></div>
-        <div id="side-dock"></div>
-        <div id="raid-lists" class="raid-lists">
-          <section class="lists-pack">
-            <h3>Pack for this map <small id="pack-count"></small></h3>
-            <p class="quiet">
-              For your selected, unfinished objectives. Alternatives are choices, not extra items.
+
+      <section class="maps" aria-labelledby="maps-title">
+        <h2 id="maps-title">Start from a map</h2>
+        <p class="section-note">Opens the planner on that map with your selected quests.</p>
+        <div id="map-grid" class="map-grid"></div>
+      </section>
+
+      <section class="features" aria-label="What the planner does">
+        <article class="feature">
+          <img src="assets/home/floors-and-loot.webp" alt="Customs with the second floor highlighted, rare loot and meds shown, and boss spawn chances in the corner" loading="lazy" />
+          <div>
+            <h2>The map tells you what's on each floor</h2>
+            <p>
+              Pick a floor and everything else greys out. Turn on extracts, rare loot, tech, meds or
+              safes. Boss spawn chances sit in the corner, and objectives without a pin stay listed so
+              you don't forget the kill counts.
             </p>
-            <div id="pack"></div>
-          </section>
-          <section class="lists-keep">
-            <h3>Keep for selected quests <small id="keep-count"></small></h3>
-            <div id="keep-list"></div>
-            <h3>Coming up: start saving <small id="upcoming-count"></small></h3>
-            <p class="quiet">
-              Found-in-raid hand-ins for quests you're about to unlock (up to 3 quests away, or a
-              few levels away).
+          </div>
+        </article>
+        <article class="feature">
+          <img src="assets/home/raid-lists.webp" alt="Keep for selected quests and Pack for this map lists" loading="lazy" />
+          <div>
+            <h2>Your packing list writes itself</h2>
+            <p>
+              Keys, markers and quest items for the quests you picked on this map, with shared keys
+              counted once. A heads-up lists the found-in-raid items you'll need for quests that
+              unlock soon, so you keep them when you find them.
             </p>
-            <div id="upcoming-list"></div>
-          </section>
-        </div>
-      </aside>
+          </div>
+        </article>
+        <article class="feature">
+          <img src="assets/home/story-steps.webp" alt="Batya story chapter with the current step highlighted" loading="lazy" />
+          <div>
+            <h2>Story chapters, one step at a time</h2>
+            <p>
+              Click the step you're on and everything before it is marked done. Steps with a location
+              have a Map button that drops you on the pin.
+            </p>
+          </div>
+        </article>
+      </section>
     </main>
-    <dialog id="profiles-dialog">
-      <div class="dialog-top">
-        <h2>Your runs</h2>
-        <button data-close="profiles-dialog" aria-label="Close profiles">×</button>
-      </div>
+
+    <footer class="site-foot">
       <p>
-        Use a separate profile for each character, prestige, or playthrough. Progress saves in this
-        browser. Export a backup to move it to another browser or computer.
+        Quest data, coordinates and spawn chances from <a href="https://tarkov.dev/" target="_blank" rel="noreferrer">tarkov.dev</a>.
+        Guides and photos from the <a href="https://escapefromtarkov.fandom.com/" target="_blank" rel="noreferrer">Escape from Tarkov Wiki</a>.
+        Map art from tarkov.dev contributors (CC BY-NC-SA 4.0).
       </p>
-      <div id="profiles-list"></div>
-      <label for="new-profile-name">New profile</label>
-      <form id="new-profile-form" class="profile-form">
-        <input
-          id="new-profile-name"
-          type="text"
-          maxlength="80"
-          placeholder="e.g. Prestige 2, duo run, fresh start"
-          required
-        /><select id="new-profile-mode" aria-label="New profile game mode">
-          <option value="pve">PvE</option>
-          <option value="regular">PvP</option></select
-        ><button class="primary" type="submit">Create fresh run</button>
-      </form>
-      <div class="dialog-buttons">
-        <button id="export-backup">Export all profiles</button
-        ><button id="import-backup">Import backup</button
-        ><input id="import-file" type="file" accept=".json,application/json" hidden />
-      </div>
-      <p class="quiet">Import adds profiles; it does not erase your existing runs.</p>
-    </dialog>
-    <dialog id="coverage-dialog">
-      <div class="dialog-top">
-        <h2>Sources & location coverage</h2>
-        <button data-close="coverage-dialog" aria-label="Close coverage">×</button>
-      </div>
-      <div id="coverage-content"></div>
-    </dialog>
-    <dialog id="photo-dialog" class="photo-dialog" aria-label="Photo">
-      <div class="dialog-top">
-        <p id="photo-caption"></p>
-        <button data-close="photo-dialog" aria-label="Close photo">×</button>
-      </div>
-      <div id="photo-view" class="photo-view"></div>
-      <div class="photo-bar">
-        <button id="photo-prev">Previous</button><span id="photo-count"></span
-        ><button id="photo-next">Next</button>
-        <a id="photo-source" target="_blank" rel="noreferrer">Open on Fandom</a>
-      </div>
-    </dialog>
-    <div id="toast" role="status" hidden>
-      <span id="toast-message"></span><button id="undo-button">Undo</button>
-    </div>
-    <script src="data/bosses.js?v=7"></script>
-    <script src="data/loot.js?v=7"></script>
+      <p>
+        An unofficial fan project, not affiliated with Battlestate Games. Built by
+        <a href="https://github.com/liljasonpham" target="_blank" rel="noreferrer">Jason Pham</a>.
+      </p>
+    </footer>
+
     <script src="data/catalog.js?v=7"></script>
     <script src="js/atlas-core.js?v=7"></script>
-    <script src="js/atlas-app.js?v=7"></script>
+    <script src="js/home.js?v=7"></script>
   </body>
 </html>

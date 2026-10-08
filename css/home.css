@@ -1,0 +1,418 @@
+/* Tarkov Atlas home page. Same palette and type as the planner (css/atlas.css). */
+:root {
+  --bg: #161613;
+  --surface: #1d1c18;
+  --raised: #25231e;
+  --line: #3a372e;
+  --ink: #ddd6c1;
+  --muted: #948e7b;
+  --tan: #c2ae7c;
+  --tan-bright: #e0cd98;
+  --font: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --display: "Barlow Condensed", "Arial Narrow", "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  background: var(--bg);
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.55 var(--font);
+}
+a {
+  color: var(--tan-bright);
+}
+a:focus-visible,
+.button:focus-visible {
+  outline: 2px solid var(--tan);
+  outline-offset: 3px;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---- Header ---- */
+.site-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px clamp(16px, 4vw, 48px);
+  border-bottom: 1px solid var(--line);
+}
+.wordmark {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tan-bright);
+  text-decoration: none;
+}
+.site-head nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 14px;
+}
+.site-head nav a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.site-head nav a:hover {
+  color: var(--tan-bright);
+}
+.site-head .nav-cta {
+  padding: 8px 14px;
+  border: 1px solid var(--tan);
+  color: var(--tan-bright);
+}
+
+/* ---- Buttons ---- */
+.button {
+  display: inline-block;
+  padding: 11px 18px;
+  border: 1px solid var(--line);
+  background: var(--raised);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 2px;
+}
+.button:hover {
+  border-color: var(--tan);
+}
+.button.primary {
+  background: var(--tan);
+  border-color: var(--tan);
+  color: #1a1814;
+}
+.button.primary:hover {
+  background: var(--tan-bright);
+}
+
+/* ---- Hero: copy on the left, a live slice of the map on the right ---- */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  min-height: min(78vh, 760px);
+  border-bottom: 1px solid var(--line);
+}
+.hero-copy {
+  padding: clamp(32px, 6vw, 88px) clamp(16px, 4vw, 48px);
+  align-self: center;
+  max-width: 620px;
+}
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(44px, 6.2vw, 84px);
+  line-height: 0.95;
+  letter-spacing: -0.005em;
+  margin: 0 0 22px;
+  color: var(--tan-bright);
+  text-wrap: balance;
+}
+.lede {
+  font-size: 18px;
+  max-width: 34em;
+  margin: 0 0 30px;
+  color: var(--ink);
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.your-run {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.your-run[hidden] {
+  display: none;
+}
+.run-stats {
+  display: flex;
+  gap: 26px;
+}
+.run-stat {
+  display: grid;
+}
+.run-stat strong {
+  font-family: var(--display);
+  font-size: 28px;
+  line-height: 1;
+  color: var(--tan-bright);
+}
+.run-stat span {
+  font-size: 13px;
+  color: var(--muted);
+}
+.hero-map {
+  position: relative;
+  margin: 0;
+  border-left: 1px solid var(--line);
+  min-height: 420px;
+}
+.hero-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #10100e;
+}
+.hero-world {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+}
+.hero-world > img {
+  width: 100%;
+  height: 100%;
+}
+/* Fade the map into the page on the copy side. */
+.hero-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--bg) 0%, transparent 18%),
+    linear-gradient(0deg, #161613cc 0%, transparent 30%);
+  pointer-events: none;
+}
+.pin {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--tan);
+  background: #1a1916ec;
+  color: var(--tan);
+  font: 600 11px/1 var(--font);
+}
+.pin-main {
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  background: #fff1c9;
+  border: 2px solid #fff1c9;
+  box-shadow: 0 0 0 6px #fff1c933;
+  z-index: 2;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pin-main {
+    animation: ping 2.4s ease-out 0.6s 3;
+  }
+  @keyframes ping {
+    0% {
+      box-shadow: 0 0 0 0 #fff1c999;
+    }
+    100% {
+      box-shadow: 0 0 0 22px #fff1c900;
+    }
+  }
+}
+.hero-callout {
+  position: absolute;
+  right: clamp(12px, 3vw, 36px);
+  bottom: clamp(12px, 3vw, 36px);
+  width: min(340px, calc(100% - 24px));
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  padding: 10px;
+  background: #1a1916f2;
+  border: 1px solid var(--tan);
+  border-radius: 2px;
+  font-size: 13px;
+  z-index: 3;
+}
+.hero-callout img {
+  width: 120px;
+  height: 84px;
+  object-fit: cover;
+  background: var(--raised);
+}
+.hero-callout img[hidden] {
+  display: none;
+}
+.hero-callout:has(img[hidden]) {
+  grid-template-columns: 1fr;
+}
+.hero-callout strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 19px;
+  color: var(--tan-bright);
+  margin-bottom: 2px;
+}
+.hero-callout span {
+  color: var(--ink);
+}
+
+/* ---- Map picker ---- */
+.maps {
+  padding: clamp(40px, 6vw, 72px) clamp(16px, 4vw, 48px);
+  border-bottom: 1px solid var(--line);
+}
+.maps h2,
+.feature h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.05;
+  margin: 0 0 6px;
+  color: var(--tan-bright);
+}
+.section-note {
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  gap: 10px;
+}
+.map-tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: #10100e;
+  text-decoration: none;
+}
+.map-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.6) brightness(0.55);
+  transition: filter 0.2s;
+}
+.map-tile:hover img,
+.map-tile:focus-visible img {
+  filter: none;
+}
+.map-tile:hover {
+  border-color: var(--tan);
+}
+.map-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 26px 12px 10px;
+  background: linear-gradient(0deg, #161613f2 30%, transparent);
+  display: grid;
+}
+.map-name {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.map-count {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* ---- Features: screenshot and text, alternating sides ---- */
+.features {
+  padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 48px);
+  display: grid;
+  gap: clamp(48px, 7vw, 96px);
+}
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+.feature:nth-child(even) {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+}
+.feature:nth-child(even) img {
+  order: 2;
+}
+.feature img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+}
+.feature p {
+  margin: 10px 0 0;
+  max-width: 32em;
+  color: var(--ink);
+}
+
+/* ---- Footer ---- */
+.site-foot {
+  padding: 28px clamp(16px, 4vw, 48px) 40px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+.site-foot p {
+  margin: 0 0 6px;
+  max-width: 70em;
+}
+.site-foot a {
+  color: var(--ink);
+}
+
+/* ---- Small screens ---- */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero-map {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    min-height: 380px;
+  }
+  .hero-frame::after {
+    background: linear-gradient(0deg, #161613cc 0%, transparent 30%);
+  }
+  .feature,
+  .feature:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+  .feature:nth-child(even) img {
+    order: 0;
+  }
+}
+@media (max-width: 600px) {
+  .site-head {
+    flex-wrap: wrap;
+  }
+  .site-head nav {
+    gap: 14px;
+    font-size: 13px;
+  }
+  .site-head nav a[href*="github"] {
+    display: none;
+  }
+  .hero-callout {
+    grid-template-columns: 84px 1fr;
+  }
+  .hero-callout img {
+    width: 84px;
+    height: 64px;
+  }
+}

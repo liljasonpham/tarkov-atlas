@@ -23,14 +23,16 @@ Most Tarkov trackers show you *everything* you've unlocked. Tarkov Atlas is buil
 
 It's a static site — no build step and no server code.
 
-- **Quickest:** open `index.html` in a browser.
+- **Quickest:** open `index.html` (home page) or `planner.html` (the raid planner) in a browser.
 - **Local server (recommended):** `npx serve .` then open the address it prints.
 - **Tests:** `node --test` (requires [Node.js](https://nodejs.org/) 18+).
 
 ## Project structure
 
 ```
-index.html            Page layout
+index.html            Home page
+planner.html          Raid planner (map, library, story chapters)
+css/home.css, js/home.js   Home page styles and script
 css/atlas.css         Styles
 js/atlas-core.js      Pure logic: packing lists, map projection, markers, profile validation (unit-tested)
 js/atlas-app.js       UI: library, map canvas, details panel, profiles

@@ -2005,3 +2005,8 @@ button:hover {
     margin-left: 0;
   }
 }
+
+.wordmark a {
+  color: inherit;
+  text-decoration: none;
+}

@@ -2062,6 +2062,8 @@
     if (h.get("quest")) chooseQuest(h.get("quest"), h.get("objective"));
   });
   if (hash.get("quest")) selectedQuest = qById.get(hash.get("quest")) || null;
+  // planner.html#view=story opens the story chapters page (linked from the home page).
+  if (hash.get("view") === "story") requestAnimationFrame(() => $("story-open").click());
   selectedObjective = hash.get("objective");
   renderAll();
   setMap(map.id);
