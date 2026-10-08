@@ -1708,3 +1708,300 @@ button:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* ======== Layout v2: scrolling page, lists under the map ======== */
+@media (min-width: 1151px) {
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    height: 91px;
+    box-sizing: border-box;
+  }
+  .workspace,
+  .workspace.library-hidden {
+    height: auto;
+    min-height: calc(100dvh - 91px);
+    align-items: start;
+  }
+  .library,
+  .detail-pane,
+  .trader-panel {
+    position: sticky;
+    top: 91px;
+    height: calc(100dvh - 91px);
+    align-self: start;
+  }
+  .map-column {
+    min-height: calc(100dvh - 91px);
+  }
+  .map-viewport {
+    flex: none;
+    height: calc(100dvh - 91px - 128px);
+    min-height: 440px;
+  }
+}
+@media (max-width: 1150px) {
+  .map-column {
+    height: auto;
+    min-height: 0;
+  }
+  .map-viewport {
+    flex: none;
+    height: 70vh;
+    min-height: 420px;
+  }
+}
+
+/* Progress counters next to the map selector */
+.progress-counters {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  margin-right: 8px;
+}
+.counter {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 8px;
+  align-items: baseline;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  line-height: 1.2;
+}
+.counter-label {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.counter strong {
+  font-family: "Barlow Condensed", system-ui, sans-serif;
+  font-size: 18px;
+  color: var(--tan-bright);
+  grid-row: span 2;
+}
+.counter-left {
+  font-size: 10px;
+  color: var(--muted);
+}
+.counter.kappa {
+  border-color: #6f6853;
+}
+
+/* Map layer chips and floor buttons */
+.layer-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.layer-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  font-size: 11px;
+  border-radius: 2px;
+  color: var(--muted);
+}
+.layer-chip i {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--chip);
+}
+.layer-chip small {
+  color: var(--muted);
+  font-size: 10px;
+}
+.layer-chip[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--chip);
+}
+.layer-chip[aria-pressed="true"] i {
+  background: var(--chip);
+}
+.floor-buttons {
+  display: inline-flex;
+  border: 1px solid var(--line);
+}
+.floor-buttons button {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: 11px;
+  padding: 5px 10px;
+}
+.floor-buttons button + button {
+  border-left: 1px solid var(--line);
+}
+.floor-buttons button[aria-pressed="true"] {
+  background: var(--raised);
+  color: var(--tan-bright);
+  box-shadow: inset 0 -2px 0 var(--green);
+}
+
+/* Overlays on the map */
+.map-overlay {
+  position: absolute;
+  z-index: 3;
+  background: #141412ee;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  font-size: 11.5px;
+  max-width: 300px;
+}
+.map-overlay[hidden] {
+  display: none;
+}
+.overlay-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 6px 5px 10px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tan-bright);
+}
+.overlay-toggle {
+  padding: 0 6px;
+  font-size: 13px;
+  line-height: 18px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+}
+.boss-legend {
+  top: 10px;
+  left: 10px;
+  min-width: 180px;
+}
+.boss-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 10px 4px;
+  display: grid;
+  gap: 3px;
+}
+.boss-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 12px;
+}
+.boss-pct {
+  color: var(--tan-bright);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.boss-note {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: -2px;
+}
+.boss-none {
+  margin: 0;
+  padding: 6px 10px;
+  color: var(--muted);
+}
+.boss-src {
+  display: block;
+  padding: 0 10px 6px;
+  color: var(--muted);
+  font-size: 9.5px;
+}
+.map-todo {
+  right: 10px;
+  bottom: 10px;
+  width: min(300px, 45%);
+}
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 3px 0;
+  max-height: 34vh;
+  overflow-y: auto;
+}
+.todo-row {
+  display: grid;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 4px 10px;
+  gap: 1px;
+}
+.todo-row:hover {
+  background: #2a271f;
+}
+.todo-what {
+  color: var(--ink);
+  font-size: 11.5px;
+}
+.todo-quest {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+/* Raid lists: under the map (two columns) or in the right panel (stacked) */
+.bottom-dock {
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.bottom-dock[hidden] {
+  display: none;
+}
+.raid-lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.raid-lists h3 {
+  font-size: 14px;
+  margin: 0 0 6px;
+  color: var(--tan-bright);
+}
+.raid-lists h3 small {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 11px;
+}
+.raid-lists .lists-keep h3 + div + h3,
+.raid-lists .lists-keep > h3:nth-of-type(2) {
+  margin-top: 18px;
+}
+.bottom-dock .lists-keep {
+  order: -1;
+}
+.raid-lists.docked-side {
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.detail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.detail-close {
+  padding: 0 9px;
+  font-size: 18px;
+  line-height: 26px;
+}
+.side-hint {
+  margin: 0 0 14px;
+}
+.prereqs .link-button {
+  font-size: 12px;
+}
+@media (max-width: 900px) {
+  .raid-lists {
+    grid-template-columns: 1fr;
+  }
+  .progress-counters {
+    margin-left: 0;
+  }
+}

@@ -53,6 +53,25 @@
     view = "survey",
     floor = "all";
   let tipDismissed = false;
+  // Map layers the player has switched on (saved per browser).
+  const LAYER_KEY = "tarkov-atlas-layers";
+  const LAYERS = [
+    ["extracts", "Extracts", "#72b3a5"],
+    ["rooms", "Loot rooms", "#ebbc73"],
+    ["rare", "Rare loot", "#f0c75e"],
+    ["tech", "Tech", "#6fa8dc"],
+    ["meds", "Meds", "#e06666"],
+    ["safe", "Safes", "#b7b7b7"],
+  ];
+  let layers = { extracts: true, rooms: true };
+  try {
+    layers = { ...layers, ...JSON.parse(localStorage.getItem(LAYER_KEY) || "{}") };
+  } catch {}
+  let overlayMin = {};
+  try {
+    overlayMin = JSON.parse(localStorage.getItem("tarkov-atlas-overlays") || "{}");
+  } catch {}
+  let drawnLoot = [];
   try {
     tipDismissed = localStorage.getItem("tarkov-atlas-tip-dismissed") === "1";
   } catch {}
@@ -149,8 +168,9 @@
     history.replaceState(null, "", "#" + h);
   }
   function chooseQuest(qid, oid) {
-    selectedQuest = qById.get(qid) || null;
-    selectedObjective = oid || null;
+    selectedQuest = qid ? qById.get(qid) || null : null;
+    selectedObjective = selectedQuest ? oid || null : null;
+    placeLists();
     renderDetail();
     renderLibrary();
     draw();
@@ -930,23 +950,164 @@
         ),
       );
   }
+  // Bottom-right of the map: unfinished objectives on this map that have no pin
+  // (kill counts, found-in-raid items, unpinned steps), always visible while you play.
   function renderOther() {
-    const rows = C.entries(data, profile, map.id).filter(({ o }) => o.placement !== "fixed");
-    $("mapwide-count").textContent = rows.length ? "· " + rows.length : "";
-    $("mapwide-list").replaceChildren();
+    const box = $("map-todo"),
+      otherMaps = data.maps.filter((m) => m.id !== map.id && !map.name.includes(m.name)),
+      rows = C.entries(data, profile, map.id).filter(
+        ({ o }) =>
+          (o.placement === "mapwide" || o.placement === "unverified") &&
+          // "...on Shoreline" belongs to that map even when the data doesn't say so.
+          (o.maps.includes(map.id) ||
+            !otherMaps.some((m) => new RegExp("\\b" + m.name + "\\b", "i").test(o.description))),
+      );
+    box.replaceChildren();
+    box.hidden = !rows.length;
+    if (!rows.length) return;
+    box.append(overlayHead("todo", "No pin · still to do", rows.length));
+    if (overlayMin.todo) return;
+    const list = el("ul", undefined, "todo-list");
     for (const { q, o } of rows) {
-      const label =
-        o.placement === "unverified"
-          ? "Location not pinned"
-          : o.placement === "off-map"
-            ? "Trader / progression"
-            : "Mapwide";
-      let b = button(q.name, () => chooseQuest(q.id, o.id), "on-map-row");
-      b.append(el("small", label + " · " + o.description));
-      $("mapwide-list").append(b);
+      const left = C.remaining(profile, o);
+      const li = el("li");
+      const b = button("", () => chooseQuest(q.id, o.id), "todo-row");
+      b.append(
+        el("span", (left > 1 ? left + "× " : "") + shortObjective(o.description), "todo-what"),
+        el("span", q.name + (o.placement === "unverified" ? " · not pinned yet" : ""), "todo-quest"),
+      );
+      li.append(b);
+      list.append(li);
     }
-    if (!rows.length)
-      $("mapwide-list").append(el("p", "No other unfinished objectives for this map.", "quiet"));
+    box.append(list);
+  }
+  // "Eliminate any target on Customs" -> "Eliminate any target" (the map is already on screen).
+  function shortObjective(text) {
+    return text
+      .replace(new RegExp("\\s+(on|at|in)\\s+" + map.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i"), "")
+      .replace(/^Find (the item )?in raid: /i, "Find FIR: ")
+      .replace(/found in raid/gi, "FIR");
+  }
+  function overlayHead(key, title, count) {
+    const head = el("div", undefined, "overlay-head");
+    head.append(el("strong", title + (count != null ? " · " + count : "")));
+    const t = button(overlayMin[key] ? "+" : "–", () => {
+      overlayMin[key] = !overlayMin[key];
+      try {
+        localStorage.setItem("tarkov-atlas-overlays", JSON.stringify(overlayMin));
+      } catch {}
+      renderOther();
+      renderBosses();
+    }, "overlay-toggle");
+    t.setAttribute("aria-label", (overlayMin[key] ? "Show " : "Hide ") + title);
+    head.append(t);
+    return head;
+  }
+  // Top-left of the map: boss and cultist spawn chances for the profile's game mode.
+  function renderBosses() {
+    const box = $("boss-legend"),
+      B = window.TARKOV_BOSSES;
+    box.replaceChildren();
+    if (!B) return (box.hidden = true);
+    const mode = profile.mode === "regular" ? "regular" : "pve",
+      rows = B[mode][map.id] || [];
+    box.hidden = false;
+    box.append(overlayHead("bosses", "Bosses · " + (mode === "pve" ? "PvE" : "PvP")));
+    if (overlayMin.bosses) return;
+    if (!rows.length) {
+      box.append(el("p", "No bosses on this map", "boss-none"));
+      return;
+    }
+    const list = el("ul", undefined, "boss-list");
+    for (const [mob, chances, variant] of rows) {
+      const name = B.names[mob] || mob;
+      const pct = chances.map((c) => Math.round(c * 100) + "%").join(" + ");
+      const note =
+        variant === "night"
+          ? "Night Factory"
+          : variant === "21"
+            ? "Ground Zero 21+"
+            : variant === "dark"
+              ? "Lab · night"
+              : mob === "sectantPriest"
+                ? "night only"
+                : "";
+      const li = el("li");
+      li.append(el("span", name, "boss-name"), el("span", pct, "boss-pct"));
+      if (note) li.append(el("small", note, "boss-note"));
+      list.append(li);
+    }
+    box.append(list, el("small", "Spawn chance per raid · tarkov.dev, " + B.updated, "boss-src"));
+  }
+  // Quest progress counters above the map.
+  function renderCounters() {
+    const mode = profile.mode === "regular" ? "regular" : "pve",
+      inMode = (q) => !q.modes?.length || q.modes.includes(mode),
+      done = new Set(profile.completed);
+    const kappa = data.quests.filter((q) => q.kappa && inMode(q)),
+      all = data.quests.filter((q) => q.kind !== "story" && q.kind !== "arena" && inMode(q));
+    const box = $("progress-counters");
+    box.replaceChildren();
+    for (const [label, list, cls] of [
+      ["Kappa", kappa, "kappa"],
+      ["Quests", all, "all"],
+    ]) {
+      const n = list.filter((q) => done.has(q.id)).length;
+      const c = el("div", undefined, "counter " + cls);
+      c.title = n + " complete, " + (list.length - n) + " remaining";
+      c.append(
+        el("span", label, "counter-label"),
+        el("strong", n + "/" + list.length),
+        el("span", list.length - n + " left", "counter-left"),
+      );
+      box.append(c);
+    }
+  }
+  function renderLayerToggles() {
+    const box = $("layer-toggles");
+    box.replaceChildren();
+    const lootHere = window.TARKOV_LOOT?.[map.id] || {};
+    for (const [key, label, color] of LAYERS) {
+      const count =
+        key === "extracts"
+          ? (map.extracts || []).filter((e) => e.position && e.faction !== "scav").length
+          : key === "rooms"
+            ? (map.lootRooms || []).length
+            : (lootHere[key] || []).length;
+      const b = button("", () => {
+        layers[key] = !layers[key];
+        try {
+          localStorage.setItem(LAYER_KEY, JSON.stringify(layers));
+        } catch {}
+        renderLayerToggles();
+        draw();
+      }, "layer-chip");
+      b.style.setProperty("--chip", color);
+      b.setAttribute("aria-pressed", String(Boolean(layers[key])));
+      b.disabled = !count;
+      b.append(el("i"), el("span", label), el("small", String(count)));
+      box.append(b);
+    }
+  }
+  function renderFloorButtons() {
+    const box = $("floor-buttons");
+    box.replaceChildren();
+    if (map.floors.length < 2) return;
+    const opts = [["all", "All"], ...map.floors.map((f) => [f.id, f.name.replace(" / main", "").replace(/ Floor$/, "").replace(/ Level$/, "")])];
+    for (const [id, name] of opts) {
+      const b = button(name, () => setMap(map.id, { floor: id }));
+      b.setAttribute("aria-pressed", String(floor === id));
+      box.append(b);
+    }
+  }
+  // Pack / Keep / Coming up live under the map while a quest is open, and move into the
+  // right-hand panel when nothing is selected.
+  function placeLists() {
+    const lists = $("raid-lists"),
+      target = selectedQuest ? $("bottom-dock") : $("side-dock");
+    if (lists.parentElement !== target) target.append(lists);
+    $("bottom-dock").hidden = !selectedQuest;
+    lists.classList.toggle("docked-side", !selectedQuest);
   }
   // ---- Objective photos ----
   const isWikiImage = (u) => /^https:\/\/static\.wikia\.nocookie\.net\//.test(u || "");
@@ -1147,24 +1308,15 @@
       );
     target.replaceChildren();
     if (!selectedQuest) {
-      let d = el("div", undefined, "welcome");
-      d.append(
-        el("div", "Your raid, your priorities", "eyebrow"),
-        el("h2", "A plan for every playthrough."),
-        el(
-          "p",
-          "Select any quests from the library. Only their unfinished objectives appear on the map. No level or faction setup required.",
-        ),
-        el(
-          "p",
-          "Complete objectives as you go. Pins disappear and your packing list updates immediately.",
-        ),
-      );
-      let metric = el("div", data.quests.length.toLocaleString(), "metric");
-      metric.append(el("small", " quests & story chapters"));
-      d.append(metric);
-      if (!profile.selected.length)
+      if (!profile.selected.length) {
+        let d = el("div", undefined, "welcome");
         d.append(
+          el("div", "Your raid, your priorities", "eyebrow"),
+          el("h2", "A plan for every playthrough."),
+          el(
+            "p",
+            "Pick quests from the library or a trader. Their spots appear on the map and your packing list builds itself below.",
+          ),
           button(
             "Browse side quests",
             () => {
@@ -1180,14 +1332,18 @@
             "primary",
           ),
         );
-      target.append(d);
+        target.append(d);
+      } else target.append(el("p", "Click a pin to open its quest here.", "quiet side-hint"));
       return;
     }
     const q = selectedQuest;
-    target.append(
-      el("div", q.kind === "story" ? "Story chapter" : q.trader, "eyebrow"),
-      el("h2", q.name, "detail-title"),
-    );
+    const top = el("div", undefined, "detail-top");
+    top.append(el("div", q.kind === "story" ? "Story chapter" : q.trader, "eyebrow"));
+    const close = button("×", () => chooseQuest(null), "detail-close");
+    close.setAttribute("aria-label", "Close quest");
+    close.title = "Close (or click the pin again)";
+    top.append(close);
+    target.append(top, el("h2", q.name, "detail-title"));
     let os = C.objectives(q, profile.mode),
       done = os.filter((o) => C.remaining(profile, o) === 0).length;
     target.append(
@@ -1268,63 +1424,37 @@
     let objectivesWrap = el("div");
     for (const o of os) if (!o.failure) objectivesWrap.append(objectiveCard(q, o));
     target.append(objectivesWrap);
-    if (q.photos?.length) {
-      let d = el("details");
-      d.dataset.key = "photos";
-      // Open by default when the photos aren't already shown on individual objectives.
-      d.open =
-        open.has("photos") || !C.objectives(q, profile.mode).some((o) => o.photoRefs?.length);
-      d.append(el("summary", "All wiki photos for this quest · " + q.photos.length));
-      let gallery = el("div", undefined, "photo-grid"),
-        loaded = false;
-      const load = () => {
-        if (loaded || !d.open) return;
-        loaded = true;
-        for (let photo of q.photos) {
-          let f = el("figure"),
-            im = el("img");
-          im.src = photoUrl(isWikiImage(photo.thumb) ? photo.thumb : photo.src);
-          im.alt = photo.caption || q.name + " location reference";
-          im.loading = "lazy";
-          im.onerror = () => {
-            im.hidden = true;
-          };
-          let a = link("", photo.src);
-          a.append(im);
-          f.append(
-            a,
-            el("figcaption", photo.caption || "Location reference"),
-            link("Open full-size wiki photo ↗", photo.src),
-          );
-          gallery.append(f);
-        }
-      };
-      d.ontoggle = load;
-      d.append(gallery);
-      target.append(d);
-      load();
-    }
-    if (q.wikiRequirements?.length) {
-      let d = el("details");
-      d.append(el("summary", "Wiki item requirements"));
-      for (let row of q.wikiRequirements)
-        d.append(el("p", row.filter(Boolean).join(" · "), "quiet"));
-      target.append(d);
+    // Photos already sit on each objective; only show the quest's photos here when none do.
+    if (q.photos?.length && !os.some((o) => o.photoRefs?.length)) {
+      const gallery = el("div", undefined, "photo-grid");
+      orderedPhotos(q, q.photos.map((_, i) => i)).forEach((photo, i, list) => {
+        const f = el("figure", undefined, photo.kind === "map" ? "is-map" : "");
+        const im = photoImg(photo, q.name);
+        im.onclick = () => openPhoto(q, list, i);
+        f.append(im, el("figcaption", photo.caption || "Location reference"));
+        gallery.append(f);
+      });
+      target.append(gallery);
     }
     if (q.requirements?.length) {
-      let d = el("details");
-      d.append(el("summary", "Prerequisites"));
-      for (let r of q.requirements) {
-        let previous = qById.get(typeof r.task === "object" ? r.task.id : r.task);
-        if (previous) d.append(button(previous.name, () => chooseQuest(previous.id), "on-map-row"));
-        else if (r.name) d.append(el("p", r.name, "quiet"));
-      }
+      const d = el("p", "Unlocked by: ", "quiet prereqs");
+      q.requirements.forEach((r, i) => {
+        const previous = qById.get(typeof r.task === "object" ? r.task.id : r.task);
+        if (i) d.append(", ");
+        if (previous) d.append(button(previous.name, () => chooseQuest(previous.id), "link-button"));
+        else if (r.name) d.append(r.name);
+      });
       target.append(d);
     }
     if (q.experience)
       target.append(el("p", q.experience.toLocaleString() + " base quest XP", "quiet"));
   }
   function renderAll() {
+    placeLists();
+    renderCounters();
+    renderBosses();
+    renderLayerToggles();
+    renderFloorButtons();
     renderProfiles();
     renderLibrary();
     renderTraderPanel();
@@ -1409,6 +1539,9 @@
     }
     renderPack();
     renderOther();
+    renderBosses();
+    renderLayerToggles();
+    renderFloorButtons();
     if ($("map-filter").value === "current") renderLibrary();
     updateHash();
   }
@@ -1496,6 +1629,79 @@
     }
     ctx.restore();
   }
+  // With a floor picked, grey out the map and light up only the parts on that level.
+  function drawBase() {
+    const w = mapDims().width * scale,
+      h = mapDims().height * scale;
+    const f = floor !== "all" && floor !== map.floors[0]?.id && map.floors.find((x) => x.id === floor);
+    const rects = f
+      ? (f.extents || []).flatMap((e) => (e.bounds || []).map((b) => [b[0], b[1]]))
+      : [];
+    if (!rects.length) {
+      ctx.drawImage(img, offset.x, offset.y, w, h);
+      return;
+    }
+    ctx.save();
+    ctx.filter = "grayscale(1) brightness(0.35)";
+    ctx.drawImage(img, offset.x, offset.y, w, h);
+    ctx.restore();
+    ctx.save();
+    ctx.beginPath();
+    for (const [a, b] of rects) {
+      const corners = [
+        [a[0], a[1]],
+        [b[0], a[1]],
+        [b[0], b[1]],
+        [a[0], b[1]],
+      ].map(([x, z]) => screen(C.project({ x, z }, map)));
+      corners.forEach((c, i) => (i ? ctx.lineTo(c.x, c.y) : ctx.moveTo(c.x, c.y)));
+      ctx.closePath();
+    }
+    ctx.clip();
+    ctx.drawImage(img, offset.x, offset.y, w, h);
+    ctx.restore();
+    ctx.save();
+    ctx.strokeStyle = "#e0cd98aa";
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+    ctx.restore();
+  }
+  function drawSpawns() {
+    drawnLoot = [];
+    const L = window.TARKOV_LOOT?.[map.id];
+    if (!L) return;
+    const zoomed = scale > Math.min(width / mapDims().width, height / mapDims().height) * 1.2;
+    ctx.save();
+    for (const [key, label, color] of LAYERS) {
+      if (!layers[key] || !L[key]) continue;
+      for (const [x, y, z, what] of L[key]) {
+        if (floor !== "all" && C.floorFor({ world: { x, y, z } }, map) !== floor) continue;
+        const p = screen(C.project({ x, z }, map));
+        if (p.x < 0 || p.y < 0 || p.x > width || p.y > height) continue;
+        const r = zoomed ? 4 : 3;
+        ctx.fillStyle = color;
+        ctx.strokeStyle = "#10100e";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        if (key === "rare") {
+          ctx.moveTo(p.x, p.y - r - 1);
+          ctx.lineTo(p.x + r + 1, p.y);
+          ctx.lineTo(p.x, p.y + r + 1);
+          ctx.lineTo(p.x - r - 1, p.y);
+          ctx.closePath();
+        } else if (key === "meds") {
+          ctx.rect(p.x - r, p.y - 1.5, r * 2, 3);
+          ctx.rect(p.x - 1.5, p.y - r, 3, r * 2);
+        } else if (key === "tech") ctx.rect(p.x - r, p.y - r, r * 2, r * 2);
+        else ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+        const nice = what.replace(/-/g, " ").replace(/^\w/, (c) => c.toUpperCase());
+        drawnLoot.push({ x: p.x, y: p.y, text: label + " · " + (key === "rare" ? "can spawn: " + what : nice) });
+      }
+    }
+    ctx.restore();
+  }
   function drawLoot() {
     ctx.save();
     ctx.font = "500 10px system-ui";
@@ -1518,10 +1724,11 @@
   function draw() {
     ctx.clearRect(0, 0, width, height);
     if (!ready) return;
-    ctx.drawImage(img, offset.x, offset.y, mapDims().width * scale, mapDims().height * scale);
+    drawBase();
     drawLabels();
-    drawExits();
-    drawLoot();
+    if (layers.extracts) drawExits();
+    if (layers.rooms) drawLoot();
+    drawSpawns();
     let pins = C.markers(data, profile, map, view, floor);
     drawnPins = [];
     for (let pin of pins) {
@@ -1818,11 +2025,12 @@
       return;
     }
     hoverPin = drawnPins.find((p) => Math.hypot(p.sx - x, p.sy - y) < 14);
+    const hoverLoot = hoverPin ? null : drawnLoot.find((p) => Math.hypot(p.x - x, p.y - y) < 7);
     canvas.style.cursor = hoverPin ? "pointer" : "grab";
     let tip = $("map-tip");
-    tip.hidden = !hoverPin;
-    if (hoverPin) {
-      tip.textContent = hoverPin.q.name + " · " + hoverPin.o.description;
+    tip.hidden = !hoverPin && !hoverLoot;
+    if (hoverPin || hoverLoot) {
+      tip.textContent = hoverPin ? hoverPin.q.name + " · " + hoverPin.o.description : hoverLoot.text;
       tip.style.left = Math.max(6, Math.min(width - 290, x + 16)) + "px";
       tip.style.top = Math.max(6, Math.min(height - 100, y + 16)) + "px";
     }
@@ -1833,7 +2041,11 @@
         p = drawnPins.find(
           (p) => Math.hypot(p.sx - (e.clientX - r.left), p.sy - (e.clientY - r.top)) < 14,
         );
-      if (p) chooseQuest(p.q.id, p.o.id);
+      if (p) {
+        // Clicking the open quest's pin again closes it.
+        if (selectedQuest?.id === p.q.id && selectedObjective === p.o.id) chooseQuest(null);
+        else chooseQuest(p.q.id, p.o.id);
+      }
     }
     drag = null;
     canvas.classList.remove("dragging");

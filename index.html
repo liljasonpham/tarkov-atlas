@@ -16,7 +16,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap"
     />
-    <link rel="stylesheet" href="css/atlas.css?v=6" />
+    <link rel="stylesheet" href="css/atlas.css?v=7" />
   </head>
   <body>
     <header>
@@ -100,20 +100,17 @@
             ><select id="map-select"></select
             ><span id="map-quest-count" class="muted" style="font-size: 11px"></span>
           </div>
+          <div id="progress-counters" class="progress-counters" aria-label="Quest progress"></div>
           <div class="map-tools">
             <button id="zoom-out" aria-label="Zoom out">−</button
             ><button id="zoom-in" aria-label="Zoom in">+</button><button id="fit">Fit map</button>
           </div>
         </div>
         <div class="map-options">
-          <div class="legend">
-            <span><b>●</b> Quest objective</span><span class="gold">▪ Loot room</span
-            ><span>Mapwide = no pin</span>
-          </div>
-          <div class="inline">
-            <label class="sr-only" for="floor-select">Map floor</label
-            ><select id="floor-select"></select>
-          </div>
+          <div id="layer-toggles" class="layer-toggles" aria-label="Show on map"></div>
+          <div id="floor-buttons" class="floor-buttons" role="group" aria-label="Map floor"></div>
+          <label class="sr-only" for="floor-select">Map floor</label
+          ><select id="floor-select" hidden></select>
         </div>
         <div class="map-viewport" id="map-viewport">
           <canvas
@@ -122,6 +119,8 @@
           ></canvas>
           <div id="map-status" class="map-stat" aria-live="polite"></div>
           <div id="map-tip" class="map-tip" hidden></div>
+          <div id="boss-legend" class="map-overlay boss-legend"></div>
+          <div id="map-todo" class="map-overlay map-todo"></div>
           <div id="map-empty" class="map-empty">
             <button id="empty-close" class="map-empty-close" aria-label="Dismiss tip" title="Dismiss">×</button>
             <h3>Choose your next objective.</h3>
@@ -136,33 +135,30 @@
           <span>Drag to pan · scroll to zoom · click a quest pin for its objective</span
           ><a id="map-wiki" target="_blank" rel="noreferrer">Fandom map guide ↗</a>
         </div>
+        <section id="bottom-dock" class="bottom-dock" aria-label="Raid lists"></section>
       </section>
       <aside class="detail-pane" aria-label="Packing list and quest guidance">
-        <details id="packing-panel">
-          <summary>Pack for this map <small id="pack-count"></small></summary>
-          <p class="quiet">
-            For your selected, unfinished objectives. Alternatives are choices, not extra items to
-            bring.
-          </p>
-          <div id="pack"></div>
-        </details>
         <div id="selected-detail" aria-live="polite"></div>
-        <details id="mapwide-panel">
-          <summary>Mapwide & other objectives <small id="mapwide-count"></small></summary>
-          <div id="mapwide-list"></div>
-        </details>
-        <details id="keep-panel">
-          <summary>Keep for selected quests <small id="keep-count"></small></summary>
-          <div id="keep-list"></div>
-        </details>
-        <details id="upcoming-panel">
-          <summary>Coming up: start saving <small id="upcoming-count"></small></summary>
-          <p class="quiet">
-            Found-in-raid hand-ins for quests you are about to unlock: up to 3 quests away in a chain
-            you are working on, or a few levels away. Keep these when you find them.
-          </p>
-          <div id="upcoming-list"></div>
-        </details>
+        <div id="side-dock"></div>
+        <div id="raid-lists" class="raid-lists">
+          <section class="lists-pack">
+            <h3>Pack for this map <small id="pack-count"></small></h3>
+            <p class="quiet">
+              For your selected, unfinished objectives. Alternatives are choices, not extra items.
+            </p>
+            <div id="pack"></div>
+          </section>
+          <section class="lists-keep">
+            <h3>Keep for selected quests <small id="keep-count"></small></h3>
+            <div id="keep-list"></div>
+            <h3>Coming up: start saving <small id="upcoming-count"></small></h3>
+            <p class="quiet">
+              Found-in-raid hand-ins for quests you're about to unlock (up to 3 quests away, or a
+              few levels away).
+            </p>
+            <div id="upcoming-list"></div>
+          </section>
+        </div>
       </aside>
     </main>
     <dialog id="profiles-dialog">
@@ -217,8 +213,10 @@
     <div id="toast" role="status" hidden>
       <span id="toast-message"></span><button id="undo-button">Undo</button>
     </div>
-    <script src="data/catalog.js?v=6"></script>
-    <script src="js/atlas-core.js?v=6"></script>
-    <script src="js/atlas-app.js?v=6"></script>
+    <script src="data/bosses.js?v=7"></script>
+    <script src="data/loot.js?v=7"></script>
+    <script src="data/catalog.js?v=7"></script>
+    <script src="js/atlas-core.js?v=7"></script>
+    <script src="js/atlas-app.js?v=7"></script>
   </body>
 </html>

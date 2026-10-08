@@ -11,6 +11,10 @@ Most Tarkov trackers show you *everything* you've unlocked. Tarkov Atlas is buil
 - **Automatic packing list** — keys, quest items and gear for the selected quests on the current map. Shared keys are counted once; consumables are added up.
 - **Objective tracking** — tick objectives off, enter partial counts, or skip an objective for this raid. Pins and the packing list update instantly.
 - **Profiles** — separate runs for each character, prestige or playthrough, with export/import backups. Progress is saved in your browser.
+- **Map overlays** — boss and cultist spawn chances (PvE or PvP, following your profile) in the top-left corner, and a small always-open list of objectives with no pin in the bottom-right.
+- **Map layers & floors** — toggle extracts, rare loot, tech, meds and safes; pick a floor to grey out the map and light up only the parts on that level.
+- **Progress counters** — Kappa and overall quest progress above the map.
+- **Raid lists under the map** — Pack / Keep / Coming up sit below the map while a quest is open, and move into the right panel when you close it (click the pin again or ×).
 - **Story chapters page** — every chapter as a card with your progress. Open one and click the step you're on: everything before it is marked done, and each step with a location has a Map button.
 - **Coming up: start saving** — found-in-raid hand-ins for quests you're about to unlock (up to 3 quests away in a chain you're working on, or a few levels away), so you keep those items before you need them.
 - **Spot photos on every objective** — click a pin or objective and its Fandom wiki photos open right there: the exact spot first, then the marked map. Click a photo for full size.
@@ -64,7 +68,7 @@ licenses/             Third-party licenses
 
 - Map images: derived from [the-hideout/tarkov-dev](https://github.com/the-hideout/tarkov-dev) map sources by their listed authors — **CC BY-NC-SA 4.0** (`licenses/maps-CC-BY-NC-SA-4.0.md`). Non-commercial use only; changes to them must keep the same license.
 - Story data: TarkovTracker.org — **MIT** (`licenses/tarkovtracker-data-MIT.txt`).
-- Quest data and coordinates: [tarkov.dev](https://tarkov.dev/).
+- Quest data, coordinates, boss spawn chances and loot spawn points: [tarkov.dev](https://tarkov.dev/).
 - Quest guides and photos: [Escape from Tarkov Wiki on Fandom](https://escapefromtarkov.fandom.com/) (linked, not copied).
 - Escape from Tarkov is a trademark of Battlestate Games. This is an unofficial fan project and is not affiliated with Battlestate Games.
 
