@@ -43,6 +43,8 @@
     libView = "traders", // "traders" | "all" | "selected"
     trader = null, // trader whose quests are open, or null for the trader grid
     availableOnly = false,
+    storyChapter = null, // story chapter open on the story page
+    storyFilter = "incomplete",
     listLimit = 150,
     undoState = null,
     toastTimer;
@@ -50,6 +52,10 @@
     map = mById.get(hash.get("map")) || mById.get("ground-zero"),
     view = "survey",
     floor = "all";
+  let tipDismissed = false;
+  try {
+    tipDismissed = localStorage.getItem("tarkov-atlas-tip-dismissed") === "1";
+  } catch {}
   let scale = 1,
     offset = { x: 0, y: 0 },
     width = 1,
@@ -298,6 +304,7 @@
     const panel = $("trader-panel");
     panel.hidden = !trader;
     if (!trader) return;
+    if (trader === "Story") return renderStoryPanel(panel, fresh);
     const body = panel.querySelector(".picker-body"),
       keepScroll = fresh || !body ? 0 : body.scrollTop;
     const all = traderQuests(trader),
@@ -379,6 +386,278 @@
     }
     panel.append(head, scroll);
     scroll.scrollTop = keepScroll;
+  }
+  // ---- Story chapters page ----
+  const STORY_ORDER = [
+    "Tour",
+    "Falling Skies",
+    "Batya",
+    "The Unheard",
+    "Blue Fire",
+    "They Are Already Here",
+    "Accidental Witness",
+    "The Labyrinth",
+    "The Ticket",
+    "Boreas",
+  ];
+  const STORY_BLURB = {
+    Tour: "Your first days after the TerraGroup blast: get to know the city and look for a way out.",
+    "Falling Skies": "A plane went down in the Woods. Find out what it was carrying and who wants it.",
+    Batya: "Track down the BEAR special squad that went missing somewhere in Tarkov.",
+    "The Unheard": "A note on TerraGroup paper leads to a group calling themselves The Unheard.",
+    "Blue Fire": "Work out what the blue flash was that knocked you out during the raid.",
+    "They Are Already Here": "Follow the cultists' symbols and the victims they leave behind.",
+    "Accidental Witness": "Someone saw too much. Find out what happened to him and who he talked to.",
+    "The Labyrinth": "Go under the Health Resort to learn what happened to a lost BEAR squad.",
+    "The Ticket": "Work toward a real way out of Tarkov, and decide who you can trust.",
+    Boreas: "Board the icebreaker stuck off the coast and dig into its history.",
+  };
+  const storyChapters = () =>
+    STORY_ORDER.map((n) => data.quests.find((q) => q.kind === "story" && q.name === n)).filter(
+      Boolean,
+    );
+  // Where the player is in a chapter: the step they last picked, else the first open step.
+  function storyState(q) {
+    const list = C.objectives(q, profile.mode),
+      main = list.filter((o) => !o.optional),
+      doneCount = main.filter((o) => C.progress(profile, o).done).length;
+    const complete = profile.completed.includes(q.id);
+    let current = complete
+      ? null
+      : list.find((o) => o.id === profile.story?.[q.id]) ||
+        main.find((o) => !C.progress(profile, o).done) ||
+        null;
+    if (current && C.progress(profile, current).done) current = main.find((o) => !C.progress(profile, o).done) || null;
+    const index = current ? list.indexOf(current) : -1;
+    return {
+      list,
+      complete,
+      current,
+      started: complete || doneCount > 0 || Boolean(profile.story?.[q.id]),
+      pct: complete ? 100 : main.length ? Math.round((doneCount / main.length) * 100) : 0,
+      stepNumber: index + 1,
+    };
+  }
+  function chapterArt(q, cls) {
+    const spot = (q.photos || []).find((p) => p.kind !== "map") || (q.photos || [])[0];
+    const art = el("div", undefined, cls);
+    if (spot) {
+      const im = photoImg(spot, q.name);
+      im.alt = "";
+      art.append(im);
+    }
+    return art;
+  }
+  function setChapterComplete(q, value) {
+    change(
+      () => {
+        profile.completed = profile.completed.filter((id) => id !== q.id);
+        if (value) {
+          profile.completed.push(q.id);
+          profile.selected = profile.selected.filter((id) => id !== q.id);
+          for (const o of C.objectives(q, profile.mode))
+            if (!o.optional) profile.objectives[o.id] = { done: true, count: o.count || 1 };
+        }
+      },
+      value ? q.name + " marked complete" : q.name + " reopened",
+    );
+  }
+  function renderStoryPanel(panel, fresh) {
+    const chapters = storyChapters(),
+      body = panel.querySelector(".picker-body"),
+      keepScroll = fresh || !body ? 0 : body.scrollTop,
+      doneCount = chapters.filter((q) => profile.completed.includes(q.id)).length;
+    panel.replaceChildren();
+    const chapter = chapters.find((q) => q.id === storyChapter);
+    const head = el("div", undefined, "picker-head");
+    const title = el("div", undefined, "picker-title");
+    const h = el("h2", chapter ? chapter.name : "Story chapters", "trader-title");
+    h.tabIndex = -1;
+    const t = el("div");
+    t.append(
+      h,
+      el(
+        "p",
+        chapter
+          ? "Click the step you're on. Everything before it is marked done."
+          : doneCount + " of " + chapters.length + " chapters complete",
+        "picker-sub",
+      ),
+    );
+    title.append(t);
+    const controls = el("div", undefined, "trader-controls");
+    if (chapter)
+      controls.append(
+        button("All chapters", () => {
+          storyChapter = null;
+          renderTraderPanel(true);
+        }),
+      );
+    else {
+      const seg = el("div", undefined, "segmented");
+      for (const [key, label] of [
+        ["incomplete", "Incomplete"],
+        ["completed", "Completed"],
+        ["all", "All"],
+      ]) {
+        const b = button(label, () => {
+          storyFilter = key;
+          renderTraderPanel(true);
+        });
+        b.setAttribute("aria-pressed", String(storyFilter === key));
+        seg.append(b);
+      }
+      controls.append(seg);
+    }
+    controls.append(button("Back to map", closeTrader, "primary"));
+    head.append(title, controls);
+    const scroll = el("div", undefined, "picker-body");
+    if (chapter) scroll.append(storyDetail(chapter));
+    else {
+      const shown = chapters.filter((q) =>
+        storyFilter === "all"
+          ? true
+          : storyFilter === "completed"
+            ? profile.completed.includes(q.id)
+            : !profile.completed.includes(q.id),
+      );
+      if (!shown.length)
+        scroll.append(
+          el(
+            "p",
+            storyFilter === "completed" ? "No chapters completed yet." : "Every chapter is complete.",
+            "quiet",
+          ),
+        );
+      const grid = el("div", undefined, "story-grid");
+      for (const q of shown) grid.append(storyCard(q));
+      scroll.append(grid);
+    }
+    panel.append(head, scroll);
+    scroll.scrollTop = keepScroll;
+  }
+  function storyCard(q) {
+    const st = storyState(q),
+      n = STORY_ORDER.indexOf(q.name) + 1;
+    const card = el("article", undefined, "story-card");
+    card.dataset.state = st.complete ? "done" : st.started ? "active" : "new";
+    const open = button("", () => {
+      storyChapter = q.id;
+      renderTraderPanel(true);
+    }, "story-open");
+    open.setAttribute("aria-label", "Open " + q.name);
+    open.append(chapterArt(q, "story-art"));
+    const text = el("div", undefined, "story-text");
+    const name = el("div", undefined, "story-name");
+    name.append(el("span", String(n).padStart(2, "0"), "story-num"), el("span", q.name));
+    text.append(name, el("p", STORY_BLURB[q.name] || "", "story-blurb"));
+    const meter = el("span", undefined, "meter");
+    meter.append(el("i"));
+    meter.firstChild.style.width = st.pct + "%";
+    text.append(
+      meter,
+      el(
+        "p",
+        st.complete
+          ? "Complete"
+          : !st.started
+            ? "Not started · " + st.list.length + " steps"
+            : st.current
+              ? "Step " + st.stepNumber + " of " + st.list.length + ": " + st.current.description
+              : "In progress",
+        "story-status",
+      ),
+    );
+    open.append(text);
+    const check = button(st.complete ? "✓" : "", () => setChapterComplete(q, !st.complete), "story-check");
+    check.setAttribute("aria-label", (st.complete ? "Reopen " : "Mark complete: ") + q.name);
+    check.setAttribute("aria-pressed", String(st.complete));
+    check.title = st.complete ? "Reopen chapter" : "Mark chapter complete";
+    const wiki = el("a", "Wiki ↗", "story-wiki");
+    wiki.href = q.wiki;
+    wiki.target = "_blank";
+    wiki.rel = "noreferrer";
+    card.append(open, check, wiki);
+    return card;
+  }
+  function storyDetail(q) {
+    const st = storyState(q);
+    const wrap = el("div", undefined, "story-detail");
+    const top = el("div", undefined, "story-banner");
+    top.append(chapterArt(q, "story-art"));
+    const info = el("div", undefined, "story-text");
+    const meter = el("span", undefined, "meter");
+    meter.append(el("i"));
+    meter.firstChild.style.width = st.pct + "%";
+    info.append(
+      el("p", STORY_BLURB[q.name] || "", "story-blurb"),
+      meter,
+      el(
+        "p",
+        st.complete
+          ? "Chapter complete"
+          : st.current
+            ? "You're on step " + st.stepNumber + " of " + st.list.length + " · " + st.pct + "% of the main steps done"
+            : "Not started",
+        "story-status",
+      ),
+    );
+    const actions = el("div", undefined, "story-actions");
+    actions.append(
+      button(C.active(profile, q) ? "In this raid ✓" : "Add to raid", () => setSelected(q, !C.active(profile, q)), C.active(profile, q) ? "" : "primary"),
+      button(st.complete ? "Reopen chapter" : "Mark chapter complete", () => setChapterComplete(q, !st.complete)),
+      button("Reset progress", () =>
+        change(() => {
+          for (const o of st.list) delete profile.objectives[o.id];
+          if (profile.story) delete profile.story[q.id];
+          profile.completed = profile.completed.filter((id) => id !== q.id);
+        }, q.name + " progress reset"),
+      ),
+    );
+    const wiki = el("a", "Fandom guide ↗", "link-button");
+    wiki.href = q.wiki;
+    wiki.target = "_blank";
+    wiki.rel = "noreferrer";
+    actions.append(wiki);
+    info.append(actions);
+    top.append(info);
+    wrap.append(top);
+    const steps = el("ol", undefined, "story-steps");
+    st.list.forEach((o, i) => {
+      const done = C.progress(profile, o).done || st.complete,
+        current = st.current?.id === o.id;
+      const li = el("li", undefined, "story-step");
+      li.dataset.state = current ? "current" : done ? "done" : "todo";
+      if (o.optional) li.dataset.optional = "true";
+      const pick = button("", () =>
+        change(() => C.setStoryStep(profile, q, o.id), "On step " + (i + 1) + " of " + q.name),
+      "story-pick");
+      pick.setAttribute("aria-label", "I'm on step " + (i + 1) + ": " + o.description);
+      pick.append(
+        el("span", done && !current ? "✓" : String(i + 1), "step-dot"),
+        el("span", o.description, "step-text"),
+      );
+      const meta = [];
+      if (current) meta.push("You are here");
+      if (o.optional) meta.push("Optional / alternative");
+      if (o.placement === "off-map") meta.push("Trader, hideout or progression");
+      else if (o.placement === "mapwide") meta.push("Anywhere on " + (o.maps.map((m) => mById.get(m)?.name || m).join(", ") || "any map"));
+      else if (o.locations.length) meta.push(o.locations.length > 1 ? o.locations.length + " places" : mById.get(o.locations[0].map)?.name || "");
+      else if (o.placement === "unverified") meta.push("No pin yet");
+      if (meta.length) pick.append(el("small", meta.join(" · "), "step-meta"));
+      li.append(pick);
+      if (o.locations.some((l) => l.world)) {
+        const go = button("Map", () => {
+          closeTrader();
+          focusLocation(q, o, o.locations.findIndex((l) => l.world));
+        }, "step-map");
+        go.setAttribute("aria-label", "Show step " + (i + 1) + " on the map");
+        li.append(go);
+      }
+      steps.append(li);
+    });
+    wrap.append(steps);
+    return wrap;
   }
   function traderRow(q) {
     const complete = profile.completed.includes(q.id),
@@ -576,7 +855,59 @@
     }
     target.append(list);
   }
+  function renderUpcoming() {
+    const target = $("upcoming-list"),
+      rows = C.upcomingHandIns(data, prog, profile);
+    target.replaceChildren();
+    $("upcoming-count").textContent = rows.length ? "· " + plural(rows.length, "quest") : "";
+    if (!rows.length) {
+      target.append(
+        el(
+          "p",
+          profile.completed.length
+            ? "Nothing coming up. Mark finished quests as done (and set your level in a trader list) to get reminders."
+            : "Mark the quests you've finished as done, and this will remind you which found-in-raid items to start keeping.",
+          "quiet",
+        ),
+      );
+      return;
+    }
+    const list = el("ul", undefined, "packing-list upcoming-list");
+    for (const r of rows) {
+      const li = el("li");
+      li.append(button(r.q.name, () => chooseQuest(r.q.id), "link-button upcoming-quest"));
+      li.append(
+        el(
+          "small",
+          r.kind === "level"
+            ? "Unlocks at level " + r.q.minLevel + " (" + plural(r.steps, "level") + " to go)"
+            : plural(r.steps, "quest") +
+                " away · working on " +
+                r.via.map((v) => v.name).join(", "),
+          "upcoming-when",
+        ),
+      );
+      const needs = el("ul", undefined, "upcoming-needs");
+      for (const o of r.need) {
+        const items = (o.keep || []).flatMap((k) => k.items || []);
+        const left = o.count - ((profile.objectives[o.id] || {}).count || 0);
+        needs.append(
+          el(
+            "li",
+            left +
+              " × " +
+              (items.length ? itemNames(items) : o.description) +
+              " (found in raid)",
+          ),
+        );
+      }
+      li.append(needs);
+      list.append(li);
+    }
+    target.append(list);
+  }
   function renderPack() {
+    renderUpcoming();
     const pack = C.packing(data, profile, map.id);
     packingList(pack.bring, $("pack"));
     packingList(pack.keep, $("keep-list"), true);
@@ -619,10 +950,14 @@
   }
   // ---- Objective photos ----
   const isWikiImage = (u) => /^https:\/\/static\.wikia\.nocookie\.net\//.test(u || "");
+  // Bump PHOTO_VERSION if browsers have cached bad copies (e.g. Fandom's hotlink placeholder).
+  const PHOTO_VERSION = 2;
+  const photoUrl = (u) =>
+    isWikiImage(u) ? u + (u.includes("?") ? "&" : "?") + "v=" + PHOTO_VERSION : u;
   function photoImg(photo, alt, large) {
     const im = el("img");
     im.referrerPolicy = "no-referrer"; // Fandom blocks hotlinked images that carry a referrer
-    im.src = isWikiImage(photo.thumb) && !large ? photo.thumb : photo.src;
+    im.src = photoUrl(isWikiImage(photo.thumb) && !large ? photo.thumb : photo.src);
     im.alt = photo.caption || alt;
     im.loading = "lazy";
     im.onerror = () => (im.hidden = true);
@@ -712,7 +1047,19 @@
           ? "Trader, hideout, or progression"
           : o.placement === "unverified"
             ? "Location awaiting verification · no guessed pin"
-            : o.locations.some((l) => l.kind === "entrance")
+            : o.locations.length && o.locations.every((l) => l.kind === "area")
+              ? "Approximate area near " +
+                (o.locations[0].anchor || "a landmark") +
+                " · use the photos for the exact spot"
+              : o.locations.some((l) => l.kind === "spot")
+                ? "Pin marks the spot from the wiki map" +
+                  (o.locations.length > 1 ? " · pick one of the options below" : "")
+              : o.locations.some((l) => l.kind === "door")
+                ? "Locked door · pin marks the door" +
+                  (o.locations.length > 1 ? " · pick one of the options below" : "")
+                : o.locations.some((l) => ["transit", "extract", "switch"].includes(l.kind))
+                  ? "Pin marks the " + o.locations.find((l) => ["transit", "extract", "switch"].includes(l.kind)).kind
+                  : o.locations.some((l) => l.kind === "entrance")
               ? "Room entrance locator · use the photo for the stash surface"
               : o.locations.some((l) => l.kind === "spawn")
                 ? "Possible item spawn" + (o.locations.length > 1 ? "s · check alternatives" : "")
@@ -737,8 +1084,12 @@
       );
     let places = el("div", undefined, "place-buttons");
     for (const [i, l] of o.locations.entries()) {
-      let label =
-        (mById.get(l.map)?.name || l.map) + (o.locations.length > 1 ? " · " + (i + 1) : "");
+      const mapName = mById.get(l.map)?.name || l.map;
+      let label = l.label
+        ? (new Set(o.locations.map((x) => x.map)).size > 1 && !l.label.startsWith(mapName.split(" ")[0])
+            ? mapName + " · "
+            : "") + l.label
+        : mapName + (o.locations.length > 1 ? " · " + (i + 1) : "");
       places.append(button(label, () => focusLocation(q, o, i)));
     }
     if (places.childElementCount) card.append(places);
@@ -932,9 +1283,7 @@
         for (let photo of q.photos) {
           let f = el("figure"),
             im = el("img");
-          im.src = /^https:\/\/static\.wikia\.nocookie\.net\//.test(photo.thumb || "")
-            ? photo.thumb
-            : photo.src;
+          im.src = photoUrl(isWikiImage(photo.thumb) ? photo.thumb : photo.src);
           im.alt = photo.caption || q.name + " location reference";
           im.loading = "lazy";
           im.onerror = () => {
@@ -1206,6 +1555,17 @@
         ctx.lineWidth = 1.5;
         ctx.stroke();
       }
+      if (p.l.kind === "area") {
+        // Approximate spot: a dashed ring around the anchor instead of a hard point.
+        ctx.save();
+        ctx.setLineDash([4, 4]);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1.3;
+        ctx.beginPath();
+        ctx.arc(p.ax, p.ay, Math.max(18, 14 * scale), 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+      }
       ctx.strokeStyle = color;
       ctx.lineWidth = 1;
       ctx.beginPath();
@@ -1243,7 +1603,7 @@
       Math.round((scale / Math.min(width / mapDims().width, height / mapDims().height)) * 100) +
       "%";
     const noSelected = !data.quests.some((q) => C.active(profile, q));
-    $("map-empty").hidden = !noSelected;
+    $("map-empty").hidden = !noSelected || tipDismissed || Boolean(selectedQuest);
     if (!noSelected && !all.length)
       $("map-status").textContent =
         "No selected fixed locations on this " + "map" + " · see other objectives";
@@ -1345,6 +1705,19 @@
     }, "Cleared this raid’s quest selection");
   $("library-toggle").onclick = () =>
     showLibrary($("workspace").classList.contains("library-hidden"));
+  $("empty-close").onclick = () => {
+    tipDismissed = true;
+    try {
+      localStorage.setItem("tarkov-atlas-tip-dismissed", "1");
+    } catch {}
+    $("map-empty").hidden = true;
+  };
+  $("story-open").onclick = () => {
+    showLibrary(true);
+    if (libView !== "traders") setView("traders");
+    storyChapter = null;
+    openTrader("Story");
+  };
   $("empty-open-library").onclick = () => {
     showLibrary(true);
     $("quest-search").focus();

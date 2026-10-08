@@ -16,7 +16,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap"
     />
-    <link rel="stylesheet" href="css/atlas.css" />
+    <link rel="stylesheet" href="css/atlas.css?v=6" />
   </head>
   <body>
     <header>
@@ -25,7 +25,8 @@
         <p class="tagline">Pick your quests. See where to go. Know what to bring.</p>
       </div>
       <div class="header-actions">
-        <button id="library-toggle" aria-expanded="true">Quest library</button
+        <button id="story-open">Story</button
+        ><button id="library-toggle" aria-expanded="true">Quest library</button
         ><label class="sr-only" for="profile-select">Progress profile</label
         ><select id="profile-select"></select
         ><button id="profiles-button">Profiles & backups</button>
@@ -122,6 +123,7 @@
           <div id="map-status" class="map-stat" aria-live="polite"></div>
           <div id="map-tip" class="map-tip" hidden></div>
           <div id="map-empty" class="map-empty">
+            <button id="empty-close" class="map-empty-close" aria-label="Dismiss tip" title="Dismiss">×</button>
             <h3>Choose your next objective.</h3>
             <p>
               Select quests from the library. Their locations appear here, and your packing list
@@ -152,6 +154,14 @@
         <details id="keep-panel">
           <summary>Keep for selected quests <small id="keep-count"></small></summary>
           <div id="keep-list"></div>
+        </details>
+        <details id="upcoming-panel">
+          <summary>Coming up: start saving <small id="upcoming-count"></small></summary>
+          <p class="quiet">
+            Found-in-raid hand-ins for quests you are about to unlock: up to 3 quests away in a chain
+            you are working on, or a few levels away. Keep these when you find them.
+          </p>
+          <div id="upcoming-list"></div>
         </details>
       </aside>
     </main>
@@ -207,8 +217,8 @@
     <div id="toast" role="status" hidden>
       <span id="toast-message"></span><button id="undo-button">Undo</button>
     </div>
-    <script src="data/catalog.js"></script>
-    <script src="js/atlas-core.js"></script>
-    <script src="js/atlas-app.js"></script>
+    <script src="data/catalog.js?v=6"></script>
+    <script src="js/atlas-core.js?v=6"></script>
+    <script src="js/atlas-app.js?v=6"></script>
   </body>
 </html>

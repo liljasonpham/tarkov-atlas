@@ -142,3 +142,29 @@ test("player level hides quests that are not unlocked yet", () => {
   p.level = 79;
   assert.ok(C.available(prog, p, high));
 });
+
+test("story steps with a place have pins; multi-place steps offer every option", () => {
+  const boreas = catalog.quests.find((q) => q.name === "Boreas");
+  const crew = boreas.objectives[31];
+  assert.strictEqual(crew.locations.length, 8);
+  assert.ok(crew.locations.every((l) => l.kind === "door" && l.map === "icebreaker"));
+  const witness = catalog.quests.find((q) => q.name === "Accidental Witness");
+  assert.strictEqual(witness.objectives[0].locations[0].kind, "door");
+  for (const q of catalog.quests.filter((x) => x.kind === "story"))
+    for (const o of q.objectives)
+      if (o.placement === "fixed") assert.ok(o.locations.length, `${q.name}: ${o.description}`);
+});
+
+test("found-in-raid hand-ins show up a few quests before they unlock", () => {
+  const prog = C.progression(catalog);
+  const part2 = catalog.quests.find((q) => q.name === "Sew it Good - Part 2");
+  const part1 = catalog.quests.find((q) => q.name === "Sew it Good - Part 1");
+  const p = profileWith([]);
+  for (const id of C.ancestors(prog, part1)) p.completed.push(id);
+  const hit = C.upcomingHandIns(catalog, prog, p).find((r) => r.q.id === part2.id);
+  assert.ok(hit, "Part 2 is coming up once Part 1 is available");
+  assert.strictEqual(hit.steps, 1);
+  assert.ok(hit.need.every((o) => o.foundInRaid));
+  p.completed.push(part1.id, part2.id);
+  assert.ok(!C.upcomingHandIns(catalog, prog, p).some((r) => r.q.id === part2.id));
+});

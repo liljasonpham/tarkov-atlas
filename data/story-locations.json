@@ -1,0 +1,2574 @@
+{
+ "Tour": {
+  "22": {
+   "pins": [
+    {
+     "src": "transit",
+     "map": "shoreline",
+     "name": "Transit to Terminal",
+     "label": "Transit to the Terminal (south-east Shoreline)"
+    }
+   ]
+  },
+  "23": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "shoreline",
+     "xyz": [
+      -912.0,
+      -57.0,
+      262.0
+     ],
+     "label": "Watchtower with the intercom (in front of the Terminal)",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "24": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "shoreline",
+     "xyz": [
+      -912.0,
+      -57.0,
+      262.0
+     ],
+     "label": "Watchtower with the intercom (in front of the Terminal)",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "25": {
+   "placement": "off-map"
+  },
+  "35": {
+   "placement": "off-map"
+  },
+  "32": {
+   "pins": [
+    {
+     "src": "extract",
+     "map": "the-lab",
+     "name": "Sewage Conduit",
+     "label": "Sewer escape path (Sewage Conduit)"
+    },
+    {
+     "src": "switch",
+     "map": "the-lab",
+     "name": "Water Level Switch",
+     "label": "Water level switch for the sewers"
+    }
+   ]
+  },
+  "33": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Beneath The Streets",
+     "desc": "Scout the server room",
+     "label": "Server room next to the hangar"
+    }
+   ]
+  },
+  "34": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "the-lab",
+     "name": "TerraGroup Labs manager's office room key",
+     "n": 0,
+     "label": "Laboratory manager's office (O21), second level"
+    }
+   ]
+  },
+  "36": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Beneath The Streets",
+     "desc": "Use the transit from Streets of Tarkov to The Lab",
+     "label": "Streets → Lab transit (Klimova 16A)"
+    },
+    {
+     "src": "transit",
+     "map": "factory",
+     "name": "Transit to The Lab",
+     "label": "Factory → Lab transit (flooded sewer tunnel)"
+    }
+   ]
+  },
+  "37": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Beneath The Streets",
+     "desc": "Use the transit from Streets of Tarkov to The Lab",
+     "label": "Underground entrance in front of Klimova 16A"
+    }
+   ]
+  },
+  "38": {
+   "pins": [
+    {
+     "src": "transit",
+     "map": "factory",
+     "name": "Transit to The Lab",
+     "label": "Sewer tunnel off the flooded underground"
+    }
+   ]
+  }
+ },
+ "Falling Skies": {
+  "2": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "shoreline",
+     "xyz": [
+      342.2,
+      -55.0,
+      313.2
+     ],
+     "label": "G-Wagon SUV on the road next to the Tunnel extraction",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "3": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "shoreline",
+     "xyz": [
+      342.2,
+      -55.0,
+      313.2
+     ],
+     "label": "G-Wagon SUV on the road next to the Tunnel extraction",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "10": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "woods",
+     "xyz": [
+      -252.0,
+      5.0,
+      -30.0
+     ],
+     "label": "Crashed plane, east Woods (wreck on the map)",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "25": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "woods",
+     "xyz": [
+      -252.0,
+      5.0,
+      -30.0
+     ],
+     "label": "Crashed plane, east Woods (wreck on the map)",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "27": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "woods",
+     "xyz": [
+      -252.0,
+      5.0,
+      -30.0
+     ],
+     "label": "Crashed plane, east Woods (wreck on the map)",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "11": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Wet Job - Part 2",
+     "desc": "Locate the fishermen's dwelling",
+     "label": "House on the Shoreline island (destroyed room)"
+    }
+   ]
+  },
+  "20": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Courtesy Visit",
+     "desc": "Locate the chairman's house",
+     "label": "Chairman's house"
+    }
+   ]
+  },
+  "21": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Courtesy Visit",
+     "desc": "Locate the chairman's house",
+     "label": "Chairman's house"
+    }
+   ]
+  }
+ },
+ "Batya": {
+  "0": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Hobby Club",
+     "desc": "Stash the AK-50 body",
+     "label": "Customs: cabin on the hill SW of the new gas station (patch on the couch)"
+    },
+    {
+     "src": "zone",
+     "quest": "Search Mission",
+     "desc": "Locate Prapor's missing convoy",
+     "label": "Woods: BRDM of the cargo convoy (patch on the ground)"
+    },
+    {
+     "src": "spot",
+     "map": "reserve",
+     "xyz": [
+      -49.5,
+      15.0,
+      15.5
+     ],
+     "label": "White King (airspace control center), upper roof",
+     "how": "Fandom wiki marked map"
+    },
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -66.0,
+      15.0,
+      448.3
+     ],
+     "label": "BEAR camp on the hill above the Side Tunnel",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "1": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Hobby Club",
+     "desc": "Stash the AK-50 body",
+     "label": "Customs: cabin on the hill SW of the new gas station (patch on the couch)"
+    },
+    {
+     "src": "zone",
+     "quest": "Search Mission",
+     "desc": "Locate Prapor's missing convoy",
+     "label": "Woods: BRDM of the cargo convoy (patch on the ground)"
+    },
+    {
+     "src": "spot",
+     "map": "reserve",
+     "xyz": [
+      -49.5,
+      15.0,
+      15.5
+     ],
+     "label": "White King (airspace control center), upper roof",
+     "how": "Fandom wiki marked map"
+    },
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -66.0,
+      15.0,
+      448.3
+     ],
+     "label": "BEAR camp on the hill above the Side Tunnel",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "2": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "woods",
+     "xyz": [
+      -441.7,
+      5.0,
+      -36.8
+     ],
+     "label": "Moreman's grave (ambush spot), north of ZB-016",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "14": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "woods",
+     "xyz": [
+      -441.7,
+      5.0,
+      -36.8
+     ],
+     "label": "Moreman's grave (ambush spot), north of ZB-016",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "15": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "woods",
+     "xyz": [
+      -441.7,
+      5.0,
+      -36.8
+     ],
+     "label": "Moreman's grave (ambush spot), north of ZB-016",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "16": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "woods",
+     "xyz": [
+      -441.7,
+      5.0,
+      -36.8
+     ],
+     "label": "Moreman's grave (ambush spot), north of ZB-016",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "17": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "woods",
+     "xyz": [
+      -441.7,
+      5.0,
+      -36.8
+     ],
+     "label": "Moreman's grave (ambush spot), north of ZB-016",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "18": {
+   "placement": "off-map"
+  },
+  "3": {
+   "placement": "mapwide"
+  },
+  "4": {
+   "placement": "mapwide"
+  },
+  "6": {
+   "placement": "mapwide"
+  },
+  "43": {
+   "placement": "mapwide"
+  },
+  "44": {
+   "placement": "mapwide"
+  },
+  "5": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      76.5,
+      29.0,
+      -255.4
+     ],
+     "label": "Carousel outpost, ULTRA 2nd floor, NW corner by the IDEA bistro",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "23": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      76.5,
+      29.0,
+      -255.4
+     ],
+     "label": "Carousel outpost, ULTRA 2nd floor, NW corner by the IDEA bistro",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "24": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      76.5,
+      29.0,
+      -255.4
+     ],
+     "label": "Carousel outpost, ULTRA 2nd floor, NW corner by the IDEA bistro",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "26": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      76.5,
+      29.0,
+      -255.4
+     ],
+     "label": "Carousel outpost, ULTRA 2nd floor, NW corner by the IDEA bistro",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "27": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      76.5,
+      29.0,
+      -255.4
+     ],
+     "label": "Carousel outpost, ULTRA 2nd floor, NW corner by the IDEA bistro",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "28": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      76.5,
+      29.0,
+      -255.4
+     ],
+     "label": "Carousel outpost, ULTRA 2nd floor, NW corner by the IDEA bistro",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "8": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      -330.0,
+      22.0,
+      -52.0
+     ],
+     "label": "Gnezdo outpost: tents around the big rock east of ULTRA",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "9": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      -330.0,
+      22.0,
+      -52.0
+     ],
+     "label": "Gnezdo outpost: tents around the big rock east of ULTRA",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "10": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      -330.0,
+      22.0,
+      -52.0
+     ],
+     "label": "Gnezdo outpost: tents around the big rock east of ULTRA",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "11": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      -330.0,
+      22.0,
+      -52.0
+     ],
+     "label": "Gnezdo outpost: tents around the big rock east of ULTRA",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "12": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      -330.0,
+      22.0,
+      -52.0
+     ],
+     "label": "Gnezdo outpost: tents around the big rock east of ULTRA",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "13": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      -330.0,
+      22.0,
+      -52.0
+     ],
+     "label": "Gnezdo outpost: tents around the big rock east of ULTRA",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "47": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      -330.0,
+      22.0,
+      -52.0
+     ],
+     "label": "Gnezdo outpost: tents around the big rock east of ULTRA",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "21": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "woods",
+     "xyz": [
+      38.7,
+      5.0,
+      -331.5
+     ],
+     "label": "Ryabina outpost, between the rocks north of the sawmill",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "22": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "woods",
+     "xyz": [
+      38.7,
+      5.0,
+      -331.5
+     ],
+     "label": "Ryabina outpost, between the rocks north of the sawmill",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "25": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      -330.0,
+      22.0,
+      -52.0
+     ],
+     "label": "First code note: Gnezdo, pallet with the green cloth",
+     "how": "Fandom wiki marked map"
+    },
+    {
+     "src": "spot",
+     "map": "woods",
+     "xyz": [
+      -441.7,
+      5.0,
+      -36.8
+     ],
+     "label": "Second code note: Moreman's grave, in one of the boots",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "35": {
+   "pins": [
+    {
+     "src": "switch",
+     "map": "lighthouse",
+     "name": "Lightkeeper Switch",
+     "label": "Lightkeeper's locked area, 3rd floor of the lighthouse"
+    }
+   ]
+  },
+  "46": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -66.0,
+      15.0,
+      448.3
+     ],
+     "label": "BEAR camp on the hill above the Side Tunnel",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "48": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -66.0,
+      15.0,
+      448.3
+     ],
+     "label": "BEAR camp on the hill above the Side Tunnel",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "49": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "The Bunker",
+     "desc": "Locate the control room in the underground bunker",
+     "label": "Command bunker"
+    }
+   ]
+  },
+  "52": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Wet Job - Part 2",
+     "desc": "Locate the fishermen's dwelling",
+     "label": "House on the island (Voevoda's photo)"
+    }
+   ]
+  },
+  "53": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Weapons Circulation",
+     "desc": "Locate and mark the first ritual spot",
+     "label": "Marked circle near the checkpoint (note by the candles)"
+    }
+   ]
+  },
+  "55": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "customs",
+     "name": "Dorm room 314 marked key",
+     "n": 0,
+     "label": "Dorm room 314 (marked room, 3-story dorms)"
+    }
+   ]
+  },
+  "51": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Wet Job - Part 2",
+     "desc": "Locate the fishermen's dwelling",
+     "label": "Shoreline: house on the island"
+    },
+    {
+     "src": "zone",
+     "quest": "Weapons Circulation",
+     "desc": "Locate and mark the first ritual spot",
+     "label": "Woods: marked circle near the checkpoint"
+    },
+    {
+     "src": "lock",
+     "map": "customs",
+     "name": "Dorm room 314 marked key",
+     "n": 0,
+     "label": "Customs: dorm room 314"
+    }
+   ]
+  }
+ },
+ "The Unheard": {
+  "0": {
+   "placement": "off-map"
+  },
+  "1": {
+   "placement": "off-map"
+  },
+  "2": {
+   "placement": "off-map"
+  },
+  "13": {
+   "placement": "off-map"
+  },
+  "14": {
+   "placement": "off-map"
+  },
+  "18": {
+   "placement": "off-map"
+  },
+  "19": {
+   "placement": "off-map"
+  },
+  "3": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Beneath The Streets",
+     "desc": "Scout the hazard dome",
+     "label": "Laboratory next to the dome, first floor (document)"
+    }
+   ]
+  },
+  "4": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "the-lab",
+     "xyz": [
+      -151.6,
+      5.0,
+      -408.7
+     ],
+     "label": "Office O23 (2nd level)",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "5": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "factory",
+     "xyz": [
+      -1.8,
+      0.5,
+      -17.8
+     ],
+     "label": "Yellow barrel next to the hole in the floor",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "6": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "streets-of-tarkov",
+     "xyz": [
+      33.0,
+      2.0,
+      353.0
+     ],
+     "label": "Rzhevsky's car, street south-east of the LexOs dealership",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "7": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "streets-of-tarkov",
+     "xyz": [
+      33.0,
+      2.0,
+      353.0
+     ],
+     "label": "Rzhevsky's car, street south-east of the LexOs dealership",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "8": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "streets-of-tarkov",
+     "xyz": [
+      33.0,
+      2.0,
+      353.0
+     ],
+     "label": "Rzhevsky's car, street south-east of the LexOs dealership",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "10": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "streets-of-tarkov",
+     "xyz": [
+      33.0,
+      2.0,
+      353.0
+     ],
+     "label": "Rzhevsky's car, street south-east of the LexOs dealership",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "11": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "factory",
+     "name": "TerraGroup storage room keycard",
+     "n": 0,
+     "label": "TerraGroup storage room (next to Camera Bunker Door)"
+    }
+   ]
+  },
+  "12": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "factory",
+     "name": "TerraGroup storage room keycard",
+     "n": 0,
+     "label": "TerraGroup storage room (next to Camera Bunker Door)"
+    }
+   ]
+  },
+  "15": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "the-lab",
+     "xyz": [
+      -151.6,
+      5.0,
+      -408.7
+     ],
+     "label": "Office O23 (2nd level)",
+     "how": "Fandom wiki marked map"
+    },
+    {
+     "src": "spot",
+     "map": "the-lab",
+     "xyz": [
+      -262.3,
+      5.0,
+      -366.1
+     ],
+     "label": "Admin office R22 (2nd level)",
+     "how": "Fandom wiki marked map"
+    },
+    {
+     "src": "spot",
+     "map": "the-lab",
+     "xyz": [
+      -207.0,
+      1.0,
+      -305.0
+     ],
+     "label": "Lecture hall R16",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "17": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "the-lab",
+     "xyz": [
+      -207.0,
+      1.0,
+      -305.0
+     ],
+     "label": "Lecture hall R16",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "16": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "shoreline",
+     "xyz": [
+      -281.68,
+      3.02,
+      -92.89
+     ],
+     "label": "East wing room 305 (next to 306), 3rd floor",
+     "how": "Door position from the neighbouring room locks (tarkov.dev)"
+    }
+   ]
+  },
+  "21": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "shoreline",
+     "xyz": [
+      -281.68,
+      3.02,
+      -92.89
+     ],
+     "label": "East wing room 305 (next to 306), 3rd floor",
+     "how": "Door position from the neighbouring room locks (tarkov.dev)"
+    }
+   ]
+  },
+  "28": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "TerraGroup corporate apartment key",
+     "n": 0,
+     "label": "A.P.'s apartment 1, 2nd floor, Cardinal complex"
+    }
+   ]
+  },
+  "29": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "TerraGroup corporate apartment key",
+     "n": 0,
+     "label": "A.P.'s apartment 1, 2nd floor, Cardinal complex"
+    }
+   ]
+  },
+  "30": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Reprogrammed keycard for A.P.'s apartment lock (Green)",
+     "n": 0,
+     "label": "Hidden room in A.P.'s apartment"
+    }
+   ]
+  },
+  "33": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Reprogrammed keycard for A.P.'s apartment lock (Green)",
+     "n": 0,
+     "label": "Hidden room in A.P.'s apartment"
+    }
+   ]
+  },
+  "34": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Reprogrammed keycard for A.P.'s apartment lock (Green)",
+     "n": 0,
+     "label": "Hidden room in A.P.'s apartment"
+    }
+   ]
+  }
+ },
+ "Blue Fire": {
+  "2": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Car dealership closed section key",
+     "n": 0,
+     "label": "LexOs closed section, 2nd floor"
+    },
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Mysterious room marked key",
+     "n": 0,
+     "label": "Chekannaya marked room"
+    }
+   ]
+  },
+  "4": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Beneath The Streets",
+     "desc": "Scout the server room",
+     "label": "Server room, first floor"
+    }
+   ]
+  },
+  "7": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "ground-zero",
+     "name": "TerraGroup science office key",
+     "n": 0,
+     "label": "Ground Zero 21+: TerraGroup office no. 4, 2nd floor"
+    },
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -81.35,
+      22.33,
+      -74.0
+     ],
+     "label": "Blue chalet: bookshelf by the central stairs",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "8": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "streets-of-tarkov",
+     "xyz": [
+      42.0,
+      2.0,
+      97.0
+     ],
+     "label": "Rus Post office (3 audio tapes inside)",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "9": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Rus Post car key",
+     "n": 0,
+     "label": "Rus Post car in front of the post office (key by the back right wheel)"
+    }
+   ]
+  },
+  "10": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Rus Post car key",
+     "n": 0,
+     "label": "Rus Post car in front of the post office (key by the back right wheel)"
+    }
+   ]
+  }
+ },
+ "They Are Already Here": {
+  "0": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -303.8,
+      10.0,
+      -320.9
+     ],
+     "label": "Cultist torture house by the cabins",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "1": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -303.8,
+      10.0,
+      -320.9
+     ],
+     "label": "Cultist torture house by the cabins",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "2": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Cult victim's apartment key",
+     "n": 0,
+     "label": "Cult victim's apartment, 3rd floor behind Klimov mall"
+    }
+   ]
+  },
+  "3": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Cult victim's apartment key",
+     "n": 0,
+     "label": "Cult victim's apartment, 3rd floor behind Klimov mall"
+    }
+   ]
+  },
+  "4": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Cult victim's apartment key",
+     "n": 0,
+     "label": "Cult victim's apartment, 3rd floor behind Klimov mall"
+    }
+   ]
+  },
+  "5": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Cult victim's apartment key",
+     "n": 0,
+     "label": "Cult victim's apartment, 3rd floor behind Klimov mall"
+    }
+   ]
+  },
+  "6": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Cult victim's apartment key",
+     "n": 0,
+     "label": "Cult victim's apartment, 3rd floor behind Klimov mall"
+    }
+   ]
+  },
+  "10": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "customs",
+     "name": "Dorm room 314 marked key",
+     "n": 0,
+     "label": "Customs: dorm room 314"
+    },
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Abandoned factory marked key",
+     "n": 0,
+     "label": "Streets: abandoned factory marked room"
+    },
+    {
+     "src": "lock",
+     "map": "reserve",
+     "name": "RB-BK marked key",
+     "n": 0,
+     "label": "Reserve: RB-BK"
+    },
+    {
+     "src": "lock",
+     "map": "reserve",
+     "name": "RB-PKPM marked key",
+     "n": 0,
+     "label": "Reserve: RB-PKPM"
+    },
+    {
+     "src": "lock",
+     "map": "reserve",
+     "name": "RB-VO marked key",
+     "n": 0,
+     "label": "Reserve: RB-VO"
+    }
+   ]
+  },
+  "11": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Signal - Part 3",
+     "desc": "Place the Signal jammer on the third specified place",
+     "label": "Sordi radio tower and red shack (near Road to Customs)"
+    }
+   ]
+  },
+  "12": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Signal - Part 3",
+     "desc": "Place the Signal jammer on the third specified place",
+     "label": "Sordi radio tower and red shack (near Road to Customs)"
+    }
+   ]
+  },
+  "13": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Signal - Part 3",
+     "desc": "Place the Signal jammer on the third specified place",
+     "label": "Sordi radio tower and red shack (near Road to Customs)"
+    }
+   ]
+  },
+  "14": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Weapons Circulation",
+     "desc": "Locate and mark the second ritual spot",
+     "label": "Dilapidated village, north Woods (cultist house nearby)"
+    }
+   ]
+  },
+  "15": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Weapons Circulation",
+     "desc": "Locate and mark the second ritual spot",
+     "label": "Dilapidated village, north Woods (cultist house nearby)"
+    }
+   ]
+  },
+  "16": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -81.35,
+      22.33,
+      -57.37
+     ],
+     "label": "Blue chalet: southern bedroom and balcony, 2nd floor",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "17": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -81.35,
+      22.33,
+      -57.37
+     ],
+     "label": "Blue chalet: southern bedroom and balcony, 2nd floor",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "18": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -81.35,
+      22.33,
+      -57.37
+     ],
+     "label": "Blue chalet: southern bedroom and balcony, 2nd floor",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "19": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -81.35,
+      22.33,
+      -57.37
+     ],
+     "label": "Blue chalet: southern bedroom and balcony, 2nd floor",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "20": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -110.22,
+      21.96,
+      -14.41
+     ],
+     "label": "ATV in front of the garage opposite the chalet",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "24": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "interchange",
+     "name": "Station 14-4 KORD Arshavin K. pass (Restored)",
+     "n": 0,
+     "label": "ARRS Station 14-4 KORD, power station basement"
+    }
+   ]
+  },
+  "25": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "interchange",
+     "name": "Station 14-4 KORD Arshavin K. pass (Restored)",
+     "n": 0,
+     "label": "ARRS Station 14-4 KORD, power station basement"
+    }
+   ]
+  },
+  "26": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "interchange",
+     "name": "Station 14-4 KORD Arshavin K. pass (Restored)",
+     "n": 0,
+     "label": "ARRS Station 14-4 KORD, power station basement"
+    }
+   ]
+  },
+  "27": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "interchange",
+     "name": "Station 14-4 KORD Arshavin K. pass (Restored)",
+     "n": 0,
+     "label": "ARRS Station 14-4 KORD, power station basement"
+    }
+   ]
+  },
+  "29": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "interchange",
+     "name": "Station 14-4 KORD Arshavin K. pass (Restored)",
+     "n": 0,
+     "label": "ARRS Station 14-4 KORD, power station basement"
+    }
+   ]
+  },
+  "34": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "interchange",
+     "name": "Station 14-4 KORD Arshavin K. pass (Restored)",
+     "n": 0,
+     "label": "ARRS Station 14-4 KORD, power station basement"
+    }
+   ]
+  },
+  "35": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "interchange",
+     "name": "Station 14-4 KORD Arshavin K. pass (Restored)",
+     "n": 0,
+     "label": "ARRS Station 14-4 KORD, power station basement"
+    }
+   ]
+  },
+  "36": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "interchange",
+     "name": "Station 14-4 KORD Arshavin K. pass (Restored)",
+     "n": 0,
+     "label": "ARRS Station 14-4 KORD, power station basement"
+    }
+   ]
+  },
+  "37": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "interchange",
+     "name": "Station 14-4 KORD Arshavin K. pass (Restored)",
+     "n": 0,
+     "label": "ARRS Station 14-4 KORD, power station basement"
+    }
+   ]
+  },
+  "23": {
+   "placement": "mapwide"
+  }
+ },
+ "Accidental Witness": {
+  "0": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "customs",
+     "name": "Dorm room 110 key",
+     "n": 0,
+     "label": "Kozlov's room 110, 2-story dorms"
+    }
+   ]
+  },
+  "2": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "customs",
+     "name": "Dorm room 110 key",
+     "n": 0,
+     "label": "Kozlov's room 110, 2-story dorms"
+    }
+   ]
+  },
+  "3": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "customs",
+     "name": "Dorm room 110 key",
+     "n": 0,
+     "label": "Kozlov's room 110, 2-story dorms"
+    }
+   ]
+  },
+  "4": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "customs",
+     "name": "Dorm room 110 key",
+     "n": 0,
+     "label": "Kozlov's room 110, 2-story dorms"
+    }
+   ]
+  },
+  "5": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "customs",
+     "name": "Dorm room 110 key",
+     "n": 0,
+     "label": "Kozlov's room 110, 2-story dorms"
+    }
+   ]
+  },
+  "7": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Zmeisky 3 apartment key",
+     "n": 0,
+     "label": "Zmeisky 3 apartment (backyard entrance)"
+    }
+   ]
+  },
+  "8": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Zmeisky 3 apartment key",
+     "n": 0,
+     "label": "Zmeisky 3 apartment (backyard entrance)"
+    }
+   ]
+  },
+  "9": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Zmeisky 3 apartment key",
+     "n": 0,
+     "label": "Zmeisky 3 apartment (backyard entrance)"
+    }
+   ]
+  },
+  "12": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Zmeisky 3 apartment key",
+     "n": 0,
+     "label": "Zmeisky 3 apartment (backyard entrance)"
+    }
+   ]
+  },
+  "15": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "streets-of-tarkov",
+     "xyz": [
+      213.0,
+      2.0,
+      231.0
+     ],
+     "label": "Anastasia's building (Chekannaya), mailbox at the entrance",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "16": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "streets-of-tarkov",
+     "xyz": [
+      213.0,
+      2.0,
+      231.0
+     ],
+     "label": "Anastasia's building (Chekannaya), mailbox at the entrance",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "17": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "streets-of-tarkov",
+     "xyz": [
+      213.0,
+      2.0,
+      231.0
+     ],
+     "label": "Anastasia's building (Chekannaya), mailbox at the entrance",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "18": {
+   "pins": [
+    {
+     "src": "area",
+     "map": "customs",
+     "xyz": [
+      275.0,
+      1.0,
+      165.0
+     ],
+     "label": "Pasha's ambush spot: bicycle on the west side of the 2-story dorms",
+     "anchor": "the 2-story dorms (wiki map is a 3D render, so within ~10 m)"
+    }
+   ]
+  },
+  "19": {
+   "pins": [
+    {
+     "src": "area",
+     "map": "customs",
+     "xyz": [
+      275.0,
+      1.0,
+      165.0
+     ],
+     "label": "Pasha's ambush spot: bicycle on the west side of the 2-story dorms",
+     "anchor": "the 2-story dorms (wiki map is a 3D render, so within ~10 m)"
+    }
+   ]
+  },
+  "23": {
+   "pins": [
+    {
+     "src": "area",
+     "map": "customs",
+     "xyz": [
+      275.0,
+      1.0,
+      165.0
+     ],
+     "label": "Pasha's ambush spot: bicycle on the west side of the 2-story dorms",
+     "anchor": "the 2-story dorms (wiki map is a 3D render, so within ~10 m)"
+    }
+   ]
+  },
+  "21": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "customs",
+     "name": "Reshala's bunkhouse key",
+     "n": 0,
+     "label": "Reshala's bunkhouse"
+    }
+   ]
+  },
+  "22": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "customs",
+     "name": "Reshala's bunkhouse key",
+     "n": 0,
+     "label": "Reshala's bunkhouse"
+    }
+   ]
+  },
+  "24": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "customs",
+     "name": "Reshala's bunkhouse key",
+     "n": 0,
+     "label": "Reshala's bunkhouse"
+    }
+   ]
+  },
+  "26": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "customs",
+     "name": "Reshala's bunkhouse key",
+     "n": 0,
+     "label": "Reshala's bunkhouse"
+    }
+   ]
+  },
+  "27": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "shoreline",
+     "xyz": [
+      296.0,
+      -20.0,
+      116.0
+     ],
+     "label": "Kozlov's hideout: house in the Shoreline village (flower bed in front)",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "28": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "shoreline",
+     "xyz": [
+      296.0,
+      -20.0,
+      116.0
+     ],
+     "label": "Kozlov's hideout: house in the Shoreline village (flower bed in front)",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  }
+ },
+ "The Labyrinth": {
+  "4": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "shoreline",
+     "name": "Knossos LLC facility key",
+     "n": 0,
+     "label": "Health Resort west wing basement (Knossos door)"
+    },
+    {
+     "src": "transit",
+     "map": "shoreline",
+     "name": "Transit to Labyrinth?",
+     "label": "Transit to The Labyrinth"
+    }
+   ]
+  },
+  "5": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "shoreline",
+     "name": "Knossos LLC facility key",
+     "n": 0,
+     "label": "Health Resort west wing basement (Knossos door)"
+    },
+    {
+     "src": "transit",
+     "map": "shoreline",
+     "name": "Transit to Labyrinth?",
+     "label": "Transit to The Labyrinth"
+    }
+   ]
+  },
+  "3": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "the-labyrinth",
+     "xyz": [
+      -13.6,
+      1.0,
+      -23.2
+     ],
+     "label": "Food container in front of spawn chamber 2",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "6": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "the-labyrinth",
+     "xyz": [
+      -13.6,
+      1.0,
+      -23.2
+     ],
+     "label": "Food container in front of spawn chamber 2",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "7": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Hypotheses Testing",
+     "desc": "Locate the lab area with the prototype weapon",
+     "label": "Prototype weapon area (Item 1156)"
+    }
+   ]
+  },
+  "8": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "the-labyrinth",
+     "name": "Torture room key",
+     "n": 0,
+     "label": "Torture room (squad leader & diary)"
+    }
+   ]
+  },
+  "9": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "the-labyrinth",
+     "name": "Torture room key",
+     "n": 0,
+     "label": "Torture room (squad leader & diary)"
+    }
+   ]
+  },
+  "10": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "the-labyrinth",
+     "name": "Observation room key",
+     "n": 0,
+     "label": "Observation room"
+    }
+   ]
+  },
+  "12": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "the-labyrinth",
+     "xyz": [
+      -7.1,
+      1.0,
+      30.5
+     ],
+     "label": "Dead scientist #1",
+     "how": "Fandom wiki marked map"
+    },
+    {
+     "src": "spot",
+     "map": "the-labyrinth",
+     "xyz": [
+      -14.2,
+      1.0,
+      51.8
+     ],
+     "label": "Dead scientist #2",
+     "how": "Fandom wiki marked map"
+    },
+    {
+     "src": "spot",
+     "map": "the-labyrinth",
+     "xyz": [
+      12.0,
+      1.0,
+      32.9
+     ],
+     "label": "Dead scientist #3",
+     "how": "Fandom wiki marked map"
+    },
+    {
+     "src": "spot",
+     "map": "the-labyrinth",
+     "xyz": [
+      10.1,
+      1.0,
+      4.3
+     ],
+     "label": "Dead scientist #4 (Observation room)",
+     "how": "Fandom wiki marked map"
+    },
+    {
+     "src": "spot",
+     "map": "the-labyrinth",
+     "xyz": [
+      -5.4,
+      1.0,
+      9.9
+     ],
+     "label": "Dead scientist #5",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "14": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "shoreline",
+     "xyz": [
+      -272.0,
+      -62.0,
+      478.0
+     ],
+     "label": "Under the bridge pillar before the pier, left of the drain pipe",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  }
+ },
+ "The Ticket": {
+  "4": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -66.0,
+      15.0,
+      448.3
+     ],
+     "label": "BEAR camp on the hill above the Side Tunnel",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "5": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      -66.0,
+      15.0,
+      448.3
+     ],
+     "label": "BEAR camp on the hill above the Side Tunnel",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "11": {
+   "pins": [
+    {
+     "src": "switch",
+     "map": "lighthouse",
+     "name": "Lightkeeper Switch",
+     "label": "Lightkeeper's locked area"
+    }
+   ]
+  },
+  "15": {
+   "pins": [
+    {
+     "src": "switch",
+     "map": "lighthouse",
+     "name": "Lightkeeper Switch",
+     "label": "Lightkeeper's locked area"
+    }
+   ]
+  },
+  "12": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "interchange",
+     "xyz": [
+      147.0,
+      22.0,
+      -55.0
+     ],
+     "label": "Parking lot in front of ULTRA's main (west) entrance",
+     "how": "Fandom wiki marked map",
+     "outline": [
+      [
+       200,
+       -300
+      ],
+      [
+       200,
+       190
+      ],
+      [
+       95,
+       190
+      ],
+      [
+       95,
+       -300
+      ]
+     ]
+    }
+   ]
+  },
+  "20": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "the-lab",
+     "xyz": [
+      -97.7,
+      1.0,
+      -431.7
+     ],
+     "label": "Containment block, left glass laboratory (middle desks)",
+     "how": "Fandom wiki marked map"
+    },
+    {
+     "src": "spot",
+     "map": "the-lab",
+     "xyz": [
+      -234.6,
+      5.0,
+      -343.1
+     ],
+     "label": "Recreation area R21, round table in 'Cat'",
+     "how": "Fandom wiki marked map"
+    },
+    {
+     "src": "spot",
+     "map": "the-lab",
+     "xyz": [
+      -207.0,
+      1.0,
+      -305.0
+     ],
+     "label": "Lecture hall R16",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "30": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "the-lab",
+     "name": "TerraGroup Labs keycard (Black)",
+     "n": 1,
+     "label": "Kruglov's office R22 (black keycard door)"
+    }
+   ]
+  },
+  "32": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "the-lab",
+     "name": "TerraGroup Labs keycard (Black)",
+     "n": 1,
+     "label": "Kruglov's office R22 (black keycard door)"
+    }
+   ]
+  },
+  "34": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Cardinal apartment key",
+     "n": 0,
+     "label": "Cardinal apartment"
+    },
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Cardinal apartment key",
+     "n": 1,
+     "label": "Cardinal apartment (2nd door)"
+    }
+   ]
+  },
+  "36": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "streets-of-tarkov",
+     "name": "Elektronik's key",
+     "n": 0,
+     "label": "Elektronik's apartment (encryption device under the coffee table)"
+    }
+   ]
+  },
+  "46": {
+   "pins": [
+    {
+     "src": "transit",
+     "map": "shoreline",
+     "name": "Transit to Terminal",
+     "label": "Entrance pathway to the port Terminal"
+    }
+   ]
+  },
+  "62": {
+   "pins": [
+    {
+     "src": "transit",
+     "map": "shoreline",
+     "name": "Transit to Terminal",
+     "label": "Entrance pathway to the port Terminal"
+    }
+   ]
+  },
+  "66": {
+   "pins": [
+    {
+     "src": "transit",
+     "map": "shoreline",
+     "name": "Transit to Terminal",
+     "label": "Entrance pathway to the port Terminal"
+    }
+   ]
+  },
+  "47": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "shoreline",
+     "xyz": [
+      -912.0,
+      -57.0,
+      262.0
+     ],
+     "label": "Watchtower with the intercom (in front of the Terminal)",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "65": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "shoreline",
+     "xyz": [
+      -912.0,
+      -57.0,
+      262.0
+     ],
+     "label": "Watchtower with the intercom (in front of the Terminal)",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "72": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "terminal",
+     "name": "Black Division keycard",
+     "n": 0,
+     "label": "Service passage in the admin building (D3)"
+    }
+   ]
+  },
+  "73": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "terminal",
+     "name": "Black Division keycard",
+     "n": 0,
+     "label": "Service passage in the admin building (D3)"
+    }
+   ]
+  },
+  "75": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "terminal",
+     "name": "Pier door key",
+     "n": 0,
+     "label": "Door to the pier and the Zubr boat"
+    }
+   ]
+  },
+  "81": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "terminal",
+     "name": "Pier door key",
+     "n": 0,
+     "label": "Door to the pier and the Zubr boat"
+    }
+   ]
+  },
+  "82": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "terminal",
+     "name": "Pier door key",
+     "n": 0,
+     "label": "Door to the pier and the Zubr boat"
+    }
+   ]
+  },
+  "16": {
+   "placement": "off-map"
+  },
+  "17": {
+   "placement": "off-map"
+  },
+  "24": {
+   "placement": "off-map"
+  },
+  "28": {
+   "placement": "off-map"
+  },
+  "31": {
+   "placement": "off-map"
+  },
+  "41": {
+   "placement": "off-map"
+  },
+  "44": {
+   "placement": "off-map"
+  },
+  "49": {
+   "placement": "off-map"
+  },
+  "21": {
+   "placement": "mapwide"
+  },
+  "27": {
+   "placement": "mapwide"
+  },
+  "63": {
+   "placement": "mapwide"
+  },
+  "64": {
+   "placement": "mapwide"
+  },
+  "67": {
+   "placement": "mapwide"
+  },
+  "10": {
+   "placement": "mapwide"
+  }
+ },
+ "Boreas": {
+  "1": {
+   "pins": [
+    {
+     "src": "extract",
+     "map": "woods",
+     "name": "Scav Bunker",
+     "label": "Equipment under the cellular tower at the Scav bunker"
+    }
+   ]
+  },
+  "2": {
+   "pins": [
+    {
+     "src": "extract",
+     "map": "woods",
+     "name": "Scav Bunker",
+     "label": "Equipment under the cellular tower at the Scav bunker"
+    }
+   ]
+  },
+  "4": {
+   "pins": [
+    {
+     "src": "spot",
+     "map": "lighthouse",
+     "xyz": [
+      44.7,
+      10.0,
+      -853.6
+     ],
+     "label": "Warehouse at the northern freight yard",
+     "how": "Fandom wiki marked map"
+    }
+   ]
+  },
+  "6": {
+   "placement": "off-map"
+  },
+  "8": {
+   "placement": "off-map"
+  },
+  "15": {
+   "placement": "off-map"
+  },
+  "19": {
+   "placement": "off-map"
+  },
+  "20": {
+   "placement": "off-map"
+  },
+  "21": {
+   "placement": "off-map"
+  },
+  "34": {
+   "placement": "off-map"
+  },
+  "35": {
+   "placement": "off-map"
+  },
+  "36": {
+   "placement": "off-map"
+  },
+  "59": {
+   "placement": "off-map"
+  },
+  "60": {
+   "placement": "off-map"
+  },
+  "61": {
+   "placement": "off-map"
+  },
+  "70": {
+   "placement": "off-map"
+  },
+  "72": {
+   "placement": "off-map"
+  },
+  "74": {
+   "placement": "off-map"
+  },
+  "76": {
+   "placement": "off-map"
+  },
+  "28": {
+   "placement": "off-map"
+  },
+  "62": {
+   "placement": "off-map"
+  },
+  "9": {
+   "placement": "mapwide"
+  },
+  "13": {
+   "pins": [
+    {
+     "src": "transit",
+     "map": "shoreline",
+     "name": "Transit to Icebreaker",
+     "label": "Shoreline pier: smuggler hovercraft"
+    },
+    {
+     "src": "transit",
+     "map": "lighthouse",
+     "name": "Transit to Icebreaker",
+     "label": "Lighthouse pier: smuggler hovercraft"
+    }
+   ]
+  },
+  "14": {
+   "pins": [
+    {
+     "src": "transit",
+     "map": "shoreline",
+     "name": "Transit to Icebreaker",
+     "label": "Shoreline transit to the icebreaker"
+    },
+    {
+     "src": "transit",
+     "map": "lighthouse",
+     "name": "Transit to Icebreaker",
+     "label": "Lighthouse transit to the icebreaker"
+    }
+   ]
+  },
+  "24": {
+   "pins": [
+    {
+     "src": "transit",
+     "map": "shoreline",
+     "name": "Transit to Icebreaker",
+     "label": "Shoreline transit to the icebreaker"
+    },
+    {
+     "src": "transit",
+     "map": "lighthouse",
+     "name": "Transit to Icebreaker",
+     "label": "Lighthouse transit to the icebreaker"
+    }
+   ]
+  },
+  "40": {
+   "pins": [
+    {
+     "src": "transit",
+     "map": "shoreline",
+     "name": "Transit to Icebreaker",
+     "label": "Shoreline transit to the icebreaker"
+    },
+    {
+     "src": "transit",
+     "map": "lighthouse",
+     "name": "Transit to Icebreaker",
+     "label": "Lighthouse transit to the icebreaker"
+    }
+   ]
+  },
+  "16": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Boreas engine room keycard",
+     "n": 0,
+     "label": "Engine room door (level 0, east side, by the control room)"
+    }
+   ]
+  },
+  "25": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Boreas engine room keycard",
+     "n": 0,
+     "label": "Engine room door (level 0, east side, by the control room)"
+    }
+   ]
+  },
+  "41": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Boreas engine room keycard",
+     "n": 0,
+     "label": "Engine room door (level 0, east side, by the control room)"
+    }
+   ]
+  },
+  "31": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Boreas crew quarters keycard",
+     "n": 0,
+     "label": "Crew quarters door 1"
+    },
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Boreas crew quarters keycard",
+     "n": 1,
+     "label": "Crew quarters door 2"
+    },
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Boreas crew quarters keycard",
+     "n": 2,
+     "label": "Crew quarters door 3"
+    },
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Boreas crew quarters keycard",
+     "n": 3,
+     "label": "Crew quarters door 4"
+    },
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Boreas crew quarters keycard",
+     "n": 4,
+     "label": "Crew quarters door 5"
+    },
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Boreas crew quarters keycard",
+     "n": 5,
+     "label": "Crew quarters door 6"
+    },
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Boreas crew quarters keycard",
+     "n": 6,
+     "label": "Crew quarters door 7"
+    },
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Boreas crew quarters keycard",
+     "n": 7,
+     "label": "Crew quarters door 8"
+    }
+   ]
+  },
+  "48": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Compartment C-1 keycard",
+     "n": 0,
+     "label": "Compartment C-1, level 7"
+    }
+   ]
+  },
+  "49": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Compartment C-1 keycard",
+     "n": 0,
+     "label": "Compartment C-1, level 7"
+    }
+   ]
+  },
+  "55": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Compartment C-1 keycard",
+     "n": 0,
+     "label": "Compartment C-1, level 7"
+    }
+   ]
+  },
+  "56": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Compartment C-1 keycard",
+     "n": 0,
+     "label": "Compartment C-1, level 7"
+    }
+   ]
+  },
+  "57": {
+   "pins": [
+    {
+     "src": "lock",
+     "map": "icebreaker",
+     "name": "Compartment C-1 keycard",
+     "n": 0,
+     "label": "Compartment C-1, level 7"
+    }
+   ]
+  },
+  "38": {
+   "pins": [
+    {
+     "src": "zone",
+     "quest": "Beneath The Streets",
+     "desc": "Scout the server room",
+     "label": "Lab server room"
+    }
+   ]
+  }
+ }
+}

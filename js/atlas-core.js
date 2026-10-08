@@ -191,6 +191,50 @@
     if (p.level && (q.minLevel || 0) > p.level) return false;
     return blockers(prog, p, q).length === 0;
   }
+  // Quests you are about to unlock that ask for found-in-raid hand-ins, so you can start
+  // keeping those items now. A quest counts as "coming up" when at most `steps` quests stand
+  // between you and it and at least one of them is available to you right now (so the chain
+  // is actually in progress), or when only a few levels stand between you and it.
+  function upcomingHandIns(data, prog, p, steps = 3, levels = 3) {
+    const done = new Set(p.completed),
+      out = [];
+    for (const q of data.quests) {
+      if (done.has(q.id) || q.kind === "arena") continue;
+      const mode = p.mode === "pve" ? "pve" : "regular";
+      if (q.modes?.length && !q.modes.includes(mode)) continue;
+      const need = objectives(q, p.mode).filter(
+        (o) =>
+          o.type === "giveItem" &&
+          o.foundInRaid &&
+          !o.optional &&
+          !(p.objectives[o.id] || {}).done,
+      );
+      if (!need.length) continue;
+      const missing = [...ancestors(prog, q)].filter((id) => !done.has(id)).map((id) => prog.byId.get(id));
+      let reason = null;
+      if (missing.length >= 1 && missing.length <= steps) {
+        const now = missing.filter((m) => available(prog, p, m));
+        if (now.length) reason = { kind: "chain", steps: missing.length, via: now };
+      } else if (!missing.length && p.level && q.minLevel > p.level && q.minLevel - p.level <= levels)
+        reason = { kind: "level", steps: q.minLevel - p.level, via: [] };
+      if (reason) out.push({ q, need, ...reason });
+    }
+    return out.sort((a, b) => a.steps - b.steps || a.q.name.localeCompare(b.q.name));
+  }
+  // "I'm on this step": everything before it in the chapter counts as done, it and everything
+  // after it is reopened. Optional side steps before it are left as they were.
+  function setStoryStep(p, q, objectiveId) {
+    const list = objectives(q, p.mode),
+      at = list.findIndex((o) => o.id === objectiveId);
+    if (at < 0) return;
+    list.forEach((o, i) => {
+      if (i < at) {
+        if (!o.optional) p.objectives[o.id] = { ...(p.objectives[o.id] || {}), done: true, count: o.count || 1 };
+      } else delete p.objectives[o.id];
+    });
+    p.story = { ...(p.story || {}), [q.id]: objectiveId };
+    p.completed = p.completed.filter((id) => id !== q.id);
+  }
   // Every quest that has to be finished before q (used by "mark done").
   function ancestors(prog, q, out = new Set()) {
     for (const r of q.requirements || []) {
@@ -211,6 +255,7 @@
       completed: [],
       objectives: {},
       level: null,
+      story: {},
       created: new Date().toISOString(),
     };
   }
@@ -258,6 +303,12 @@
         completed: unique(p.completed.filter((id) => qs.has(id))),
         objectives: states,
         level: Number.isInteger(p.level) && p.level >= 1 && p.level <= 79 ? p.level : null,
+        // Story chapter -> the step the player last said they are on.
+        story: Object.fromEntries(
+          Object.entries(p.story && typeof p.story === "object" ? p.story : {}).filter(
+            ([q, o]) => qs.has(q) && os.has(o),
+          ),
+        ),
         created: typeof p.created === "string" ? p.created : "",
       };
     });
@@ -286,6 +337,8 @@
     blockers,
     available,
     ancestors,
+    upcomingHandIns,
+    setStoryStep,
     newProfile,
     initialState,
     validateState,
