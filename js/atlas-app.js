@@ -621,6 +621,7 @@
   const isWikiImage = (u) => /^https:\/\/static\.wikia\.nocookie\.net\//.test(u || "");
   function photoImg(photo, alt, large) {
     const im = el("img");
+    im.referrerPolicy = "no-referrer"; // Fandom blocks hotlinked images that carry a referrer
     im.src = isWikiImage(photo.thumb) && !large ? photo.thumb : photo.src;
     im.alt = photo.caption || alt;
     im.loading = "lazy";
