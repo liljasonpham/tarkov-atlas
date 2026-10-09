@@ -234,6 +234,7 @@
     toast("Using " + profile.name);
   }
   function matches(q) {
+    if (!C.inMode(profile, q)) return false;
     let search = normalize($("quest-search").value);
     if (
       search &&
@@ -269,7 +270,7 @@
   // ---- Trader browsing ----
   function traderQuests(name) {
     return data.quests
-      .filter((q) => q.trader === name)
+      .filter((q) => q.trader === name && C.inMode(profile, q))
       .sort((a, b) => Number(a.kind === "arena") - Number(b.kind === "arena") || prog.order(a, b));
   }
   function renderTraderGrid(list) {
@@ -295,7 +296,32 @@
       tile.setAttribute("aria-label", name + ", " + done + " of " + qs.length + " quests done");
       grid.append(tile);
     }
-    list.append(grid);
+    list.append(grid, modeSwitch());
+  }
+  // PvE / PvP: the two modes have a few different quests and objectives. Progress is shared.
+  function modeSwitch() {
+    const box = el("div", undefined, "mode-switch");
+    box.setAttribute("role", "radiogroup");
+    box.setAttribute("aria-label", "Game mode");
+    const cur = profile.mode === "regular" ? "regular" : "pve";
+    for (const [id, label] of [
+      ["pve", "PvE"],
+      ["regular", "PvP"],
+    ]) {
+      const b = button(label, () => setMode(id), "mode-option");
+      b.setAttribute("role", "radio");
+      b.setAttribute("aria-checked", String(cur === id));
+      box.append(b);
+    }
+    return box;
+  }
+  function setMode(mode) {
+    if ((profile.mode === "regular" ? "regular" : "pve") === mode) return;
+    profile.mode = mode;
+    persist();
+    renderAll();
+    draw();
+    toast("Showing " + (mode === "regular" ? "PvP" : "PvE") + " quests");
   }
   function openTrader(name) {
     trader = name;

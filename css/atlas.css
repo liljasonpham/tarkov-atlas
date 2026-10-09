@@ -2018,3 +2018,33 @@ button:hover {
   color: var(--muted);
   white-space: nowrap;
 }
+
+/* PvE / PvP switch under the trader tiles. */
+.mode-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 2px 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.mode-option {
+  border: 0;
+  border-radius: 0;
+  padding: 9px 0;
+  background: var(--surface);
+  color: var(--muted);
+  font: 600 15px/1 var(--font-display);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+.mode-option + .mode-option {
+  border-left: 1px solid var(--line);
+}
+.mode-option:hover {
+  color: var(--ink);
+}
+.mode-option[aria-checked="true"] {
+  background: var(--green);
+  color: #1a1814;
+}

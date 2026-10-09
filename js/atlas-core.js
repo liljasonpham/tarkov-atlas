@@ -10,7 +10,9 @@
   const progress = (p, o) => p.objectives[o.id] || {};
   const remaining = (p, o) =>
     progress(p, o).done ? 0 : Math.max(0, (o.count || 1) - (Number(progress(p, o).count) || 0));
-  const active = (p, q) => p.selected.includes(q.id) && !p.completed.includes(q.id);
+  // Quests that only exist in the other game mode stay selected but sit out until you switch back.
+  const inMode = (p, q) => !q.modes?.length || q.modes.includes(p.mode === "regular" ? "regular" : "pve");
+  const active = (p, q) => p.selected.includes(q.id) && !p.completed.includes(q.id) && inMode(p, q);
   const relevant = (o, map) => !o.maps.length || o.maps.includes(map);
   function entries(data, p, map) {
     return data.quests
@@ -327,6 +329,7 @@
     progress,
     remaining,
     active,
+    inMode,
     relevant,
     entries,
     packing,
