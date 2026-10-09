@@ -1,0 +1,151 @@
+/* Feedback form (js/feedback.js). Used by the home page and the planner. */
+dialog.fb-dialog {
+  background: #161613;
+  color: #ddd6c1;
+  border: 1px solid #3a372e;
+  border-radius: 2px;
+  padding: 22px 24px 18px;
+  width: 520px;
+  max-width: 94vw;
+  max-height: 90vh;
+  overflow: auto;
+  font: 14px/1.5 "Barlow", "Segoe UI", system-ui, sans-serif;
+}
+dialog.fb-dialog::backdrop {
+  background: #000a;
+  backdrop-filter: blur(3px);
+}
+.fb-dialog .fb-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fb-dialog h2 {
+  margin: 0;
+  font: 600 26px/1.1 "Barlow Condensed", "Arial Narrow", sans-serif;
+  color: #e0cd98;
+}
+.fb-dialog .fb-close {
+  border: 0;
+  background: none;
+  color: #948e7b;
+  font-size: 24px;
+  line-height: 1;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+.fb-dialog .fb-close:hover {
+  color: #ddd6c1;
+}
+.fb-dialog p {
+  margin: 8px 0;
+  color: #948e7b;
+  font-size: 13px;
+}
+.fb-dialog .fb-lede {
+  color: #ddd6c1;
+  margin-bottom: 14px;
+}
+.fb-dialog .fb-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.fb-dialog label.fb-type {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid #3a372e;
+  background: #1d1c18;
+  font-size: 13px;
+  cursor: pointer;
+}
+.fb-dialog label.fb-type:has(input:checked) {
+  border-color: #c2ae7c;
+  background: #25231e;
+  color: #e0cd98;
+}
+.fb-dialog .fb-type input {
+  accent-color: #c2ae7c;
+  margin: 0;
+}
+.fb-dialog label.fb-label {
+  display: block;
+  margin: 14px 0 4px;
+  font-size: 12px;
+  color: #948e7b;
+}
+.fb-dialog textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 110px;
+  padding: 9px 10px;
+  background: #1d1c18;
+  color: #ddd6c1;
+  border: 1px solid #3a372e;
+  border-radius: 2px;
+  font: inherit;
+}
+.fb-dialog textarea:focus-visible {
+  outline: 2px solid #c2ae7c;
+  outline-offset: 1px;
+}
+.fb-dialog .fb-context {
+  font-size: 12px;
+  margin: 6px 0 0;
+}
+.fb-dialog .fb-context:empty {
+  display: none;
+}
+.fb-dialog .fb-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+.fb-dialog .fb-actions button {
+  padding: 9px 14px;
+  border: 1px solid #3a372e;
+  background: #25231e;
+  color: #ddd6c1;
+  font: 600 13px "Barlow", "Segoe UI", sans-serif;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.fb-dialog .fb-actions button:hover {
+  border-color: #c2ae7c;
+}
+.fb-dialog .fb-actions .fb-primary {
+  background: #c2ae7c;
+  border-color: #c2ae7c;
+  color: #1a1814;
+}
+.fb-dialog .fb-actions .fb-primary:hover {
+  background: #e0cd98;
+}
+.fb-dialog .fb-note {
+  font-size: 12px;
+  margin-top: 12px;
+}
+.fb-dialog .fb-status {
+  color: #8fa165;
+  font-weight: 600;
+}
+.fb-dialog .fb-status:empty {
+  display: none;
+}
+/* "Report a wrong pin" link in the planner's quest panel. */
+.report-pin {
+  border: 0;
+  background: none;
+  padding: 0;
+  margin-top: 14px;
+  color: #948e7b;
+  font: 12px "Barlow", "Segoe UI", sans-serif;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.report-pin:hover {
+  color: #e0cd98;
+}

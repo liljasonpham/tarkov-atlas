@@ -17,6 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap"
     />
     <link rel="stylesheet" href="css/atlas.css?v=9" />
+    <link rel="stylesheet" href="css/feedback.css?v=10" />
   </head>
   <body>
     <header>
@@ -29,7 +30,8 @@
         ><button id="library-toggle" aria-expanded="true">Quest library</button
         ><label class="sr-only" for="profile-select">Progress profile</label
         ><select id="profile-select"></select
-        ><button id="profiles-button">Profiles & backups</button>
+        ><button id="profiles-button">Profiles & backups</button
+        ><button data-feedback="pin" title="Report a wrong pin, a bug, or an idea">Feedback</button>
       </div>
     </header>
     <main class="workspace" id="workspace">
@@ -87,7 +89,7 @@
         </div>
         <div id="quest-list" class="quest-list"></div>
         <div class="library-foot">
-          Catalog · 7 October 2026<br /><button id="coverage-button">
+          <span id="catalog-date">Catalog</span><br /><button id="coverage-button">
             Sources & location coverage
           </button>
         </div>
@@ -213,11 +215,12 @@
     <div id="toast" role="status" hidden>
       <span id="toast-message"></span><button id="undo-button">Undo</button>
     </div>
-    <script src="data/bosses.js?v=9"></script>
-    <script src="data/loot.js?v=9"></script>
-    <script src="data/catalog.js?v=9"></script>
+    <script src="data/bosses.js?v=2026-10-09"></script>
+    <script src="data/loot.js?v=2026-10-09"></script>
+    <script src="data/catalog.js?v=2026-10-09"></script>
     <script src="js/atlas-core.js?v=9"></script>
-    <script src="js/atlas-app.js?v=9"></script>
+    <script src="js/atlas-app.js?v=10"></script>
+    <script src="js/feedback.js?v=10"></script>
     <script src="js/analytics.js?v=9"></script>
   </body>
 </html>

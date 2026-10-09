@@ -1458,6 +1458,9 @@
     }
     if (q.experience)
       target.append(el("p", q.experience.toLocaleString() + " base quest XP", "quiet"));
+    target.append(
+      button("Pin in the wrong spot? Report it", () => window.AtlasFeedback?.open?.({ type: "pin" }), "report-pin"),
+    );
   }
   function renderAll() {
     placeLists();
@@ -2100,6 +2103,23 @@
     if (h.get("quest")) chooseQuest(h.get("quest"), h.get("objective"));
   });
   if (hash.get("quest")) selectedQuest = qById.get(hash.get("quest")) || null;
+  if (data.snapshotDate) $("catalog-date").textContent = "Catalog · updated " + fmtDate(data.snapshotDate);
+  // What the feedback form attaches to a report, so a "wrong pin" says which one.
+  window.AtlasFeedback = Object.assign(window.AtlasFeedback || {}, {
+    context: () => {
+      const o = selectedQuest && selectedObjective && selectedQuest.objectives.find((x) => x.id === selectedObjective);
+      return {
+        Map: map?.name,
+        Floor: floor !== "all" ? floor : "",
+        Mode: profile.mode === "regular" ? "PvP" : "PvE",
+        Quest: selectedQuest?.name,
+        Objective: o ? o.description : "",
+        Link: selectedQuest
+          ? location.origin + location.pathname + "#map=" + map.id + "&quest=" + selectedQuest.id
+          : "",
+      };
+    },
+  });
   // planner.html#view=story opens the story chapters page (linked from the home page).
   if (hash.get("view") === "story") requestAnimationFrame(() => $("story-open").click());
   selectedObjective = hash.get("objective");

@@ -446,6 +446,13 @@ async function main() {
   fs.writeFileSync(path.join(DATA, "catalog.js"), "window.TARKOV_CATALOG = " + JSON.stringify(catalog, null, 0) + ";\n");
   fs.writeFileSync(path.join(DATA, "bosses.js"), buildBosses(raw, catalog));
   fs.writeFileSync(path.join(DATA, "loot.js"), buildLoot(raw, catalog));
+  // Browsers keep data/*.js for a while; a new ?v= on the <script> tags makes them fetch the
+  // fresh files the same day.
+  for (const page of ["index.html", "planner.html"]) {
+    const file = path.join(DATA, "..", page);
+    const html = fs.readFileSync(file, "utf8");
+    fs.writeFileSync(file, html.replace(/(data\/(?:catalog|bosses|loot)\.js)\?v=[\w-]+/g, "$1?v=" + today()));
+  }
   console.log("Wrote data/catalog.js, data/bosses.js, data/loot.js. Next: link-photos and build-story-pins.");
 }
 if (require.main === module)

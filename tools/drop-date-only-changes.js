@@ -6,7 +6,7 @@
 const { execFileSync } = require("child_process");
 const fs = require("fs");
 
-const FILES = ["data/catalog.js", "data/bosses.js", "data/loot.js"];
+const FILES = ["data/catalog.js", "data/bosses.js", "data/loot.js", "index.html", "planner.html"];
 const noDates = (s) => s.replace(/\d{4}-\d{2}-\d{2}/g, "DATE");
 
 let changed = false;
