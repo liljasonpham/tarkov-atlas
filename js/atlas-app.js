@@ -56,7 +56,7 @@
   // Map layers the player has switched on (saved per browser).
   const LAYER_KEY = "tarkov-atlas-layers";
   const LAYERS = [
-    ["extracts", "Extracts", "#72b3a5"],
+    ["extracts", "Extracts & transits", "#72b3a5"],
     ["rooms", "Loot rooms", "#ebbc73"],
     ["rare", "Rare loot", "#f0c75e"],
     ["tech", "Tech", "#6fa8dc"],
@@ -1080,7 +1080,7 @@
     for (const [key, label, color] of LAYERS) {
       const count =
         key === "extracts"
-          ? (map.extracts || []).filter((e) => e.position && e.faction !== "scav").length
+          ? (map.extracts || []).filter((e) => e.position && e.faction !== "scav").length + (map.transits || []).length
           : key === "rooms"
             ? (map.lootRooms || []).length
             : (lootHere[key] || []).length;
@@ -1612,30 +1612,58 @@
     }
     ctx.restore();
   }
+  // Extracts (teal squares) and transits to other maps (amber diamonds), always labelled.
   function drawExits() {
     if (view !== "survey") return;
     ctx.save();
-    ctx.font = "500 9px system-ui";
-    ctx.textAlign = "left";
+    ctx.font = "600 10px system-ui";
     ctx.textBaseline = "middle";
-    const seen = [];
-    for (const e of map.extracts || []) {
-      if (!e.position || e.faction === "scav") continue;
-      if (floor !== "all" && C.floorFor({ world: e.position }, map) !== floor) continue;
-      const p = screen(C.project(e.position, map));
-      if (p.x < 0 || p.y < 0 || p.x > width || p.y > height) continue;
-      ctx.strokeStyle = "#72b3a5";
-      ctx.strokeRect(p.x - 3, p.y - 3, 6, 6);
-      if (scale < Math.min(width / mapDims().width, height / mapDims().height) * 1.35) continue;
-      const w = ctx.measureText(e.name).width,
-        x = Math.min(width - w - 8, p.x + 7),
-        y = p.y;
-      if (seen.some((r) => Math.abs(r.x - x) < (r.w + w) / 2 && Math.abs(r.y - y) < 15)) continue;
-      seen.push({ x, y, w });
+    const points = [];
+    for (const e of map.extracts || [])
+      if (e.position && e.faction !== "scav") points.push({ pos: e.position, name: e.name, transit: false });
+    for (const t of map.transits || []) points.push({ pos: t.position, name: t.name, transit: true });
+    const placed = [];
+    const hits = (r) => placed.some((o) => r.x < o.x + o.w && r.x + r.w > o.x && r.y < o.y + o.h && r.y + r.h > o.y);
+    for (const e of points) {
+      if (floor !== "all" && C.floorFor({ world: e.pos }, map) !== floor) continue;
+      const p = screen(C.project(e.pos, map));
+      if (p.x < -40 || p.y < -20 || p.x > width + 40 || p.y > height + 20) continue;
+      const color = e.transit ? "#e0a458" : "#72b3a5",
+        text = e.transit ? "#f0c48a" : "#9ed0c1";
+      ctx.fillStyle = "#161613";
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.5;
+      if (e.transit) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y - 5);
+        ctx.lineTo(p.x + 5, p.y);
+        ctx.lineTo(p.x, p.y + 5);
+        ctx.lineTo(p.x - 5, p.y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      } else {
+        ctx.fillRect(p.x - 3.5, p.y - 3.5, 7, 7);
+        ctx.strokeRect(p.x - 3.5, p.y - 3.5, 7, 7);
+      }
+      // Try right, left, above, below; if every spot is taken, use the right anyway.
+      const w = ctx.measureText(e.name).width + 6,
+        h = 15;
+      const spots = [
+        { x: p.x + 8, y: p.y - h / 2 },
+        { x: p.x - 8 - w, y: p.y - h / 2 },
+        { x: p.x - w / 2, y: p.y - 8 - h },
+        { x: p.x - w / 2, y: p.y + 8 },
+      ].map((r) => ({ ...r, x: Math.max(2, Math.min(width - w - 2, r.x)), w, h }));
+      const r = spots.find((s) => !hits(s)) || spots[0];
+      placed.push(r);
       ctx.fillStyle = "#161613e8";
-      ctx.fillRect(x - 2, y - 7, w + 5, 14);
-      ctx.fillStyle = "#9ed0c1";
-      ctx.fillText(e.name, x, y);
+      ctx.fillRect(r.x, r.y, w, h);
+      ctx.fillStyle = color;
+      ctx.fillRect(r.x, r.y, 2, h);
+      ctx.fillStyle = text;
+      ctx.textAlign = "left";
+      ctx.fillText(e.name, r.x + 4, r.y + h / 2 + 0.5);
     }
     ctx.restore();
   }

@@ -317,7 +317,25 @@ function update(catalog, raw) {
   }
   for (const [id, q] of rebuilt) if (!prevById.has(id)) quests.push(q);
   catalog.quests = quests;
+  refreshTransits(catalog, ctx.pve);
   return { catalog, report, ctx };
+}
+// Transits (walk to another map) for the map's Extracts layer. Night Factory and the other
+// alias maps share the main map's entry, so take the first raw map with transits.
+function refreshTransits(catalog, ctx) {
+  for (const m of catalog.maps) {
+    const raws = ctx.maps.filter((gm) => ctx.mapId.get(gm.id) === m.id && gm.transits?.length);
+    const seen = new Set();
+    m.transits = [];
+    for (const t of raws[0]?.transits || []) {
+      if (!t.position) continue;
+      const name = (ctx.mEn[t.description] || "Transit").replace(/\?+$/, "");
+      const key = name + Math.round(t.position.x) + Math.round(t.position.z);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      m.transits.push({ id: String(t.id), name, to: ctx.mapId.get(t.map) || null, position: pt(t.position) });
+    }
+  }
 }
 const strip = (q) => ({ ...q, photos: 0, extraPhotoRefs: 0, objectives: q.objectives.map((o) => ({ ...o, photoRefs: 0 })) });
 
