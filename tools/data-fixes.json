@@ -1,0 +1,43 @@
+{
+  "_about": "Hand fixes that tools/update-data.js re-applies after every refresh from tarkov.dev.",
+  "mapAliases": {
+    "ground-zero-21": "ground-zero",
+    "ground-zero-tutorial": "ground-zero",
+    "night-factory": "factory",
+    "the-lab-dark": "the-lab"
+  },
+  "bossVariants": {
+    "night-factory": "night",
+    "ground-zero-21": "21",
+    "the-lab-dark": "dark"
+  },
+  "bossNames": {
+    "bossBully": "Reshala",
+    "bossKnight": "The Goons",
+    "bossPartisan": "Partisan",
+    "sectantPriest": "Cultists",
+    "bossKojaniy": "Shturman",
+    "bossZryachiy": "Zryachiy",
+    "bossGluhar": "Glukhar",
+    "bossSanitar": "Sanitar",
+    "bossKilla": "Killa",
+    "bossTagilla": "Tagilla",
+    "bossBoar": "Kaban",
+    "bossKolontay": "Kollontay",
+    "bossTagillaAgro": "Shadow of Tagilla",
+    "bossWedge": "The Wedge",
+    "bossWedgeLab": "The Wedge"
+  },
+  "_bossMoves": "[boss, from map, to map]: the Fandom wiki has Glukhar on Reserve; tarkov.dev files him under Lighthouse.",
+  "bossMoves": [["bossGluhar", "lighthouse", "reserve"]],
+  "lootContainers": {
+    "safe": "safe",
+    "technical-supply-crate": "tech",
+    "pc-block": "tech",
+    "medcase": "meds",
+    "medbag": "meds",
+    "medical-supply-crate": "meds"
+  },
+  "_skipQuests": "tarkov.dev quest ids to leave out (removed on purpose, e.g. All-Inclusive Support).",
+  "skipQuests": []
+}

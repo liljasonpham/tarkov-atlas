@@ -13,6 +13,16 @@
   };
   const mapById = new Map(data.maps.map((m) => [m.id, m]));
 
+  // Footer: when the daily refresh last pulled quest data.
+  if (data.snapshotDate) {
+    const d = new Date(data.snapshotDate + "T12:00:00");
+    $("data-date").textContent =
+      "Quest data updated " +
+      (isNaN(d) ? data.snapshotDate : d.toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" })) +
+      ". Checked for changes every day.";
+    $("data-date").hidden = false;
+  }
+
   // ---- Saved progress from the planner (same browser) ----
   let profile = null;
   try {

@@ -51,6 +51,18 @@ licenses/             Third-party licenses
 - **Story pins:** every story-chapter step was checked against its Fandom guide. `data/story-locations.json` ties each step to a place with real game coordinates — a locked door, an extract, transit or switch, or the zone of a regular quest at the same spot — or to a spot read off the wiki's own marked map. Those wiki map images were calibrated against extracts and locked doors with known coordinates (typically 1–6 m error) and each result was checked against the map art. `tools/build-story-pins.js` resolves everything into the catalog. Steps with several possible places get one selectable pin each. Where the only anchor is a nearby landmark, the pin is drawn as a dashed "approximate area" ring.
 - **Packing:** `packing()` walks every unfinished objective for the selected quests on the current map and merges what they need: keys by identity (so one key covers several quests), consumables by sum.
 
+## Daily data refresh
+
+A GitHub Actions workflow (`.github/workflows/update-data.yml`) runs every day at 09:17 UTC and can be started by hand from the Actions tab:
+
+1. `tools/update-data.js` downloads quests, maps, items and traders for PvE and PvP from `json.tarkov.dev` and rebuilds `data/catalog.js`, `data/bosses.js` and `data/loot.js`. Hand-made work is kept: wiki photos, hand-placed pins, story chapters, notes, failure conditions. Corrections to tarkov.dev's data (Glukhar's map, map name aliases) live in `tools/data-fixes.json`.
+2. If the new data looks broken (quests vanish, pins drop below 500, unnamed quests), it stops and changes nothing.
+3. `tools/link-photos.js` and `tools/build-story-pins.js` re-attach photos and story pins (photo links use objective ids, so reordered objectives don't mislink).
+4. The tests run. `tools/drop-date-only-changes.js` throws away changes that are only a new date.
+5. If anything really changed, the workflow commits it and GitHub Pages republishes the site.
+
+To run it locally: `node tools/update-data.js --check` (dry run) or `node tools/update-data.js`, then the two scripts in step 3.
+
 ## Known limitations
 
 - **57 objectives have no verified location yet** (mostly Terminal and Icebreaker interior story steps). They are listed in the app as "awaiting verification" rather than given a guessed pin.

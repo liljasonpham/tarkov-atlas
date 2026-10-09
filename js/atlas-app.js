@@ -1062,6 +1062,16 @@
       );
       box.append(c);
     }
+    // When the daily refresh last pulled quest data from tarkov.dev.
+    if (data.snapshotDate) {
+      const d = el("span", "Data " + fmtDate(data.snapshotDate), "data-date");
+      d.title = "Quest data last refreshed from tarkov.dev on " + data.snapshotDate + ". Updates daily.";
+      box.append(d);
+    }
+  }
+  function fmtDate(iso) {
+    const d = new Date(iso + "T12:00:00");
+    return isNaN(d) ? iso : d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
   }
   function renderLayerToggles() {
     const box = $("layer-toggles");

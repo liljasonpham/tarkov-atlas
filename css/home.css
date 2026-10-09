@@ -416,3 +416,7 @@ img {
     height: 64px;
   }
 }
+.visit-count {
+  color: var(--tan-bright);
+  margin-top: 10px;
+}
