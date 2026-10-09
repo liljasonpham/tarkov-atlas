@@ -5,7 +5,7 @@
 //    Settings -> "Allow adding visitor counts on your website" in GoatCounter.
 (function () {
   "use strict";
-  const GOATCOUNTER_CODE = "";
+  const GOATCOUNTER_CODE = "liljasonpham";
   if (!GOATCOUNTER_CODE || location.protocol === "file:" || /^(localhost|127\.)/.test(location.hostname))
     return;
   const base = "https://" + GOATCOUNTER_CODE + ".goatcounter.com";
